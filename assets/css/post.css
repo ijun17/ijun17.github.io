@@ -1,0 +1,44 @@
+.post{
+    box-shadow: 0px 0px 5px 1px rgb(220,220,220);
+    margin:20px;
+    padding: 60px;
+    width:680px;
+    border-radius: 5px;
+    background-color: white;
+}
+
+.post-content{
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.post-line{
+    height:2px;
+    background-color: rgb(240, 240, 240);
+    margin:20px 0px 20px 0px;
+}
+
+.language-js{
+    color:black;
+    background-color:rgb(247,247,247);
+    border-radius:5px;
+    margin-top:20px;
+    padding:20px;
+    line-height:100%;
+    font-weight:500;
+    overflow-x: scroll;
+}
+
+div::-webkit-scrollbar{
+    width: 100px;
+}
+
+h1,h2,h3,h4{
+    margin-top:40px;
+    margin-bottom:10px;
+}
+p{
+    color:rgb(70,70,70);
+    margin-bottom:10px;
+    line-height: 200%;
+}
