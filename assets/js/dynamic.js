@@ -7,7 +7,6 @@ xmlHttp.onreadystatechange = function () {
 
 
 function getPost(url){
-    console.log(url)
     xmlHttp.open("GET", url, true);
     xmlHttp.send();
 }
@@ -42,9 +41,9 @@ function setPost(text){
 
 function setDynamicEvent() {
     let dynamicPostList = document.querySelectorAll(".dynamic-post");
-    for (let p of dynamicPostList) {
-        p.addEventListener("click", function () {
-            getPost(p.dataset.url);
+    for (let i=0,l=dynamicPostList.length; i<l; i++) {
+        dynamicPostList[i].addEventListener("click", function () {
+            getPost(dynamicPostList[i].dataset.url);
         })
     }
 }
