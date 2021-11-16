@@ -36,7 +36,7 @@ function setPost(text){
     // text.replace(/<p class="post-dir"[^>]*>(.*)<\/p>/,function(match,p1){postDir.innerText=p1;return "";})//get dir
 
     const post=document.querySelector(".post");
-    text.replace(/<div class="post">(.*)<\/div><!--post end-->/s,function(match,p1){post.innerHTML=p1;return ""})
+    text.replace(/<!--post start-->(.*)<!--post end-->/s,function(match,p1){post.innerHTML=p1;})
     setDynamicEvent(post);
 }
 
