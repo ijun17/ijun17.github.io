@@ -2,7 +2,7 @@
     box-shadow: 0px 0px 5px 1px rgb(220,220,220);
     margin:20px;
     padding: 60px;
-    width:680px;
+    width:800px;
     border-radius: 5px;
     background-color: white;
 }
@@ -23,14 +23,14 @@
     background-color:rgb(247,247,247);
     border-radius:5px;
     margin-top:20px;
-    padding:20px;
+    padding:10px;
     line-height:100%;
     font-weight:500;
     overflow-x: scroll;
 }
 
 div::-webkit-scrollbar{
-    width: 100px;
+    height: 0;
 }
 
 h1,h2,h3,h4{

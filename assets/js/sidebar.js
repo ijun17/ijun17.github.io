@@ -2,57 +2,42 @@ let directory={
     name:"post",folders:[
         {name:"study",folders:[
             {name:"data structure",files:[
-                "post1","post1","post1","post1","post1","post1"
+                
             ]},
             {name:"algorithm",files:[
-                "post1"
+                
             ]}
         ]},
         {name:"side project",folders:[
             {name:"LEVEL10(WebGame)",files:[
-                "Level10(web game)프로젝트 소개","post1","post1","post1","post1","post1"
             ]},
             {name:"SPA blog",files:[
-                "2021-11-09-SPA-블로그-만들기"
+                
             ]}
-        ]}
+        ]},
+        {name:"기타",files:[
+
+        ]
+        }
     ]
 }
 
 function createFolderButton(name,div_ele){
     let folder=document.createElement("div");
-    folder.style.display="flex";
-    folder.style.flexDirection="row";
-    folder.style.margin="5px"
-    folder.style.backgroundColor="rgba(255,255,255,0.1)";
-    folder.style.borderRadius="5px"
-    folder.style.height="35px"
-    folder.style.verticalAlign="middle"
-
-    let text=document.createElement("p");
-    text.innerText=name;
-    text.style.fontSize="21px"
-    text.style.color="rgba(255,255,255,1)"
-    text.style.marginLeft="5px"
-    text.style.fontWeight="200";
-
-    folder.appendChild(text);
-    folder.addEventListener("mouseenter",function(){text.style.color="rgba(255,255,255,0.5)"})
-    folder.addEventListener("mouseleave",function(){text.style.color="white"})
+    folder.innerText=name;
+    folder.className="navbar-folder";
+    folder.addEventListener("mouseenter",function(){folder.style.color="rgba(255,255,255,0.5)"})
+    folder.addEventListener("mouseleave",function(){folder.style.color="white"})
     folder.addEventListener("click",function(){div_ele.style.height=(div_ele.style.height[0]==="0" ?"":"0px")})
     return folder;
 }
 
 function createFileButton(fileName,dir){
     let file = document.createElement("div");
-    //let info=extractInfoFromJekyllFileName(fileName);
     file.innerText=fileName;
-    file.style.fontSize="18px"
-    file.style.color="white";
-    file.style.listStyleType="disc"
+    file.className="navbar-file";
     file.addEventListener("mouseenter",function(){file.style.color="rgba(255,255,255,0.5)"})
     file.addEventListener("mouseleave",function(){file.style.color="white"})
-    //file.addEventListener("click",function(){setUrl(dir+"/"+fileName+".md");loadFile(dir+"/"+name+".md")})
     return file;
 }
 

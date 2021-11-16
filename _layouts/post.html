@@ -1,11 +1,11 @@
 ---
 layout: default
 ---
-<div class="post"> <!--제목을 포함한 본문-->
+<div class="post"><!--post start-->
     <p class="post-dir" style="color:gray;font-weight:bold;font-size: large;">{{ page.url | relative_url }}</p>
     <h1 class="post-title" style="font-size:36px;margin:0px;">{{ page.title | escape }}</h1>
-    <p class="post-date" style="color:dodgerblue;font-weight:bold;font-size: large;">{{ page.date }}</p>
+    <p class="post-date" style="color:dodgerblue;font-weight:bold;font-size: large;">{{ page.date | date: "%Y-%m-%d" }}</p>
     <div class="post-line"></div>
     <div class="post-content">{{ content }}</div>
     <div class="post-line"></div> 
-</div>
+</div><!--post end-->
