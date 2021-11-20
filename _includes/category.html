@@ -1,8 +1,7 @@
 <div class="category" style="display: none;">
-    {% assign categories = "Level10,SPA-blog,devlog" | split: "," %}
-    {% for category in categories %}
-        <ul class="{{ category }}">
-        {% for post in site.categories[category] %}
+    {% for category in site.categories %}
+        <ul class="{{ category | first }}">
+        {% for post in category[1] %}
             <li style="margin:5px 0px 0px 0px;color: white;border-radius:5px;">
                 <p class="dynamic-post navbar-file" data-url="{{ post.url }}">{{ post.title }}</p>
             </li>
