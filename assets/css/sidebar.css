@@ -33,6 +33,7 @@
 
 .sidebar-menu{
     margin: 80px 20px 20px 20px;
+    padding: 5px;
     background-color: rgba(255,255,255,0.1);
     border-radius: 5px;
     overflow-x: hidden;
@@ -50,16 +51,16 @@
 .sidebar-behind{
     width:320px;
     height:auto;
-    background-color:white;
 }
 
 .navbar-folder{
     display:flex;
     flex-direction:row;
-    margin:5px;
+    margin-top:5px;
     background-color:rgba(255,255,255,0.1);
     border-radius:5px;
     height:35px;
+    line-height:35px;
     vertical-align:middle;
     font-size:21px;
     color:rgba(255,255,255,1);
@@ -68,6 +69,7 @@
 }
 
 .navbar-file{
-    font-size:18px;
+    font-size:16px;
     color:white;
+    line-height: 140%;
 }

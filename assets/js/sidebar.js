@@ -1,26 +1,18 @@
 let directory={
     name:"post",folders:[
-        {name:"study",folders:[
-            {name:"data structure",files:[
-                
-            ]},
-            {name:"algorithm",files:[
-                
-            ]}
-        ]},
+        
         {name:"side project",folders:[
-            {name:"LEVEL10(WebGame)",files:[
-            ]},
-            {name:"SPA blog",files:[
-                
-            ]}
+            {name:"Level10(web game)",category:"Level10"},
+            {name:"SPA blog",category:"SPA-blog"}
         ]},
-        {name:"기타",files:[
-
-        ]
-        }
+        {name:"study",folders:[
+            {name:"data structure",category:"data-structure"},
+            {name:"algorithm",category:"devlog"}
+        ]}
     ]
 }
+
+const html_category=document.querySelector(".category");
 
 function createFolderButton(name,div_ele){
     let folder=document.createElement("div");
@@ -32,18 +24,9 @@ function createFolderButton(name,div_ele){
     return folder;
 }
 
-function createFileButton(fileName,dir){
-    let file = document.createElement("div");
-    file.innerText=fileName;
-    file.className="navbar-file";
-    file.addEventListener("mouseenter",function(){file.style.color="rgba(255,255,255,0.5)"})
-    file.addEventListener("mouseleave",function(){file.style.color="white"})
-    return file;
-}
-
 function createMenu(dir, div_ele, dir_name, tree_level){
     let folders = dir.folders;
-    let files = dir.files;
+    let category = dir.category;
     if(folders !== undefined){
         for(let i=0,l=folders.length; i<l; i++){
             let div_next = document.createElement("div");
@@ -56,21 +39,26 @@ function createMenu(dir, div_ele, dir_name, tree_level){
             createMenu(dir.folders[i],div_next,dir_name+"/"+folders[i].name,tree_level+1);
         }
     }
-    if(files !== undefined){
-        for(let i=0,l=files.length; i<l; i++){
-            div_ele.appendChild(createFileButton(files[i],dir_name))
+    if(category !== undefined){
+        let links = html_category.querySelector("."+category);
+        if(links!=null){
+            div_ele.appendChild(links);
+            for (let link of links.childNodes) {
+                link.addEventListener("mouseenter", function () { link.style.backgroundColor = "rgba(255,255,255,0.1)" })
+                link.addEventListener("mouseleave", function () { link.style.backgroundColor = "rgba(255,255,255,0)" })
+            }
         }
     }
 }
-const sidebarMenu=document.querySelector(".sidebar-menu");
-createMenu(directory, sidebarMenu, directory.name, 0)
+const html_sidebarMenu=document.querySelector(".sidebar-menu");
+createMenu(directory, html_sidebarMenu, directory.name, 0)
 
 
 
-const sidebar=document.querySelector(".sidebar")
-const sidebarButton = document.querySelector(".sidebar-button");
+const html_sidebar=document.querySelector(".sidebar")
+const html_sidebarButton = document.querySelector(".sidebar-button");
 let sidebarOn=true;
-sidebarButton.addEventListener("click",function(e){
-    sidebar.style.left=(sidebarOn?"-320px":"0px");
+html_sidebarButton.addEventListener("click",function(e){
+    html_sidebar.style.left=(sidebarOn?"-320px":"0px");
     sidebarOn=!sidebarOn;
 })
