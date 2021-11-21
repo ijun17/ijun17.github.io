@@ -7,6 +7,7 @@
     height:100%;
     padding: 20px;
     box-shadow: inset 0 0 0 1000px rgba(0,0,0,0.2);
+
     /*gradient
     (#4b6cb7, #182848) / (#7474bf, #348ac7) / (#d53369, #cbad6d) / (#de6262, #ffb88c)
     */
@@ -62,6 +63,11 @@
     overflow-x: hidden;
     box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.1);
     transition: all 0.3s ease 0s;
+    display: none;
+}
+
+.navbar-radio:checked + .navbar{
+    display: block;
 }
 
 .navbar-folder{
@@ -105,35 +111,34 @@
     vertical-align:middle;
 }
 .navbar-file:hover{
-    background-color: rgba(255,255,255,0.1);;
+    background-color: rgba(255,255,255,0.1);
 }
 
 .sidebar-apps{
     margin-top: 100px;
     display: flex;
     flex-wrap: wrap;
+    border-radius:10px;
 }
 
 .app{
-    color:white;
-    font-size: 11px;
-    line-height: 16px;
     text-align: center;
-    width:60px;
-    margin:5px;
-}
-
-.app-icon{
+    vertical-align: middle;
+    color:white;
+    font-size: 12px;
+    line-height: 50px;
+    
     width:50px;
     height:50px;
-    border-radius:12px;
-    background-color:rgba(255,255,255,0.2);
-    box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.1);
-    border: none;
-    transition: all 0.2s ease 0s;
+    background-size: cover;
+    background-position: fixed;
+    margin:9px;
+    border-radius: 15px;
+    box-shadow: inset 0 0 0 1000px rgba(0,0,0,0.5);
 }
 
-.app-icon:hover{
+.app:hover{
     width:55px;
     height:55px;
+    line-height: 55px;
 }

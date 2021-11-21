@@ -17,9 +17,27 @@ let apps=[
         {name:"algorithm",category:"devlog"}
     ]}
 ]},
-{title:"삶",icon:"/assets/images/sidebar.jpg",folders:[
+{title:"기록",icon:"/assets/images/sidebar.jpg",folders:[
     {name:"독서",category:"book"},
     {name:"쇼핑",category:"shopping"}
+]},
+{title:"대학교",icon:null,folders:[
+    {name:"1학년",folders:[
+
+    ]},
+    {name:"2학년",folders:[
+        
+    ]},
+    {name:"3학년",folders:[
+        
+    ]},
+    {name:"4학년",folders:[
+        
+    ]}
+]},
+{title:"독서",icon:null,folders:[
+    {name:"it",category:"book-it"},
+    {name:"시",category:"book-poem"}
 ]}
 ]
 
@@ -35,8 +53,8 @@ function createNav(dir, html_div){
             <input type="checkbox" id="navbar_folder${navbar_folder_id_count}" class="navbar-folder-checkbox" style="display:none">
             <label for="navbar_folder${navbar_folder_id_count++}" class="navbar-folder">${folders[i].name}</label>
             <div class="navbar-folder-box"></div>`;
-            createNav(dir.folders[i],html_box.querySelector(".navbar-folder-box"));
             html_div.appendChild(html_box);
+            createNav(dir.folders[i],html_box.querySelector(".navbar-folder-box"));
         }
     }
     if(category !== undefined){
@@ -45,39 +63,21 @@ function createNav(dir, html_div){
     }
 }
 
-let html_selectedNavbar;
+let navbar_id_count=0;
 
 function createApp(app){
-    let html_app=document.createElement("div");
-    let html_app_icon=document.createElement("img");
-    let html_app_title=document.createElement("p");
+    html_sidebarApps.innerHTML+=`
+    <label class="app" for="navbar${navbar_id_count}" style="background:url('${app.icon}'),rgba(255,255,255,0.1);background-size: cover;">
+    ${app.title}
+    </label>`;
+
     let html_navbar=document.createElement("div");
-    let html_navbar_name=document.createElement("p");
-    html_app.className="app";
-    html_app_icon.addEventListener("click",function(){
-        html_selectedNavbar.style="display:none;";
-        html_navbar.style="display:block;";
-        html_selectedNavbar=html_navbar;
-    })
-    html_app_icon.className="app-icon";
-    if(app.icon!=null)html_app_icon.src=app.icon;
-    html_app_title.innerText=app.title;
-    html_navbar.className="navbar"
-    html_navbar.style="display:none;";
-    html_navbar.style.transition="width 1s ease 0s;"
-    html_navbar_name.className="sidebar-text";
-    html_navbar_name.innerText=app.title;
-
-    html_navbar.appendChild(html_navbar_name);
+    html_navbar.className="navbar";
+    html_navbar.innerHTML=`
+    <p class="sidebar-text">${app.title}</p>`
     createNav(app, html_navbar);
+    html_sidebarNavbars.innerHTML+=`<input type="radio" id="navbar${navbar_id_count}" name="navbar" class="navbar-radio" style="display:none" ${navbar_id_count++===0?"checked":""}>`
     html_sidebarNavbars.appendChild(html_navbar);
-    html_app.appendChild(html_app_icon);
-    html_app.appendChild(html_app_title);
-    html_sidebarApps.appendChild(html_app);
 }
 
-for(let app of apps){
-    createApp(app);
-}
-html_selectedNavbar=html_sidebarNavbars.querySelector("div");
-html_selectedNavbar.style="display:block;";
+for(let app of apps){createApp(app);}
