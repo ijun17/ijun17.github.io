@@ -52,8 +52,12 @@ function createNav(dir, html_div){
     }
 }
 createNav(directory[0], html_sidebarMenu);
-let sidebarOn=true;
+let sidebarOn=false;
 html_sidebarButton.addEventListener("click",function(e){
-    html_sidebar.style.left=(sidebarOn?"-320px":"0px");
+    if(sidebarOn){
+        html_sidebar.style="left: -320px;transition: all 0.3s ease 0s;"
+    }else{
+        html_sidebar.style="left: 0px;transition: all 0.3s ease 0s;"
+    }
     sidebarOn=!sidebarOn;
 })

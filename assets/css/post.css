@@ -36,6 +36,10 @@ div::-webkit-scrollbar{
     margin-bottom:10px;
 }
 
+.post-content li{
+    margin-left:30px
+}
+
 .highlighter-rouge *{
     font-family: Consolas, monospace;
     font-weight:400;
@@ -61,7 +65,7 @@ div::-webkit-scrollbar{
 }
 
 /*code highlight*/
-code .c1{color:rgb(38, 100, 38);}
+code .c1{color:rgb(145, 184, 145);}
 code .kd{color:black;font-weight: bold;}
-code .dl,.s1{color:lightsalmon}
+/*code .dl,.s1{color:black;}*/
 code .p{color:gray}
