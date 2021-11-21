@@ -1,3 +1,5 @@
+const html_post=document.querySelector(".post");
+
 let xmlHttp = new XMLHttpRequest();
 xmlHttp.onreadystatechange = function () {
     if (this.status == 200 && this.readyState == this.DONE) {
@@ -11,9 +13,8 @@ function getPost(url){ //
 }
 
 function setPost(text){
-    const post=document.querySelector(".post");
-    text.replace(/<!--post start-->(.*)<!--post end-->/s,function(match,p1){post.innerHTML=p1;})
-    setDynamicEvent(post);
+    text.replace(/<!--post start-->(.*)<!--post end-->/s,function(match,p1){html_post.innerHTML=p1;})
+    setDynamicEvent(html_post);
 }
 
 function setDynamicEvent(element) {

@@ -1,48 +1,49 @@
-let directory={
-    name:"post",folders:[
-        
-        {name:"side project",folders:[
-            {name:"Level10(web game)",category:"Level10"},
-            {name:"SPA blog",category:"SPA-blog"}
-        ]},
-        {name:"study",folders:[
-            {name:"data structure",category:"data-structure"},
-            {name:"algorithm",category:"devlog"}
-        ]}
-    ]
-}
-
 const html_category=document.querySelector(".category");
+const html_sidebar=document.querySelector(".sidebar");
+const html_sidebarMenu=document.querySelector(".sidebar-menu");
+const html_sidebarButton = document.querySelector(".sidebar-button");
+const html_sidebarBehind = document.querySelector(".sidebar-behind");
 
-function createFolderButton(name,div_ele){
-    let folder=document.createElement("div");
-    folder.innerText=name;
-    folder.className="navbar-folder";
-    folder.addEventListener("mouseenter",function(){folder.style.color="rgba(255,255,255,0.5)"})
-    folder.addEventListener("mouseleave",function(){folder.style.color="white"})
-    folder.addEventListener("click",function(){div_ele.style.height=(div_ele.style.height[0]==="0" ?"":"0px")})
-    return folder;
-}
+let directory=[
+{title:"devlog",folders:[
+    {name:"side project",folders:[
+        {name:"Level10(web game)",category:"Level10"},
+        {name:"SPA blog",category:"SPA-blog"}
+    ]},
+    {name:"study",folders:[
+        {name:"data structure",category:"data-structure"},
+        {name:"algorithm",category:"devlog"}
+    ]}
+]},
+{title:"Life",folders:[
+    {name:"독서",category:"book"},
+    {name:"쇼핑",category:"shopping"}
+]}
+]
 
-function createMenu(dir, div_ele, dir_name, tree_level){
+function createNav(dir, html_div){
     let folders = dir.folders;
     let category = dir.category;
     if(folders !== undefined){
         for(let i=0,l=folders.length; i<l; i++){
-            let div_next = document.createElement("div");
-            div_next.style.paddingLeft="25px";
-            div_next.style.overflow="hidden"
-            div_next.style.height="0px"
-            div_ele.appendChild(createFolderButton(folders[i].name,div_next))
-            div_ele.appendChild(div_next);
+            let html_div_next = document.createElement("div");
+            let html_folder=document.createElement("div");
+            html_folder.innerText=folders[i].name;
+            html_folder.className="navbar-folder";
+            html_folder.addEventListener("mouseenter",function(){html_folder.style.color="rgba(255,255,255,0.5)"})
+            html_folder.addEventListener("mouseleave",function(){html_folder.style.color="white"})
+            html_folder.addEventListener("click",function(){html_div_next.style.height=(html_div_next.style.height[0]==="0" ?"":"0px")})
+            html_div_next.style="padding-left:25px; overflow:hidden; height:0px";
+            html_div.appendChild(html_folder);
+            html_div.appendChild(html_div_next);
 
-            createMenu(dir.folders[i],div_next,dir_name+"/"+folders[i].name,tree_level+1);
+            createNav(dir.folders[i],html_div_next);
         }
     }
     if(category !== undefined){
         let links = html_category.querySelector("."+category);
         if(links!=null){
-            div_ele.appendChild(links);
+            html_div.appendChild(links);
             for (let link of links.childNodes) {
                 link.addEventListener("mouseenter", function () { link.style.backgroundColor = "rgba(255,255,255,0.1)" })
                 link.addEventListener("mouseleave", function () { link.style.backgroundColor = "rgba(255,255,255,0)" })
@@ -50,13 +51,7 @@ function createMenu(dir, div_ele, dir_name, tree_level){
         }
     }
 }
-const html_sidebarMenu=document.querySelector(".sidebar-menu");
-createMenu(directory, html_sidebarMenu, directory.name, 0)
-
-
-
-const html_sidebar=document.querySelector(".sidebar")
-const html_sidebarButton = document.querySelector(".sidebar-button");
+createNav(directory[0], html_sidebarMenu);
 let sidebarOn=true;
 html_sidebarButton.addEventListener("click",function(e){
     html_sidebar.style.left=(sidebarOn?"-320px":"0px");
