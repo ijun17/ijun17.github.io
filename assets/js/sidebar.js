@@ -7,7 +7,7 @@ const html_sidebarBehind = document.querySelector(".sidebar-behind");
 
 
 let apps=[
-{title:"devlog",icon:null,folders:[
+{title:"devlog",icon:"/assets/images/sidebar.jpg",folders:[
     {name:"side project",folders:[
         {name:"Level10(web game)",category:"Level10"},
         {name:"SPA blog",category:"SPA-blog"}
@@ -17,7 +17,7 @@ let apps=[
         {name:"algorithm",category:"devlog"}
     ]}
 ]},
-{title:"Life",icon:null,folders:[
+{title:"삶",icon:"/assets/images/sidebar.jpg",folders:[
     {name:"독서",category:"book"},
     {name:"쇼핑",category:"shopping"}
 ]}
@@ -55,15 +55,15 @@ function createApp(app){
     let html_navbar_name=document.createElement("p");
     html_app.className="app";
     html_app_icon.addEventListener("click",function(){
-        html_selectedNavbar.style="display:none; width:0px;";
-        html_navbar.style="display:block; width:270px;";
+        html_selectedNavbar.style="display:none;";
+        html_navbar.style="display:block;";
         html_selectedNavbar=html_navbar;
     })
     html_app_icon.className="app-icon";
     if(app.icon!=null)html_app_icon.src=app.icon;
     html_app_title.innerText=app.title;
     html_navbar.className="navbar"
-    html_navbar.style="display:none; width:0px;";
+    html_navbar.style="display:none;";
     html_navbar.style.transition="width 1s ease 0s;"
     html_navbar_name.className="sidebar-text";
     html_navbar_name.innerText=app.title;
@@ -80,4 +80,4 @@ for(let app of apps){
     createApp(app);
 }
 html_selectedNavbar=html_sidebarNavbars.querySelector("div");
-html_selectedNavbar.style="display:block; width:270px;";
+html_selectedNavbar.style="display:block;";
