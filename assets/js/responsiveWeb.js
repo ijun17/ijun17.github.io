@@ -5,8 +5,7 @@ function setMobileType(){
     html_post.style.width=(screen.width)+"px";
     html_post.style.borderRadius="0px";
 
-    html_sidebar.style.left="-320px"
-    html_sidebarButton.style.display="block";
+    document.getElementById("sidebar_button").checked=true;
 }
 
 function setPCType(){
@@ -15,8 +14,6 @@ function setPCType(){
     html_post.style.padding="60px";
     html_post.style.width="800px";
     html_post.style.borderRadius="5px";
-
-    html_sidebar.style.left="0px"
     html_sidebarButton.style.display="none";
 }
 

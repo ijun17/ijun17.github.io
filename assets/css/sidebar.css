@@ -5,6 +5,7 @@
     left:0px;
     width:320px;
     height:100%;
+    padding: 20px;
     box-shadow: inset 0 0 0 1000px rgba(0,0,0,0.2);
     /*gradient
     (#4b6cb7, #182848) / (#7474bf, #348ac7) / (#d53369, #cbad6d) / (#de6262, #ffb88c)
@@ -20,6 +21,10 @@
 
     transition: left 0.3s ease 0s;
 }
+#sidebar_button:checked ~ .sidebar{
+    left:-320px;
+    background-color: firebrick;
+}
 
 .myScroll::-webkit-scrollbar{
     width: 0px;
@@ -32,17 +37,10 @@
     margin-bottom:15px;
 }
 
-.sidebar-menu{
-    margin: 80px 20px 20px 20px;
-    padding: 5px;
-    background-color: rgba(255,255,255,0.1);
-    border-radius: 5px;
-    overflow-x: hidden;
-    box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.1);
-}
+
 
 .sidebar-bottom{
-    margin:100px 20px 20px 20px;
+    margin-top:100px;
     width: 220;
     height:150px;
     background-color: rgba(255,255,255,0.1);
@@ -52,6 +50,20 @@
 .sidebar-behind{
     width:320px;
     height:auto;
+}
+
+.sidebar-navbars{
+    display: flex;
+}
+
+.navbar{
+    margin-top: 10px;
+    padding: 5px;
+    background-color: rgba(255,255,255,0.1);
+    border-radius: 5px;
+    overflow-x: hidden;
+    box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.1);
+    transition: width 0.3s ease 0s;
 }
 
 .navbar-folder{
@@ -68,11 +80,53 @@
     padding-left:5px;
     font-weight:400;
 }
+.navbar-folder:hover{
+    color:rgba(255,255,255,0.5);
+}
+
+.navbar-folder-box{
+    padding-left:25px; 
+    overflow:hidden; 
+    height:0; 
+    transform: scaleY(0);
+    transform-origin: top;
+    transition:all 0.3s ease 0s;
+}
+
+.navbar-folder-checkbox:checked ~ .navbar-folder-box{
+    height: auto;
+    transform: scaleY(1);
+}
 
 .navbar-file{
     font-size:16px;
     color:white;
     line-height: 22px;
     font-weight: 100;
+    border-radius:5px;
     vertical-align:middle;
+}
+.navbar-file:hover{
+    background-color: rgba(255,255,255,0.1);;
+}
+
+.sidebar-apps{
+    margin-top: 100px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.app{
+    color:white;
+    text-align: center;
+    width:60px;
+    margin:5px;
+}
+
+.app-icon{
+    width:45px;
+    height:45px;
+    border-radius:10px;
+    background-color:rgba(255,255,255,0.2);
+    box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.1);
 }
