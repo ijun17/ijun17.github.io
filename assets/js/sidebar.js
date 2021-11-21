@@ -32,12 +32,14 @@ function createNav(dir, html_div){
             html_folder.className="navbar-folder";
             html_folder.addEventListener("mouseenter",function(){html_folder.style.color="rgba(255,255,255,0.5)"})
             html_folder.addEventListener("mouseleave",function(){html_folder.style.color="white"})
-            html_folder.addEventListener("click",function(){html_div_next.style.height=(html_div_next.style.height[0]==="0" ?"":"0px")})
-            html_div_next.style="padding-left:25px; overflow:hidden; height:0px";
+            html_folder.addEventListener("click",function(){
+                html_div_next.style.height=(html_div_next.style.height[0]==="0" ?"auto":"0px");
+            })
+            createNav(dir.folders[i],html_div_next);
             html_div.appendChild(html_folder);
             html_div.appendChild(html_div_next);
-
-            createNav(dir.folders[i],html_div_next);
+            //console.log(folders[i].name,html_div_next.getBoundingClientRect())
+            html_div_next.style="padding-left:25px; overflow:hidden; height:0; transition:height 1s ease 0s;";
         }
     }
     if(category !== undefined){
@@ -55,9 +57,9 @@ createNav(directory[0], html_sidebarMenu);
 let sidebarOn=false;
 html_sidebarButton.addEventListener("click",function(e){
     if(sidebarOn){
-        html_sidebar.style="left: -320px;transition: all 0.3s ease 0s;"
+        html_sidebar.style="left: -320px;"
     }else{
-        html_sidebar.style="left: 0px;transition: all 0.3s ease 0s;"
+        html_sidebar.style="left: 0px;"
     }
     sidebarOn=!sidebarOn;
 })
