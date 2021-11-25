@@ -7,6 +7,11 @@
 body{
     display: flex;
     flex-direction:row;
-    font-family: sans-serif, Helvetica, Arial;
+    /*font-family: sans-serif, Helvetica, Arial;*/
+    font-family:'Arial Narrow Bold', sans-serif;
     background-color:#F1F4F9;
 }
+
+/*theme colot 
+lavenderblush
+*/

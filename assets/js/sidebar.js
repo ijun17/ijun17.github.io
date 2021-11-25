@@ -8,11 +8,11 @@ const html_sidebarBehind = document.querySelector(".sidebar-behind");
 
 let apps=[
 {title:"devlog",icon:"/assets/images/sidebar.jpg",folders:[
-    {name:"side project",folders:[
+    {name:"Toy Project",folders:[
         {name:"Level10(web game)",category:"Level10"},
         {name:"SPA blog",category:"SPA-blog"}
     ]},
-    {name:"study",folders:[
+    {name:"Study",folders:[
         {name:"data structure",category:"data-structure"},
         {name:"algorithm",category:"devlog"}
     ]}

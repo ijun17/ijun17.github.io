@@ -2,7 +2,7 @@
     {% for category in site.categories %}
         <ul class="{{ category | first }}">
         {% for post in category[1] %}
-            <li style="margin:5px 0px 0px 0px;color: white;border-radius:5px;">
+            <li style="margin:5px 0px 0px 0px;color: black;border-radius:5px;">
                 <p class="dynamic-post navbar-file" data-url="{{ post.url }}">{{ post.title }}</p>
             </li>
         {% endfor %}
