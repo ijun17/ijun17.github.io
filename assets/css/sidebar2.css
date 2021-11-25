@@ -108,6 +108,7 @@
     vertical-align:middle;
 }
 .navbar-file:hover{font-weight: bold;}
+.navbar-file-radio:checked + .navbar-file{color:cornflowerblue;}
 
 .sidebar-apps{
     padding: 3px;

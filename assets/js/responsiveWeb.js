@@ -18,7 +18,7 @@ function setPCType(){
 }
 
 function setType(){
-    if(screen.width>800+320)setPCType();
+    if(screen.width>800+320+40)setPCType();
     else setMobileType();
 }
 
