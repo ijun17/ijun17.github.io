@@ -46,6 +46,9 @@
 
 /*SIDEBAR - NAVIGATION*/
 .sidebar-nav{
+    /*
+    display: flex;
+    flex-direction: column;*/
     padding: 5px;
     background-color: #f1f4f9d0;
     border-radius: 5px;
@@ -53,27 +56,34 @@
 }
 
 .nav-navbar-title-wrapper{
+    display: flex;
+    flex-direction: row;
     margin:5px;
 }
 
 .navbar-title{
-    margin:5px;
+    margin-right:10px;
     font-weight: bold;
     color:darkgray;
     margin-bottom:15px;
-    transition: all 0.1s ease 0s;
+    transition: all 0.2s ease 0s;
+    order:1;
 }
-input[name="navbar-title"]:checked + *{
+input[name="navbar-title"]:checked ~ .navbar-title{
     color:black;
 }
 
 .navbar{
     overflow-x: hidden;
-    transition: all 0.3s ease 0s;
-    display: none;
-    width:100%;
+    order:2;
+    transition: all 0.2s ease 0s;
+    height:0;
+
+    width:0;
+    /*transform: scaleY(0);*/
 }
-input[name="navbar"]:checked + .navbar{display: block;}
+input[name="navbar"]:checked + .navbar{width:100%;height: auto;}
+/*input[name="navbar"]:checked + .navbar{height: auto;transform: scaleY(1);}*/
 
 .navbar-folder{
     display:flex;

@@ -2,6 +2,7 @@ const html_categories=document.querySelector(".categories");
 const html_sidebar=document.querySelector(".sidebar");
 const html_sidebarButton = document.querySelector(".sidebar-button");
 const html_sidebarBehind = document.querySelector(".sidebar-behind");
+const html_sidebarNav = document.querySelector(".sidebar-nav");
 const html_navNavbarWrapper=document.querySelector(".nav-navbar-wrapper");
 const html_navNavbarTitleWrapper = document.querySelector(".nav-navbar-title-wrapper");
 
@@ -63,17 +64,17 @@ let navbar_id_count=0;
 function createNavbars(navigations){
     for (let navigation of navigations) {
         html_navNavbarTitleWrapper.innerHTML+=`
-        <input type="radio" id="navbars${navbar_id_count}" name="navbar-title" ${navbar_id_count === 0 ? "checked" : ""}>
-        <label class="navbar-title" for="navbar${navbar_id_count}">
-        ${navigation.title}
-        </label>`;
+<div onclick="this.childNodes[1].click();">
+    <input type="radio" name="navbar-title" ${navbar_id_count === 0 ? "checked" : ""}>
+    <label class="navbar-title" for="navbar${navbar_id_count}">${navigation.title}</label>
+</div>`;
 
         let html_navbar = document.createElement("div");
         html_navbar.className="navbar";
         createNav(navigation, html_navbar);
         html_navNavbarWrapper.innerHTML += `<input type="radio" id="navbar${navbar_id_count}" name="navbar" ${navbar_id_count++ === 0 ? "checked" : ""}>`
         html_navNavbarWrapper.appendChild(html_navbar);
-        console.log(html_navNavbarTitleWrapper);
+        //console.log(html_navNavbarTitleWrapper);
     }
 }
 
