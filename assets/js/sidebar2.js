@@ -1,13 +1,12 @@
 const html_categories=document.querySelector(".categories");
 const html_sidebar=document.querySelector(".sidebar");
-const html_sidebarApps = document.querySelector(".sidebar-apps");
-const html_sidebarNavbars=document.querySelector(".sidebar-navbars");
 const html_sidebarButton = document.querySelector(".sidebar-button");
 const html_sidebarBehind = document.querySelector(".sidebar-behind");
-
+const html_navNavbarWrapper=document.querySelector(".nav-navbar-wrapper");
+const html_navNavbarTitleWrapper = document.querySelector(".nav-navbar-title-wrapper");
 
 let apps=[
-{title:"devlog",icon:"/assets/images/sidebar.jpg",folders:[
+{title:"devlog",folders:[
     {name:"Toy Project",folders:[
         {name:"Level10(web game)",category:"Level10"},
         {name:"SPA blog",category:"SPA-blog"}
@@ -17,11 +16,11 @@ let apps=[
         {name:"algorithm",category:"devlog"}
     ]}
 ]},
-{title:"기록",icon:"/assets/images/sidebar.jpg",folders:[
+{title:"sdfa",folders:[
     {name:"독서",category:"book"},
     {name:"쇼핑",category:"shopping"}
 ]},
-{title:"대학교",icon:null,folders:[
+{title:"asdf",folders:[
     {name:"1학년",folders:[
 
     ]},
@@ -34,10 +33,6 @@ let apps=[
     {name:"4학년",folders:[
         
     ]}
-]},
-{title:"독서",icon:null,folders:[
-    {name:"it",category:"book-it"},
-    {name:"시",category:"book-poem"}
 ]}
 ]
 
@@ -50,7 +45,7 @@ function createNav(dir, html_div){
         for(let i=0,l=folders.length; i<l; i++){
             let html_box=document.createElement("div");
             html_box.innerHTML=`
-            <input type="checkbox" id="navbar_folder${navbar_folder_id_count}" class="navbar-folder-checkbox" style="display:none">
+            <input type="checkbox" id="navbar_folder${navbar_folder_id_count}" class="navbar-folder-checkbox">
             <label for="navbar_folder${navbar_folder_id_count++}" class="navbar-folder">${folders[i].name}</label>
             <div class="navbar-folder-box"></div>`;
             html_div.appendChild(html_box);
@@ -65,19 +60,22 @@ function createNav(dir, html_div){
 
 let navbar_id_count=0;
 
-function createApp(app){
-    html_sidebarApps.innerHTML+=`
-    <label class="app" for="navbar${navbar_id_count}" style="background:url('${app.icon}'),rgba(255,255,255,0.1);background-size: cover;">
-    ${app.title}
-    </label>`;
+function createNavbars(navigations){
+    for (let navigation of navigations) {
+        html_navNavbarTitleWrapper.innerHTML+=`
+        <input type="radio" id="navbars${navbar_id_count}" name="navbar-title" ${navbar_id_count === 0 ? "checked" : ""}>
+        <label class="navbar-title" for="navbar${navbar_id_count}">
+        ${navigation.title}
+        </label>`;
 
-    let html_navbar=document.createElement("div");
-    html_navbar.className="navbar";
-    html_navbar.innerHTML=`
-    <p class="navbar-title">${app.title}</p>`
-    createNav(app, html_navbar);
-    html_sidebarNavbars.innerHTML+=`<input type="radio" id="navbar${navbar_id_count}" name="navbar" class="navbar-radio" style="display:none" ${navbar_id_count++===0?"checked":""}>`
-    html_sidebarNavbars.appendChild(html_navbar);
+        let html_navbar = document.createElement("div");
+        html_navbar.className="navbar";
+        createNav(navigation, html_navbar);
+        html_navNavbarWrapper.innerHTML += `<input type="radio" id="navbar${navbar_id_count}" name="navbar" ${navbar_id_count++ === 0 ? "checked" : ""}>`
+        html_navNavbarWrapper.appendChild(html_navbar);
+        console.log(html_navNavbarTitleWrapper);
+    }
 }
 
-for(let app of apps){createApp(app);}
+
+createNavbars(apps);

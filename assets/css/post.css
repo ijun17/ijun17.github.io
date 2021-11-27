@@ -7,15 +7,17 @@
     background-color: white;
 }
 
-.post-content{
-    font-size: 18px;
-    font-weight: 400;
+.post-header{
+    padding-bottom:50px;
+    vertical-align: middle;
 }
 
-.post-line{
-    height:2px;
-    background-color: rgb(240, 240, 240);
-    margin:20px 0px 20px 0px;
+.post-content{
+    padding:50px 0 50px 0;
+    border-top: solid 3px rgb(240, 240, 240);
+    border-bottom: solid 3px rgb(240, 240, 240);
+    font-size: 18px;
+    font-weight: 400;
 }
 
 div::-webkit-scrollbar{

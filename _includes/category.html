@@ -1,14 +1,14 @@
 <div class="categories" style="display: none;">
     {% assign navbar_file_id = 0 %}
     {% for category in site.categories %}
-        <ul class="{{ category | first }}">
+        <ol class="{{ category | first }}">
         {% for post in category[1] %}
-            <li style="margin:5px 0px 0px 0px;color: black;border-radius:5px;">
-                <input type="radio" id="navbar_file{{navbar_file_id}}" name="navbar_file" class="navbar-file-radio" style="display: none;">
-                <label for="navbar_file{{navbar_file_id}}" class="dynamic-post navbar-file" data-url="{{ post.url }}">{{ post.title }}</label>
+            <label for="navbar_file{{navbar_file_id}}">
+                <input type="radio" id="navbar_file{{navbar_file_id}}" name="navbar-file" class="navbar-file-radio">
+                <li  class="dynamic-post navbar-file" data-url="{{ post.url }}" style="margin:5px 0px 0px 0px;border-radius:5px;">{{ post.title }}</li>
                 {% assign navbar_file_id = navbar_file_id | plus: 1 %}
-            </li>
+            </label>
         {% endfor %}
-        </ul>
+        </ol>
     {% endfor %}
 </div>

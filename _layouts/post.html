@@ -3,16 +3,16 @@ layout: default
 ---
 <article class="post">
     <!--post start-->
-    <header>
+    <header class="post-header">
         <p class="post-dir" style="color:gray;font-weight:bold;">{{ page.category | replace: "-"," "}} / {{ page.date | date: "%Y-%m-%d" }}</p>
         <h1 class="post-title" style="font-size:36px;margin:0px;">{{ page.title | escape }}</h1>
-        <div class="post-line"></div>
+        
     </header>
     <section class="post-content">
         {{ content }}
     </section>
-    <footer>
-        <div class="post-line"></div> 
+    <footer class="post-footer">
+        
     </footer>
     <!--post end-->
 </article>
