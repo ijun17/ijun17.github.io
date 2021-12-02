@@ -3,12 +3,8 @@
     margin:20px;
     padding: 60px;
     width:800px;
-    /*
-    box-shadow: 0px 0px 5px 1px rgb(220,220,220);
-    */
     background-color: white;
 }
-
 
 .post-header{
     padding-bottom:50px;
@@ -73,3 +69,10 @@ code .c1{color:rgb(145, 184, 145);}
 code .kd{color:rgb(30, 132, 235);}
 /*code .dl,.s1{color:black;}*/
 code .p{color:gray}
+
+
+.post-loading *{
+    color:rgba(0,0,0,0);
+    background-color: rgb(247,247,247);
+    border-radius: 5px;
+}

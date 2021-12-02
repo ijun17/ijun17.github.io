@@ -33,7 +33,12 @@ let Navigation = {
         this.createNavbars(navigations);
         html_categories.remove();
         this.posts=document.querySelectorAll(".navbar-file");
-        for (let post of this.posts) {post.addEventListener("click", function () {Navigation.changeCurrentPost(this.dataset.url)});}
+        for (let post of this.posts) {post.addEventListener("click", function () {
+            if(post.dataset.url === document.location.pathname){return;}
+            Navigation.changeCurrentPost(this.dataset.url)
+            window.scrollTo( 0, 0 );
+            document.querySelector(".post-content").classList.add("post-loading");});
+        }
         this.changeCurrentPost(document.location.pathname);
     },
     changeCurrentPost:function(changeUrl){
@@ -42,7 +47,6 @@ let Navigation = {
                 if(Navigation.currentPost!=null)Navigation.currentPost.classList.remove("navbar-file-selected");
                 Navigation.currentPost = post;
                 post.classList.add("navbar-file-selected");
-                console.log("current post: "+changeUrl);
                 return;
             }
         }
