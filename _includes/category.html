@@ -3,11 +3,7 @@
     {% for category in site.categories %}
         <ol class="{{ category | first }}">
         {% for post in category[1] %}
-            <label for="navbar_file{{navbar_file_id}}">
-                <input type="radio" id="navbar_file{{navbar_file_id}}" name="navbar-file" class="navbar-file-radio">
-                <li  class="dynamic-post navbar-file" data-url="{{ post.url }}" style="margin:5px 0px 0px 0px;border-radius:5px;">{{ post.title }}</li>
-                {% assign navbar_file_id = navbar_file_id | plus: 1 %}
-            </label>
+            <li  class="dynamic-post navbar-file" data-url="{{ post.url }}" style="margin:5px 0px 0px 0px;border-radius:5px;">{{ post.title }}</li>
         {% endfor %}
         </ol>
     {% endfor %}
