@@ -114,7 +114,7 @@ input[name="navbar"]:checked + .navbar{width:100%;height: auto;}
 .navbar-folder-checkbox:checked + .navbar-folder-box{height: auto;transform: scaleY(1);}
 
 .navbar-file{
-    font-size:16px;
+    font-size:14px;
     font-weight: 500;
     color:rgb(50,50,50);
     line-height: 22px;

@@ -30,7 +30,7 @@ div::-webkit-scrollbar{
 .post-content p,li{
     color:rgb(70,70,70);
     line-height: 160%;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 500;
     margin:10px 0 10px 0;
 }
@@ -42,13 +42,13 @@ div::-webkit-scrollbar{
 .highlighter-rouge *{
     font-family: Consolas, monospace;
     font-weight:400;
-    font-size:15px;
+    font-size:14px;
 }
 
 .highlighter-rouge{
     font-family: Consolas, monospace;
     font-weight:400;
-    font-size:15px;
+    font-size:14px;
     color:rgb(100,100,100);
     background-color:rgb(247,247,247);
     border-radius:5px;
