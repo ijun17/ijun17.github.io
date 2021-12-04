@@ -15,3 +15,11 @@ body{
 /*theme colot 
 lavenderblush
 */
+
+:root{
+    --main-color: #F1F4F9;
+}
+
+::selection{
+    background-color: #abc4f360;
+}

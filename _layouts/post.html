@@ -1,18 +1,18 @@
 ---
 layout: default
 ---
-<article class="post">
+<div class="post">
     <!--post start-->
-    <header class="post-header">
-        <p class="post-dir" style="color:gray;font-weight:bold;">{{ page.category | replace: "-"," "}} / {{ page.date | date: "%Y-%m-%d" }}</p>
-        <h1 class="post-title" style="font-size:36px;margin:0px;">{{ page.title | escape }}</h1>
+    <div class="post-header">
+        <p class="post-dir" style="color:#343A40;font-weight:bold;">{{ page.category | replace: "-"," "}} / {{ page.date | date: "%Y-%m-%d" }}</p>
+        <h1 class="post-title" style="font-size:40px;margin:0px;">{{ page.title | escape }}</h1>
         
-    </header>
-    <section class="post-content">
+    </div>
+    <div class="post-content">
         {{ content }}
-    </section>
-    <footer class="post-footer">
-    </footer>
+    </div>
+    <div class="post-footer">
+    </div>
     <!--post end-->
-</article>
+</div>
 
