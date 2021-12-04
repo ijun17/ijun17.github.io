@@ -15,7 +15,6 @@ function getPost(url){
 function setPost(text){
     text.replace(/<!--post start-->(.*)<!--post end-->/s,function(match,p1){html_post.innerHTML=p1;})
     setDynamicEvent(html_post);
-    
 }
 
 function setDynamicEvent(element) {
