@@ -20,7 +20,7 @@ function setPost(text){
 
 //특정 클래스를 포함한 엘레멘트를 클릭시 loadPost 메소드 실행
 document.addEventListener("click", function (event) {
-    if (event.path[0].classList.contains("dynamic-post")) loadPost(event.path[0].dataset.url, true);
+    if (event.target.classList.contains("dynamic-post")) loadPost(event.target.dataset.url, true);
 })
 
 //페이지 이전 혹은 이후로 갈때 loadPost 메소드 실행
