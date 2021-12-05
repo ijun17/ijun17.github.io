@@ -6,11 +6,10 @@ layout: default
     <header class="post-header">
         <p class="post-dir" style="color:gray;font-weight:bold;">{{ page.category | replace: "-"," "}} / {{ page.date | date: "%Y-%m-%d" }}</p>
         <h1 class="post-title" style="font-size:36px;margin:0px;">{{ page.title | escape }}</h1>
-        
     </header>
-    <section class="post-content">
+    <main class="post-content">
         {{ content }}
-    </section>
+    </main>
     <footer class="post-footer">
     </footer>
     <!--post end-->

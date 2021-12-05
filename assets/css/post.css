@@ -17,13 +17,6 @@
     border-bottom: solid 3px rgb(240, 240, 240);
     font-size: 18px;
     font-weight: 400;
-
-    transform: scaleY(1);
-    transform-origin: top;
-    transition:all 0.2s ease 0s;
-}
-.post-loading{
-    transform: scaleY(0);
 }
 
 div::-webkit-scrollbar{
@@ -44,6 +37,12 @@ div::-webkit-scrollbar{
 
 .post-content li{
     margin:0 0 0 30px;
+}
+
+.post blockquote{
+    background-color: rgb(247, 247, 247);
+    border-left: solid 4px darkgray;
+    padding:5px;
 }
 
 .highlighter-rouge *{
@@ -73,6 +72,6 @@ div::-webkit-scrollbar{
 
 /*code highlight*/
 code .c1{color:rgb(145, 184, 145);}
-code .kd{color:rgb(30, 132, 235);}
-/*code .dl,.s1{color:black;}*/
-code .p{color:gray}
+code .kd,.k{color:dodgerblue;}
+code .dl,.s2,.sr,.se{color:chocolate;}
+code .p{color:gray;}
