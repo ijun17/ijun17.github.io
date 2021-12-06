@@ -121,6 +121,8 @@ input[name="navbar"]:checked + .navbar{width:100%;height: auto;}
     border-radius:5px;
     vertical-align:middle;
     white-space: nowrap;
+    margin:5px 0px 0px 0px;
 }
 .navbar-file:hover{font-weight: bold;}
 .navbar-file-selected{font-weight: bold;color:cornflowerblue;}
+.navbar-file[data-url=""]{font-weight: bold;color:cornflowerblue;}

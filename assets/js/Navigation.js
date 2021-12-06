@@ -27,29 +27,26 @@ let navbar_id_count=0;
 let navbar_folder_id_count=0;
 
 let Navigation = {
-    currentPost: null,
-    posts:[],
+    styleSheets: null,
     init:function(){
         this.createNavbars(navigations);
         html_categories.remove();
-        this.posts=document.querySelectorAll(".navbar-file");
-        for (let post of this.posts) {post.addEventListener("click", function () {
-            if(post.dataset.url === document.location.pathname){return;}
-            Navigation.changeCurrentPost(this.dataset.url)
-            window.scrollTo( 0, 0 );
-            document.querySelector(".post-content").classList.add("post-loading");});
-        }
+
+        let styleEl = document.createElement('style');
+        document.head.appendChild(styleEl);
+        this.styleSheet = styleEl.sheet;
         this.changeCurrentPost(document.location.pathname);
-    },
-    changeCurrentPost:function(changeUrl){
-        for(let post of this.posts){
-            if(post.dataset.url===changeUrl){
-                if(Navigation.currentPost!=null)Navigation.currentPost.classList.remove("navbar-file-selected");
-                Navigation.currentPost = post;
-                post.classList.add("navbar-file-selected");
-                return;
+        document.addEventListener("click",function(event){
+            if (event.target.classList.contains("navbar-file")) {
+                Navigation.changeCurrentPost(event.target.dataset.url, true);
             }
-        }
+        });
+        window.addEventListener("popstate",function () { Navigation.changeCurrentPost(document.location.pathname); }) 
+    },
+    //highright post 
+    changeCurrentPost:function(changeUrl){
+        if(this.styleSheet.cssRules.length>0)this.styleSheet.deleteRule(0);
+        this.styleSheet.insertRule(`.navbar-file[data-url="${changeUrl}"]{font-weight: bold;color:cornflowerblue;}`);
     },
     createFolder: function (dir, html_div) {
         let folders = dir.folders;

@@ -3,7 +3,7 @@
     {% for category in site.categories %}
         <ol class="{{ category | first }}">
         {% for post in category[1] %}
-            <li  class="dynamic-post navbar-file" data-url="{{ post.url }}" style="margin:5px 0px 0px 0px;border-radius:5px;">{{ post.title }}</li>
+            <li  class="dynamic-post navbar-file" data-url="{{ post.url }}">{{ post.title }}</li>
         {% endfor %}
         </ol>
     {% endfor %}

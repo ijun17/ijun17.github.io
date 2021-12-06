@@ -27,7 +27,7 @@ div::-webkit-scrollbar{
     margin-top:40px;
     margin-bottom:10px;
 }
-.post-content p,li{
+.post-content p,.post-content li{
     color:rgb(70,70,70);
     line-height: 160%;
     font-size: 16px;
