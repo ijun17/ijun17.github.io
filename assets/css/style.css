@@ -1,3 +1,7 @@
+:root{
+    --background-color:#F1F4F9;
+}
+
 *{
     margin:0px;
     padding:0px;
@@ -9,15 +13,7 @@ body{
     flex-direction:row;
     /*font-family: sans-serif, Helvetica, Arial;*/
     font-family:'Arial Narrow Bold', sans-serif;
-    background-color:#F1F4F9;
-}
-
-/*theme colot 
-lavenderblush
-*/
-
-:root{
-    --main-color: #F1F4F9;
+    background-color:var(--background-color);
 }
 
 ::selection{

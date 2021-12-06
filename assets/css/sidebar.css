@@ -72,20 +72,13 @@
     color:darkgray;
     transition: all 0.2s ease 0s;
 }
-input[name="navbar-title"]:checked + label{
-    color:dimgrey;font-weight: bold;
-}
 
 .navbar{
     overflow-x: hidden;
     transition: all 0.2s ease 0s;
     height:0;
-
     width:0;
-    /*transform: scaleY(0);*/
 }
-input[name="navbar"]:checked + .navbar{width:100%;height: auto;}
-/*input[name="navbar"]:checked + .navbar{height: auto;transform: scaleY(1);}*/
 
 .navbar-folder{
     display:flex;
@@ -124,5 +117,3 @@ input[name="navbar"]:checked + .navbar{width:100%;height: auto;}
     margin:5px 0px 0px 0px;
 }
 .navbar-file:hover{font-weight: bold;}
-.navbar-file-selected{font-weight: bold;color:cornflowerblue;}
-.navbar-file[data-url=""]{font-weight: bold;color:cornflowerblue;}

@@ -28,21 +28,21 @@ div::-webkit-scrollbar{
     margin-bottom:10px;
 }
 .post-content p,.post-content li{
-    color:rgb(70,70,70);
-    line-height: 160%;
+    color:black;
+    line-height: 28px;
     font-size: 16px;
     font-weight: 500;
-    margin:10px 0 10px 0;
+    margin:18px 0 18px 0;
 }
 
 .post-content li{
-    margin:0 0 0 30px;
+    margin:0 0 0 50px;
 }
 
 .post blockquote{
     background-color: rgb(247, 247, 247);
     border-left: solid 4px darkgray;
-    padding:5px;
+    padding:5px 5px 5px 9px;
 }
 
 .highlighter-rouge *{

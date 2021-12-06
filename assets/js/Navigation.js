@@ -27,28 +27,34 @@ let navbar_id_count=0;
 let navbar_folder_id_count=0;
 
 let Navigation = {
-    styleSheets: null,
     init:function(){
         this.createNavbars(navigations);
         html_categories.remove();
 
-        let styleEl = document.createElement('style');
-        document.head.appendChild(styleEl);
-        this.styleSheet = styleEl.sheet;
-        this.changeCurrentPost(document.location.pathname);
+        this.styleSheet_currentPost = document.head.appendChild(document.createElement('style')).sheet;
+        this.styleSheet_currentNavbar = document.head.appendChild(document.createElement('style')).sheet;
+        this.setCurrentPost(document.location.pathname);
+        this.setCurrentNavbar(0);
+
         document.addEventListener("click",function(event){
-            if (event.target.classList.contains("navbar-file")) {
-                Navigation.changeCurrentPost(event.target.dataset.url, true);
-            }
+            if (event.target.classList.contains("navbar-file")) Navigation.setCurrentPost(event.target.dataset.url);
+            if (event.target.classList.contains("navbar-title")) Navigation.setCurrentNavbar(event.target.dataset.navbar);
         });
-        window.addEventListener("popstate",function () { Navigation.changeCurrentPost(document.location.pathname); }) 
+        window.addEventListener("popstate",function () { Navigation.setCurrentPost(document.location.pathname); }) 
     },
-    //highright post 
-    changeCurrentPost:function(changeUrl){
-        if(this.styleSheet.cssRules.length>0)this.styleSheet.deleteRule(0);
-        this.styleSheet.insertRule(`.navbar-file[data-url="${changeUrl}"]{font-weight: bold;color:cornflowerblue;}`);
+    setCurrentPost:function(url){
+        if(this.styleSheet_currentPost.cssRules.length>0)this.styleSheet_currentPost.deleteRule(0);
+        this.styleSheet_currentPost.insertRule(`.navbar-file[data-url="${url}"]{font-weight: bold;color:cornflowerblue;}`);
     },
-    createFolder: function (dir, html_div) {
+    setCurrentNavbar:function(num){
+        if(this.styleSheet_currentNavbar.cssRules.length>1){
+            this.styleSheet_currentNavbar.deleteRule(0);
+            this.styleSheet_currentNavbar.deleteRule(0);
+        }
+        this.styleSheet_currentNavbar.insertRule(`.navbar[data-navbar="${num}"]{width:100%;height:auto;}`);
+        this.styleSheet_currentNavbar.insertRule(`.navbar-title[data-navbar="${num}"]{color:dimgrey;font-weight: bold;}`);
+    },
+    createFolder: function (dir) {
         let folders = dir.folders;
         let category = dir.category;
         let innerHTML="";
@@ -66,12 +72,8 @@ let Navigation = {
     },
     createNavbars: function (navigations) {
         for (let navigation of navigations) {
-            html_navNavbarTitleWrapper.innerHTML += `
-            <input type="radio" name="navbar-title" ${navbar_id_count === 0 ? "checked" : ""}>
-            <label class="navbar-title" for="navbar${navbar_id_count}" onclick="this.previousElementSibling.click();">${navigation.title}</label>`
-            html_navNavbarWrapper.innerHTML += `
-            <input type="radio" id="navbar${navbar_id_count}" name="navbar" ${navbar_id_count++ === 0 ? "checked" : ""}>
-            <div class="navbar">${this.createFolder(navigation)}</div>`;
+            html_navNavbarTitleWrapper.innerHTML += `<label class="navbar-title" data-navbar="${navbar_id_count}">${navigation.title}</label>`;
+            html_navNavbarWrapper.innerHTML += `<div class="navbar" data-navbar="${navbar_id_count++}">${this.createFolder(navigation)}</div>`;
         }
     }
 }
