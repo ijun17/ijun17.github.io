@@ -13,30 +13,41 @@
 
 .post-content{
     padding:10px 0 10px 0;
-    border-top: solid 3px rgb(240, 240, 240);
-    border-bottom: solid 3px rgb(240, 240, 240);
+    border-top: solid 2px rgb(240, 240, 240);
+    border-bottom: solid 2px rgb(240, 240, 240);
     font-size: 18px;
     font-weight: 400;
 }
 
-div::-webkit-scrollbar{
-    height: 0;
+/*responsive*/
+@media screen and (max-width: 1160px) {
+    .post{
+        width:100%;
+        margin:0;
+        padding:15px;
+        border-radius: 0;
+    }
+    #sidebar_button:checked ~ .sidebar{left:0px;}
+    .sidebar-button{display: block;}
 }
 
+
+
+/*post content*/
 .post-content h1,h2,h3,h4{
     margin-top:40px;
     margin-bottom:10px;
 }
 .post-content p,.post-content li{
     color:black;
-    line-height: 28px;
+    line-height: 24px;
     font-size: 16px;
     font-weight: 500;
-    margin:18px 0 18px 0;
+    margin:12px 0 12px 0;
 }
 
 .post-content li{
-    margin:0 0 0 50px;
+    margin:0 0 0 40px;
 }
 
 table {

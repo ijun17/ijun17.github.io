@@ -1,7 +1,13 @@
+body::before{
+    content:"";
+    width:320px;
+    height:100px;
+}
+
 .sidebar{
     position:fixed;
     top:0px; 
-    left:-320px;
+    left:0px;
     width:320px;
     height:100%;
     padding: 10px;
@@ -19,16 +25,9 @@
     -webkit-user-select: none;
     user-select: none;
 }
-#sidebar_button:checked ~ .sidebar{left:0px;}
+.sidebar-button{display: none;}
 .sidebar::-webkit-scrollbar{width: 0px;}
-
-.sidebar:root{
-    --url:"/spa-blog/2021/11/20/spa-blog-1.html";
-}
-
-.sidebar input{
-    display: none;
-}
+.sidebar input{display: none;}
 
 .sidebar-profile{
     height:200px;
@@ -38,18 +37,22 @@
 }
 
 .profile-name{
-    /*border:solid 5px black;*/
     color:white;
-    /*width:100px;*/
     font-size: 30px;
     font-weight:bold;
     text-align:center;
-    /*background-color: rgba(255, 248, 220, 0.253);*/
 }
 
-.sidebar-behind{
-    width:320px;
-    height:auto;
+/*responsive*/
+@media screen and (max-width: 1160px) {
+    body::before{
+        width:0;
+    }
+    .sidebar{
+        left:-320px;
+    }
+    #sidebar_button:checked ~ .sidebar{left:0px;}
+    .sidebar-button{display: block;}
 }
 
 /*SIDEBAR - NAVIGATION*/

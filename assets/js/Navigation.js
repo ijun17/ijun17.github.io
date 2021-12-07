@@ -1,7 +1,6 @@
 const html_categories=document.querySelector(".categories");
 const html_sidebar=document.querySelector(".sidebar");
 const html_sidebarButton = document.querySelector(".sidebar-button");
-const html_sidebarBehind = document.querySelector(".sidebar-behind");
 const html_sidebarNav = document.querySelector(".sidebar-nav");
 const html_navNavbarWrapper=document.querySelector(".nav-navbar-wrapper");
 const html_navNavbarTitleWrapper = document.querySelector(".nav-navbar-title-wrapper");
@@ -61,7 +60,7 @@ let Navigation = {
         if (folders != undefined) for (let folder of folders) {
             innerHTML+=`
             <label for="navbar_folder${navbar_folder_id_count}" class="navbar-folder">${folder.name}</label>
-            <input type="checkbox" id="navbar_folder${navbar_folder_id_count++}" class="navbar-folder-checkbox">
+            <input type="checkbox" id="navbar_folder${navbar_folder_id_count++}" class="navbar-folder-checkbox" ${folder.category==undefined?"checked":""}>
             <div class="navbar-folder-box">${this.createFolder(folder)}</div>`;
         }
         if (category != undefined) {

@@ -4,8 +4,8 @@ layout: default
 <article class="post">
     <!--post start-->
     <header class="post-header">
-        <p class="post-dir" style="color:gray;font-weight:bold;">{{ page.category | replace: "-"," "}} / {{ page.date | date_to_string }}</p>
         <h1 class="post-title" style="font-size:36px;margin:0px;">{{ page.title | escape }}</h1>
+        <p class="post-dir" style="color:gray;font-weight:bold;">{{ page.category | replace: "-"," "}} / {{ page.date | date_to_string }}</p>
     </header>
     <main class="post-content">
         {{ content }}
