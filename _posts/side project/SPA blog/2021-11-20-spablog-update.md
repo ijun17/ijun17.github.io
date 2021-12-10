@@ -2,6 +2,7 @@
 layout: post
 title: "my blog 업데이트 기록"
 category: "SPA-blog"
+order: 30
 ---
 ### 21.12.08
 * 코드 하이라이트 변경(예약어 검은색 볼드, 주석 밝은 회색)

@@ -2,7 +2,8 @@
     {% assign navbar_file_id = 0 %}
     {% for category in site.categories %}
         <ol class="{{ category | first }}">
-        {% for post in category[1] %}
+        {% assign post_list = category[1] | reverse | sort: "order" %}
+        {% for post in post_list %}
             <li  class="dynamic-post navbar-file" data-url="{{ post.url }}">{{ post.title }}</li>
         {% endfor %}
         </ol>

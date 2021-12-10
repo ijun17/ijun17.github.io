@@ -43,7 +43,9 @@
     font-size: 30px;
     font-weight:bold;
     text-align:center;
+    transition: all 0.3s ease 0s;
 }
+.profile-name:hover{font-size: 34px;}
 
 /*responsive*/
 @media screen and (max-width: 1160px) {
@@ -94,7 +96,7 @@
     line-height:35px;
     vertical-align:middle;
     font-size:21px;
-    color:black;
+    color:var(--text-color);
     padding-left:5px;
 }
 .navbar-folder:hover{font-weight: bold;}
@@ -112,7 +114,7 @@
 .navbar-file{
     font-size:14px;
     font-weight: 500;
-    color:rgb(50,50,50);
+    color:var(--text-color);
     line-height: 25px;
     border-radius:5px;
     vertical-align:middle;

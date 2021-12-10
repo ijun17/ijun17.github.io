@@ -1,7 +1,9 @@
 :root{
-    --background-color:#F1F4F9;
-    --post-text-color:#333333;
+    --background:#F1F4F9;
+    --text-color:#333333;
+    --text-highlight-color:cornflowerblue;
     --base-font:sans-serif, Helvetica, Arial;
+    --post-background:white;
 }
 
 *{
@@ -14,7 +16,7 @@ body{
     display: flex;
     flex-direction:row;
     font-family: var(--base-font);
-    background-color:var(--background-color);
+    background-color:var(--background);
 }
 
 ::selection{

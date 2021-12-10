@@ -3,6 +3,7 @@ const html_post=document.querySelector(".post");
 let Dynamic = {
     xmlHttp: new XMLHttpRequest(),
     init: function () {
+        this.createHyperlink();
         this.xmlHttp.onreadystatechange = function () {
             if (this.status == 200 && this.readyState == this.DONE) Dynamic.setPost(this.responseText);
         }
@@ -24,7 +25,18 @@ let Dynamic = {
     },
     //포스트 로드가 완료되면 실행되는 함수
     setPost: function (text) { 
-        text.replace(/<!--post start-->(.*)<!--post end-->/s, function (match, p1) { html_post.innerHTML = p1; })
+        text.replace(/<!--post start-->(.*)<!--post end-->/s, function (match, p1) { html_post.innerHTML = p1; });
+        this.createHyperlink();
+    },
+    createHyperlink: function(){
+        const html_postContent=html_post.querySelector(".post-content");
+        const html_postHyperlink=html_post.querySelector(".post-hyperlink");
+        let linkList=html_postContent.querySelectorAll("h1");
+        for(let i=0; i<linkList.length;i++){
+            console.log("asdfsdaf");
+            linkList[i].id="hyper"+i;
+            html_postHyperlink.innerHTML+=`<li><a href="#hyper${i}">${linkList[i].innerText}</a></li>`
+        }
     }
 }
 
