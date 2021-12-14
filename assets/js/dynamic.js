@@ -1,9 +1,13 @@
 const html_post=document.querySelector(".post");
 
+/*
+
+*/
 let Dynamic = {
     xmlHttp: new XMLHttpRequest(),
     init: function () {
         this.createHyperlink();
+        this.createPostNav();
         this.xmlHttp.onreadystatechange = function () {
             if (this.status == 200 && this.readyState == this.DONE) Dynamic.setPost(this.responseText);
         }
@@ -27,15 +31,25 @@ let Dynamic = {
     setPost: function (text) { 
         text.replace(/<!--post start-->(.*)<!--post end-->/s, function (match, p1) { html_post.innerHTML = p1; });
         this.createHyperlink();
+        this.createPostNav();
     },
     createHyperlink: function(){
         const html_postContent=html_post.querySelector(".post-content");
         const html_postHyperlink=html_post.querySelector(".post-hyperlink");
         let linkList=html_postContent.querySelectorAll("h1");
         for(let i=0; i<linkList.length;i++){
-            console.log("asdfsdaf");
             linkList[i].id="hyper"+i;
             html_postHyperlink.innerHTML+=`<li><a href="#hyper${i}">${linkList[i].innerText}</a></li>`
+        }
+    },
+    createPostNav:function(){
+        const html_postDir=html_post.querySelector(".post-dir");
+        const post_category=html_postDir.dataset["category"];
+        const html_navCategory=html_navNavbarWrapper.querySelector(`[data-category=${post_category}]`);
+        if(html_navCategory!==null){
+            for(let category=html_navCategory.parentElement; category.dataset["category"]!=undefined; category=category.parentElement){
+                html_postDir.innerText=">"+category.dataset["category"]+html_postDir.innerText;
+            }
         }
     }
 }

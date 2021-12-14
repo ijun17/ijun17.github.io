@@ -1,6 +1,6 @@
 .sidebar-overlay{
     z-index: 1;
-    width:320px;
+    min-width:320px;
     height:100%;
     background-color: rgba(0,0,0,0.5);
 }
@@ -48,9 +48,9 @@
 .profile-name:hover{font-size: 34px;}
 
 /*responsive*/
-@media screen and (max-width: 1160px) {
+@media screen and (max-width: 1000px) {
     .sidebar{left:-320px;}
-    .sidebar-overlay{width:0;position: fixed;}
+    .sidebar-overlay{min-width:0;width:0;position: fixed;}
     .sidebar-button{display: block;}
     #sidebar_button:checked~.sidebar{left:0px;}
     #sidebar_button:checked~.sidebar-overlay{width:100%}

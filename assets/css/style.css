@@ -16,7 +16,7 @@ body{
     display: flex;
     flex-direction:row;
     font-family: var(--base-font);
-    background-color:var(--background);
+    background-color:white;
 }
 
 ::selection{

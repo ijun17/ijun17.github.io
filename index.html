@@ -1,13 +1,17 @@
 ---
 layout: post
-title: Home
+title: "Home"
+category: "main"
 ---
+<h1>자신 소개</h1>
 
+
+<h1>포스트 리스트</h1>
 <ul>
     {% for post in site.posts %}
       <li>
-        <!--<a href="{{ post.url }}">{{ post.title }}</a>-->
-        <a href="{{ post.url }}" class="dynamic-post" data-url="{{ post.url }}">{{ post.title }}</a>
+        <!--<a href="{{ post.url }}" class="dynamic-post" data-url="{{ post.url }}">{{ post.title }}</a>-->
+        <div class="dynamic-post" data-url="{{ post.url }}" style="color:var(--text-highlight-color);font-weight: bold;">{{ post.title }}</div>
       </li>
     {% endfor %}
 </ul>

@@ -53,26 +53,26 @@ let Navigation = {
         this.styleSheet_currentNavbar.insertRule(`.navbar[data-navbar="${num}"]{width:100%;height:auto;}`);
         this.styleSheet_currentNavbar.insertRule(`.navbar-title[data-navbar="${num}"]{color:dimgrey;font-weight: bold;}`);
     },
-    createFolder: function (dir) {
-        let folders = dir.folders;
-        let category = dir.category;
-        let innerHTML="";
-        if (folders != undefined) for (let folder of folders) {
-            innerHTML+=`
-            <label for="navbar_folder${navbar_folder_id_count}" class="navbar-folder">${folder.name}</label>
-            <input type="checkbox" id="navbar_folder${navbar_folder_id_count++}" class="navbar-folder-checkbox" ${folder.category==undefined?"checked":""}>
-            <div class="navbar-folder-box">${this.createFolder(folder)}</div>`;
-        }
-        if (category != undefined) {
-            let posts = html_categories.querySelector("." + category);
-            if(posts!=null)innerHTML+=`<ol>${posts.innerHTML}</ol>`;
-        }
-        return innerHTML;
-    },
     createNavbars: function (navigations) {
+        function createFolder(dir) {
+            let folders = dir.folders;
+            let category = dir.category;
+            let innerHTML = "";
+            if (folders != undefined) for (let folder of folders) {
+                innerHTML += `
+            <label for="navbar_folder${navbar_folder_id_count}" class="navbar-folder">${folder.name}</label>
+            <input type="checkbox" id="navbar_folder${navbar_folder_id_count++}" class="navbar-folder-checkbox" ${folder.category == undefined ? "checked" : ""}>
+            <div class="navbar-folder-box" data-category="${folder.name}">${createFolder(folder)}</div>`;
+            }
+            if (category != undefined) {
+                let posts = html_categories.querySelector("." + category);
+                if (posts != null) innerHTML += `<ol data-category="${category}">${posts.innerHTML}</ol>`;
+            }
+            return innerHTML;
+        }
         for (let navigation of navigations) {
             html_navNavbarTitleWrapper.innerHTML += `<label class="navbar-title" data-navbar="${navbar_id_count}">${navigation.title}</label>`;
-            html_navNavbarWrapper.innerHTML += `<div class="navbar" data-navbar="${navbar_id_count++}">${this.createFolder(navigation)}</div>`;
+            html_navNavbarWrapper.innerHTML += `<div class="navbar" data-navbar="${navbar_id_count++}" data-category="${navigation.title}">${createFolder(navigation)}</div>`;
         }
     }
 }
