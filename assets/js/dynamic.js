@@ -47,8 +47,9 @@ let Dynamic = {
         const post_category=html_postDir.dataset["category"];
         const html_navCategory=html_navNavbarWrapper.querySelector(`[data-category=${post_category}]`);
         if(html_navCategory!==null){
-            for(let category=html_navCategory.parentElement; category.dataset["category"]!=undefined; category=category.parentElement){
-                html_postDir.innerText=">"+category.dataset["category"]+html_postDir.innerText;
+            for(let category=html_navCategory.parentElement; category.dataset["foldername"]!=undefined; category=category.parentElement){
+                html_postDir.innerText=category.dataset["foldername"]+">"+html_postDir.innerText;
+                console.log("Asdfdsf");
             }
         }
     }
