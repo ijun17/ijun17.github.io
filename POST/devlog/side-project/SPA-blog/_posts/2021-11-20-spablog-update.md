@@ -1,7 +1,6 @@
 ---
 layout: post
-title: "my blog 업데이트 기록"
-category: "SPA-blog"
+title: "블로그 업데이트 기록"
 order: 30
 ---
 ### 21.12.14

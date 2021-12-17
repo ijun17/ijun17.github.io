@@ -4,7 +4,7 @@
         <ol class="{{ category | first }}">
         {% assign post_list = category[1] | reverse | sort: "order" %}
         {% for post in post_list %}
-            <li  class="dynamic-post navbar-file" data-url="{{ post.url }}">{{ post.title }}</li>
+            <li class="dynamic-link navbar-file" data-url="{{ post.url }}">{{ post.title }}</li>
         {% endfor %}
         </ol>
     {% endfor %}

@@ -7,14 +7,14 @@ const html_navNavbarTitleWrapper = document.querySelector(".nav-navbar-title-wra
 
 let navigations=[
 {title:"devlog",folders:[
-    {name:"Toy Project",folders:[
-        {name:"Level10(web game)",category:"devlog"},
+    {name:"side project",folders:[
+        {name:"Level10(web game)",category:"Level10"},
         {name:"SPA blog",category:"SPA-blog"}
+    ]},
+    {name:"study",folders:[
+        {name:"data structure",category:"data-structure"},
+        {name:"algorithm",category:"algorithm"}
     ]}
-]},
-{title:"study",folders:[
-    {name:"data structure",category:"data-structure"},
-    {name:"algorithm",category:"algorithm"}
 ]},
 {title:"기록",folders:[
     {name:"대학교",category:"대학교"},

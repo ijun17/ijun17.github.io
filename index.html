@@ -11,7 +11,7 @@ category: "main"
     {% for post in site.posts %}
       <li>
         <!--<a href="{{ post.url }}" class="dynamic-post" data-url="{{ post.url }}">{{ post.title }}</a>-->
-        <div class="dynamic-post" data-url="{{ post.url }}" style="color:var(--text-highlight-color);font-weight: bold;">{{ post.title }}</div>
+        <div class="dynamic-link" data-url="{{ post.url }}">{{ post.title }}</div>
       </li>
     {% endfor %}
 </ul>

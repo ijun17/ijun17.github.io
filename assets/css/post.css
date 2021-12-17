@@ -11,7 +11,7 @@
 .post-title{font-size:36px;margin-bottom:30px;}
 .post-info{
     display: flex;
-    justify-content: space-between;
+    justify-content:flex-end;
 }
 .post-dir{
     margin-top:30px;
@@ -61,6 +61,8 @@
 }
 
 /*post content*/
+.post-content .dynamic-link{color: var(--text-highlight-color);font-weight: bold;}
+.post-content .dynamic-link:hovar{text-decoration: underline;}
 .post-content>:is(h1,h2,h3,h4){margin-top:30px;}
 .post-content>h1{font-size: 30px;}
 
