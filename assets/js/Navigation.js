@@ -1,7 +1,4 @@
-const html_sidebar=document.querySelector(".sidebar");
-const html_sidebarNav = document.querySelector(".sidebar-nav");
-const html_navNavbarWrapper=document.querySelector(".nav-navbar-wrapper");
-const html_navNavbarTitleWrapper = document.querySelector(".nav-navbar-title-wrapper");
+const html_sidebarWrapper=document.querySelector(".sidebar-wrapper");
 
 let navigations=[
 {title:"devlog",folders:[
@@ -23,8 +20,14 @@ let navigations=[
 let Navigation = {
     category:null,
     init:function(){
-        fetch("/assets/data/categorizedPosts.json").then(res=>res.json())
-        .then(function(json){this.category=json;this.createNavbars(navigations);}.bind(this))
+        fetch("/assets/data/sidebar.html").then(res=>res.text()).then(function(text){
+            console.log(text)
+            html_sidebarWrapper.innerHTML=text;
+            fetch("/assets/data/categorizedPosts.json").then(res=>res.json()).then(function(json){
+                Navigation.category=json;
+                Navigation.createNavbars(navigations);
+            })
+        })
         
         this.styleSheet_currentPost = document.head.appendChild(document.createElement('style')).sheet;
         this.styleSheet_currentNavbar = document.head.appendChild(document.createElement('style')).sheet;
@@ -52,6 +55,8 @@ let Navigation = {
         this.styleSheet_currentNavbar.insertRule(`.navbar-title[data-navbar="${num}"]{color:dimgrey;font-weight: bold;}`);
     },
     createNavbars: function (navigations) {
+        const html_navNavbarWrapper=document.querySelector(".nav-navbar-wrapper");
+        const html_navNavbarTitleWrapper = document.querySelector(".nav-navbar-title-wrapper");
         let navbar_id_count=0;
         let navbar_folder_id_count=0;
         let createFolder=function(dir) {

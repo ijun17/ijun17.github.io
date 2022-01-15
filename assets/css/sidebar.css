@@ -1,8 +1,11 @@
 .sidebar-overlay{
     z-index: 1;
-    min-width:320px;
     height:100%;
     background-color: rgba(0,0,0,0.5);
+}
+
+.sidebar-wrapper{
+    min-width:320px;
 }
 
 .sidebar{
@@ -50,7 +53,8 @@
 /*responsive*/
 @media screen and (max-width: 1000px) {
     .sidebar{left:-320px;}
-    .sidebar-overlay{min-width:0;width:0;position: fixed;}
+    .sidebar-overlay{position: fixed;}
+    .sidebar-wrapper{min-width:0;width:0;}
     .sidebar-button{display: block;}
     #sidebar_button:checked~.sidebar{left:0px;}
     #sidebar_button:checked~.sidebar-overlay{width:100%}
