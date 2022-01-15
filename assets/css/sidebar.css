@@ -108,7 +108,8 @@
     transform-origin: top;
     transition:all 0.3s ease 0s;
 }
-.navbar-folder-checkbox:checked + .navbar-folder-box{height: auto;transform: scaleY(1);}
+/*.navbar-folder-checkbox:checked + .navbar-folder-box{height: auto;transform: scaleY(1);}*/
+.navbar-folder-open{height: auto;transform: scaleY(1);}
 
 .navbar-file{
     font-size:14px;
@@ -119,4 +120,6 @@
     vertical-align:middle;
     white-space: nowrap;
 }
-.navbar-file:hover{font-weight: bold;}
+.navbar-file:hover{
+    font-weight: bold;
+}

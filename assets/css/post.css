@@ -63,7 +63,7 @@
 }
 
 /*post content*/
-.post-content .dynamic-link{
+.post-content .post-link{
     color: var(--text-highlight-color);
     font-weight: bold;
     -ms-user-select: none; 
@@ -72,7 +72,7 @@
     -webkit-user-select: none;
     user-select: none;
 }
-.post-content .dynamic-link:hover{text-decoration: underline;}
+.post-content .post-link:hover{text-decoration: underline;}
 .post-content>:is(h1,h2,h3,h4){margin-top:30px;}
 .post-content>h1{font-size: 30px;}
 

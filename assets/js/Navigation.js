@@ -20,17 +20,11 @@ let navigations=[
 ]}
 ]
 
-let navbar_id_count=0;
-let navbar_folder_id_count=0;
-
 let Navigation = {
     category:null,
     init:function(){
-        (new Request(function(text){
-            this.category=JSON.parse(text);
-            this.createNavbars(navigations);
-            
-        }.bind(this))).load("/assets/data/categorizedPosts.json");
+        fetch("/assets/data/categorizedPosts.json").then(res=>res.json())
+        .then(function(json){this.category=json;this.createNavbars(navigations);}.bind(this))
         
         this.styleSheet_currentPost = document.head.appendChild(document.createElement('style')).sheet;
         this.styleSheet_currentNavbar = document.head.appendChild(document.createElement('style')).sheet;
@@ -38,8 +32,10 @@ let Navigation = {
         this.setCurrentNavbar(0);
 
         document.addEventListener("click",function(event){
-            if (event.target.classList.contains("navbar-file")) Navigation.setCurrentPost(event.target.dataset.url);
-            if (event.target.classList.contains("navbar-title")) Navigation.setCurrentNavbar(event.target.dataset.navbar);
+            let ele=event.target;
+            if (ele.classList.contains("navbar-file")) Navigation.setCurrentPost(ele.dataset.url);
+            if (ele.classList.contains("navbar-folder")) ele.nextElementSibling.classList.toggle("navbar-folder-open");
+            if (ele.classList.contains("navbar-title")) Navigation.setCurrentNavbar(ele.dataset.navbar);
         });
         window.addEventListener("popstate",function () { Navigation.setCurrentPost(document.location.pathname); }) 
     },
@@ -56,14 +52,15 @@ let Navigation = {
         this.styleSheet_currentNavbar.insertRule(`.navbar-title[data-navbar="${num}"]{color:dimgrey;font-weight: bold;}`);
     },
     createNavbars: function (navigations) {
-        createFolder=function(dir) {
+        let navbar_id_count=0;
+        let navbar_folder_id_count=0;
+        let createFolder=function(dir) {
             let folders = dir.folders;
             let category = dir.category;
             let innerHTML = "";
             if (folders != undefined) for (let folder of folders) {
                 innerHTML += `
             <label for="navbar_folder${navbar_folder_id_count}" class="navbar-folder">${folder.name}</label>
-            <input type="checkbox" id="navbar_folder${navbar_folder_id_count++}" class="navbar-folder-checkbox" ${folder.category == undefined ? "checked" : ""}>
             <div class="navbar-folder-box">${createFolder(folder)}</div>`;
             }
             if (category != undefined) innerHTML += `<ol data-category="${category}">${this.category[category]}</ol>`;

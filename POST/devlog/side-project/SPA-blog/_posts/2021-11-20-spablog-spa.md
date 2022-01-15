@@ -6,36 +6,14 @@ order: 0
 # SPA란
 `SPA(Single Page Application)`란 하나의 페이지에서 다른 페이지로 이동하지 않고 필요한 정보만 동적으로 가져오는 웹이다. 포스트 내용만 새로 렌더링하기 때문에 속도가 빠르다. 
 
-SPA를 구현하기 위해서는 자바스크립트가 필요하다. SPA를 쉽게 구현하기 위한 다양한 프레임워크가 있지만, 나는 그렇게 복잡한 기능을 구현하는것은 아니기 때문에 바닐라 자바스크립트로 SPA를 구현했다. 바닐라 자바스크립에는 SPA를 만들 수 있는 `XMLHttpRequest`라는 API가 있다. 나는 XMLHttpRequest를 더욱 간편하게 사용할 수 있게 Request라는 클래스로 캡슐화하였다.
+SPA를 구현하기 위해서는 자바스크립트가 필요하다. SPA를 쉽게 구현하기 위한 다양한 프레임워크가 있지만, 나는 그렇게 복잡한 기능을 구현하는것은 아니기 때문에 바닐라 자바스크립트로 SPA를 구현했다. 바닐라 자바스크립에는 SPA를 만들 수 있는 `fetch` API가 있다. fetch는 loadPost 메소드에서 사용되었다.
 
-```js
-class Request{
-    xmlHttp;
-    onload;
-    constructor(onload=function(){}){
-        this.xmlHttp=new XMLHttpRequest();
-        this.onload=onload;
-        let temp=this;
-        this.xmlHttp.onreadystatechange = function () {
-            if (this.status == 200 && this.readyState == this.DONE) temp.onload(this.responseText);
-        }
-    }
-    load(url){
-        this.xmlHttp.open("GET", url, true);
-        this.xmlHttp.send();
-    }
-}
-```
-아래는 Request 클래스를 이용해 포스트를 로드하고 렌더링하는 코드이다.
 ```js
 const html_post=document.querySelector(".post");
 
 let Post = {
     linkClassName:"post-link",
-    postRequest:null,
     init:function(){
-        this.renderPost();
-        this.postRequest=new Request(this.renderPost);
         //포스트 링크를 클릭시 loadPost 메소드 실행
         document.addEventListener("click", function(event){if (event.target.classList.contains(this.linkClassName)) this.loadPost(event.target.dataset.url, true);}.bind(this));
         //페이지 이전, 이후로 갈때 loadPost 메소드 실행
@@ -43,7 +21,8 @@ let Post = {
     },
     loadPost: function (url, historyPush=true) {
         if (url === document.location.pathname) return;
-        this.postRequest.load(url);
+        //fetch로 url의 텍스트 파일 받아오기
+        fetch(url).then((response)=>response.text()).then(this.renderPost);
         if (historyPush) history.pushState(null, null, url);
     },
     renderPost: function (text="") { 
