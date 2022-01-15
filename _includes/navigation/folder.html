@@ -1,0 +1,13 @@
+{% assign nav = include.nav %}
+
+{% if nav.subnav %}
+    {% for folder in nav.subnav %}
+        <label for="navbar_folder${navbar_folder_id_count}" class="navbar-folder">{{folder.name}}</label>
+        <input type="checkbox" id="navbar_folder${navbar_folder_id_count++}" class="navbar-folder-checkbox">
+        <div class="navbar-folder-box">{% include folder.html nav=folder.subnav %}</div>
+{% endfor %}
+{% endif %}
+
+{% if nav %}
+
+{% endif %}

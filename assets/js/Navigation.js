@@ -36,8 +36,11 @@ let Navigation = {
         this.setCurrentNavbar(0);
 
         document.addEventListener("click",function(event){
+
+            
             if (event.target.classList.contains("navbar-file")) Navigation.setCurrentPost(event.target.dataset.url);
             if (event.target.classList.contains("navbar-title")) Navigation.setCurrentNavbar(event.target.dataset.navbar);
+    
         });
         window.addEventListener("popstate",function () { Navigation.setCurrentPost(document.location.pathname); }) 
     },
@@ -62,7 +65,7 @@ let Navigation = {
                 innerHTML += `
             <label for="navbar_folder${navbar_folder_id_count}" class="navbar-folder">${folder.name}</label>
             <input type="checkbox" id="navbar_folder${navbar_folder_id_count++}" class="navbar-folder-checkbox" ${folder.category == undefined ? "checked" : ""}>
-            <div class="navbar-folder-box" data-foldername="${folder.name}">${createFolder(folder)}</div>`;
+            <div class="navbar-folder-box">${createFolder(folder)}</div>`;
             }
             if (category != undefined) {
                 let posts = html_categories.querySelector("." + category);
@@ -72,7 +75,7 @@ let Navigation = {
         }
         for (let navigation of navigations) {
             html_navNavbarTitleWrapper.innerHTML += `<label class="navbar-title" data-navbar="${navbar_id_count}">${navigation.title}</label>`;
-            html_navNavbarWrapper.innerHTML += `<div class="navbar" data-navbar="${navbar_id_count++}" data-foldername="${navigation.title}">${createFolder(navigation)}</div>`;
+            html_navNavbarWrapper.innerHTML += `<div class="navbar" data-navbar="${navbar_id_count++}">${createFolder(navigation)}</div>`;
         }
     }
 }

@@ -16,9 +16,9 @@
 .post-dir{
     margin-top:30px;
     border-radius: 10px;
-    color:darkgray;
+    color:var(--text-highlight-color);
     font-weight: bold;
-    background-color: var(--background);
+    /*background-color: var(--background);*/
     padding: 3px;
     width:fit-content;
 }
@@ -58,11 +58,21 @@
 @media screen and (max-width: 600px) {
     .post{padding:15px;}
     .post-title{font-size: 30px;}
+    .post-dir{font-size: 14px;}
+    .post-date{font-size: 14px;}
 }
 
 /*post content*/
-.post-content .dynamic-link{color: var(--text-highlight-color);font-weight: bold;}
-.post-content .dynamic-link:hovar{text-decoration: underline;}
+.post-content .dynamic-link{
+    color: var(--text-highlight-color);
+    font-weight: bold;
+    -ms-user-select: none; 
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+.post-content .dynamic-link:hover{text-decoration: underline;}
 .post-content>:is(h1,h2,h3,h4){margin-top:30px;}
 .post-content>h1{font-size: 30px;}
 
@@ -117,6 +127,6 @@ tbody>tr:nth-child(2n+1){background-color: rgb(247, 247, 247);}
 
 /*code highlight*/
 code .c1{color:darkgray; font-style: italic;/*rgb(145, 184, 145);  darkseagreen*/}
-code :is(.kd,.k){font-weight: bold;}
-code :is(.dl,.s1,.s2,.sr,.se){color:var(--text-highlight-color);/*chocolate*/}
+code :is(.kd,.k,.nt){font-weight: bold;}
+code :is(.dl,.s1,.s2,.sr,.se,.s){color:var(--text-highlight-color);/*chocolate*/}
 code .p{color:dimgray;}

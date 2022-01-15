@@ -1,0 +1,19 @@
+{% assign navs = include.navigation %}
+{% assign id1 = 0 %}
+{% assign id2 = 0 %}
+
+<div class="nav-navbar-title-wrapper">
+{% for nav in include.navs %}
+    <label class="navbar-title" data-navbar="{{id1}}">{{nav.title}}</label>
+    {% assign id1 = id1 | plus: 1 %}
+{% endfor %}
+</div>
+
+<div class="nav-navbar-wrapper">
+{% for nav in include.navs %}
+    <div class="navbar" data-navbar="{{id2}}">
+        {% include subnav.html navigation=nav %}
+    </div>
+    {% assign id2 = id2 | plus: 1 %}
+{% endfor %}
+</div>

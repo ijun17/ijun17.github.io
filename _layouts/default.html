@@ -1,14 +1,22 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
-    {% include head.html %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title }}</title>
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/sidebar.css">
+    <link rel="stylesheet" href="/assets/css/post.css">
 </head>
+
 <body>
     {% include category.html %}
     {% include sidebar.html %}
     {{ content }}
-    {% include script.html %}
+    
+    <script src="/assets/js/Navigation.js"></script>
+    <script src="/assets/js/dynamic.js"></script>
 </body>
+
 </html>
-
-

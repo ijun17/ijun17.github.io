@@ -29,6 +29,7 @@ let Dynamic = {
     //포스트 로드가 완료되면 실행되는 함수
     setPost: function (text) { 
         text.replace(/<!--post start-->(.*)<!--post end-->/s, function (match, p1) { html_post.innerHTML = p1; });
+        document.title=html_post.querySelector(".post-title").innerText;
         this.createHyperlink();
     },
     createHyperlink: function(){
