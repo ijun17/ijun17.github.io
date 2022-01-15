@@ -1,6 +1,4 @@
-const html_categories=document.querySelector(".categories");
 const html_sidebar=document.querySelector(".sidebar");
-const html_sidebarButton = document.querySelector(".sidebar-button");
 const html_sidebarNav = document.querySelector(".sidebar-nav");
 const html_navNavbarWrapper=document.querySelector(".nav-navbar-wrapper");
 const html_navNavbarTitleWrapper = document.querySelector(".nav-navbar-title-wrapper");
@@ -26,21 +24,22 @@ let navbar_id_count=0;
 let navbar_folder_id_count=0;
 
 let Navigation = {
+    category:null,
     init:function(){
-        this.createNavbars(navigations);
-        html_categories.remove();
-
+        (new Request(function(text){
+            this.category=JSON.parse(text);
+            this.createNavbars(navigations);
+            
+        }.bind(this))).load("/assets/data/categorizedPosts.json");
+        
         this.styleSheet_currentPost = document.head.appendChild(document.createElement('style')).sheet;
         this.styleSheet_currentNavbar = document.head.appendChild(document.createElement('style')).sheet;
         this.setCurrentPost(document.location.pathname);
         this.setCurrentNavbar(0);
 
         document.addEventListener("click",function(event){
-
-            
             if (event.target.classList.contains("navbar-file")) Navigation.setCurrentPost(event.target.dataset.url);
             if (event.target.classList.contains("navbar-title")) Navigation.setCurrentNavbar(event.target.dataset.navbar);
-    
         });
         window.addEventListener("popstate",function () { Navigation.setCurrentPost(document.location.pathname); }) 
     },
@@ -57,7 +56,7 @@ let Navigation = {
         this.styleSheet_currentNavbar.insertRule(`.navbar-title[data-navbar="${num}"]{color:dimgrey;font-weight: bold;}`);
     },
     createNavbars: function (navigations) {
-        function createFolder(dir) {
+        createFolder=function(dir) {
             let folders = dir.folders;
             let category = dir.category;
             let innerHTML = "";
@@ -67,12 +66,10 @@ let Navigation = {
             <input type="checkbox" id="navbar_folder${navbar_folder_id_count++}" class="navbar-folder-checkbox" ${folder.category == undefined ? "checked" : ""}>
             <div class="navbar-folder-box">${createFolder(folder)}</div>`;
             }
-            if (category != undefined) {
-                let posts = html_categories.querySelector("." + category);
-                if (posts != null) innerHTML += `<ol data-category="${category}">${posts.innerHTML}</ol>`;
-            }
+            if (category != undefined) innerHTML += `<ol data-category="${category}">${this.category[category]}</ol>`;
             return innerHTML;
-        }
+        }.bind(this);
+
         for (let navigation of navigations) {
             html_navNavbarTitleWrapper.innerHTML += `<label class="navbar-title" data-navbar="${navbar_id_count}">${navigation.title}</label>`;
             html_navNavbarWrapper.innerHTML += `<div class="navbar" data-navbar="${navbar_id_count++}">${createFolder(navigation)}</div>`;

@@ -1,0 +1,12 @@
+---
+---
+{
+{% for category in site.categories %}
+    {% assign invurl = category[1][0].url | split: "/" | reverse%}
+    {% assign downcate = category[0] | downcase %}
+    {% if invurl[1] == downcate %}
+        {% assign post_list = category[1] | reverse | sort: "order" %}"{{ category | first }}" : "{% for post in post_list %}<li><a class='post-link navbar-file' data-url='{{ post.url }}'>{{ post.title }}</a></li>{% endfor %}",
+    {% endif %}
+{% endfor %}
+"key" : "value"
+}
