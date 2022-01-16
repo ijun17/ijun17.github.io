@@ -77,12 +77,9 @@
 .post-content>:is(h1,h2,h3,h4){margin-top:30px;}
 .post-content>h1{font-size: 30px;}
 
-.post-content :is(p,li){
-    line-height: 26px;
-    font-size: 16px;
-    margin:10px 0;
-}
-.post-content li{margin:0 0 0 40px;}
+.post-content p{line-height: 26px;font-size: 16px;margin:10px 0;}
+
+.post-content :is(ul, ol){line-height: 26px;font-size: 16px;margin:10px 0 10px 40px;}
 
 table {
     display: table;
