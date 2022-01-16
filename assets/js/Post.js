@@ -7,12 +7,12 @@ let Post = {
         //포스트 링크를 클릭시 loadPost 메소드 실행
         document.addEventListener("click", function(event){if (event.target.classList.contains(this.linkClassName)) this.loadPost(event.target.dataset.url, true);}.bind(this));
         //페이지 이전, 이후로 갈때 loadPost 메소드 실행
-        window.addEventListener("popstate",function(){this.loadPost(document.location, false);}.bind(this))
+        URL.addEvent(function(){this.loadPost(document.location, false);}.bind(this))
     },
     loadPost: function (url, historyPush=true) {
         if (url === document.location.pathname) return;
         fetch(url).then((response)=>response.text()).then(this.renderPost);
-        if (historyPush) history.pushState(null, null, url);
+        if (historyPush) URL.set(url);
     },
     renderPost: function (text="") { 
         text.replace(/<!--post start-->(.*)<!--post end-->/s, function (match, p1) { html_post.innerHTML = p1; });

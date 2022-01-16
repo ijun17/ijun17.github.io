@@ -2,7 +2,7 @@
     {% if category[0] == include.category %}
         {% assign post_list = category[1] | reverse | sort: "order" %}
         {% for post in post_list %}
-            <li><a class='post-link navbar-file' data-url='{{ post.url }}'>{{ post.title }}</a></li>
+            <li><a class="post-link navbar-file" data-url="{{ post.url }}">{{ post.title }}</a></li>
         {% endfor %}
     {% endif %}
 {% endfor %}

@@ -1,34 +1,22 @@
 const html_sidebarWrapper=document.querySelector(".sidebar-wrapper");
 
 let Navigation = {
-    category:null,
     init:function(){
         fetch("/assets/data/sidebar.html").then(res=>res.text()).then(function(text){html_sidebarWrapper.innerHTML=text;})
         
-        this.styleSheet_currentPost = document.head.appendChild(document.createElement('style')).sheet;
-        this.styleSheet_currentNavbar = document.head.appendChild(document.createElement('style')).sheet;
-        this.setCurrentPost(document.location.pathname);
-        this.setCurrentNavbar(0);
+        let cssRuleid1=CSS.addRule((p)=>{return `.navbar-file[data-url="${p}"]{font-weight: bold;color:cornflowerblue;}`}, document.location.pathname);
+        let cssRuleid2=CSS.addRule((p)=>{return `.navbar[data-navbar="${p}"]{width:100%;height:auto;}`}, 0);
+        let cssRuleid3=CSS.addRule((p)=>{return `.navbar-title[data-navbar="${p}"]{color:dimgrey;font-weight: bold;}`}, 0);
 
         document.addEventListener("click",function(event){
             let ele=event.target;
-            if (ele.classList.contains("navbar-file")) Navigation.setCurrentPost(ele.dataset.url);
             if (ele.classList.contains("navbar-folder")) ele.nextElementSibling.classList.toggle("navbar-folder-open");
-            if (ele.classList.contains("navbar-title")) Navigation.setCurrentNavbar(ele.dataset.navbar);
+            else if (ele.classList.contains("navbar-title")) {
+                CSS.changeRule(cssRuleid2,ele.dataset.navbar);
+                CSS.changeRule(cssRuleid3,ele.dataset.navbar);
+            }
         });
-        window.addEventListener("popstate",function () { Navigation.setCurrentPost(document.location.pathname); }) 
-    },
-    setCurrentPost:function(url){
-        if(this.styleSheet_currentPost.cssRules.length>0)this.styleSheet_currentPost.deleteRule(0);
-        this.styleSheet_currentPost.insertRule(`.navbar-file[data-url="${url}"]{font-weight: bold;color:cornflowerblue;}`);
-    },
-    setCurrentNavbar:function(num){
-        if(this.styleSheet_currentNavbar.cssRules.length>1){
-            this.styleSheet_currentNavbar.deleteRule(0);
-            this.styleSheet_currentNavbar.deleteRule(0);
-        }
-        this.styleSheet_currentNavbar.insertRule(`.navbar[data-navbar="${num}"]{width:100%;height:auto;}`);
-        this.styleSheet_currentNavbar.insertRule(`.navbar-title[data-navbar="${num}"]{color:dimgrey;font-weight: bold;}`);
+        URL.addEvent(function (event) {CSS.changeRule(cssRuleid1,document.location.pathname); }) 
     }
 }
 
