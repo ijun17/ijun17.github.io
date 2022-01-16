@@ -73,6 +73,7 @@
     user-select: none;
 }
 .post-content .post-link:hover{text-decoration: underline;}
+.post-content a{font-weight: bold;}
 .post-content>:is(h1,h2,h3,h4){margin-top:30px;}
 .post-content>h1{font-size: 30px;}
 
@@ -81,7 +82,6 @@
     font-size: 16px;
     margin:10px 0;
 }
-
 .post-content li{margin:0 0 0 40px;}
 
 table {

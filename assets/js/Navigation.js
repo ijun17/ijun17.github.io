@@ -1,33 +1,9 @@
 const html_sidebarWrapper=document.querySelector(".sidebar-wrapper");
 
-let navigations=[
-{title:"devlog",folders:[
-    {name:"side project",folders:[
-        {name:"Level10(web game)",category:"Level10"},
-        {name:"SPA blog",category:"SPA-blog"}
-    ]},
-    {name:"study",folders:[
-        {name:"data structure",category:"data-structure"},
-        {name:"algorithm",category:"algorithm"}
-    ]}
-]},
-{title:"기록",folders:[
-    {name:"대학교",category:"대학교"},
-    {name:"독서",category:"book"}
-]}
-]
-
 let Navigation = {
     category:null,
     init:function(){
-        fetch("/assets/data/sidebar.html").then(res=>res.text()).then(function(text){
-            console.log(text)
-            html_sidebarWrapper.innerHTML=text;
-            fetch("/assets/data/categorizedPosts.json").then(res=>res.json()).then(function(json){
-                Navigation.category=json;
-                Navigation.createNavbars(navigations);
-            })
-        })
+        fetch("/assets/data/sidebar.html").then(res=>res.text()).then(function(text){html_sidebarWrapper.innerHTML=text;})
         
         this.styleSheet_currentPost = document.head.appendChild(document.createElement('style')).sheet;
         this.styleSheet_currentNavbar = document.head.appendChild(document.createElement('style')).sheet;
@@ -53,30 +29,34 @@ let Navigation = {
         }
         this.styleSheet_currentNavbar.insertRule(`.navbar[data-navbar="${num}"]{width:100%;height:auto;}`);
         this.styleSheet_currentNavbar.insertRule(`.navbar-title[data-navbar="${num}"]{color:dimgrey;font-weight: bold;}`);
-    },
-    createNavbars: function (navigations) {
-        const html_navNavbarWrapper=document.querySelector(".nav-navbar-wrapper");
-        const html_navNavbarTitleWrapper = document.querySelector(".nav-navbar-title-wrapper");
-        let navbar_id_count=0;
-        let navbar_folder_id_count=0;
-        let createFolder=function(dir) {
-            let folders = dir.folders;
-            let category = dir.category;
-            let innerHTML = "";
-            if (folders != undefined) for (let folder of folders) {
-                innerHTML += `
-            <label for="navbar_folder${navbar_folder_id_count}" class="navbar-folder">${folder.name}</label>
-            <div class="navbar-folder-box">${createFolder(folder)}</div>`;
-            }
-            if (category != undefined) innerHTML += `<ol data-category="${category}">${this.category[category]}</ol>`;
-            return innerHTML;
-        }.bind(this);
-
-        for (let navigation of navigations) {
-            html_navNavbarTitleWrapper.innerHTML += `<label class="navbar-title" data-navbar="${navbar_id_count}">${navigation.title}</label>`;
-            html_navNavbarWrapper.innerHTML += `<div class="navbar" data-navbar="${navbar_id_count++}">${createFolder(navigation)}</div>`;
-        }
     }
 }
 
 Navigation.init();
+
+
+/*
+createNavbars: function (navigations) {
+    const html_navNavbarWrapper=document.querySelector(".nav-navbar-wrapper");
+    const html_navNavbarTitleWrapper = document.querySelector(".nav-navbar-title-wrapper");
+    let navbar_id_count=0;
+    let navbar_folder_id_count=0;
+    let createFolder=function(dir) {
+        let folders = dir.folders;
+        let category = dir.category;
+        let innerHTML = "";
+        if (folders != undefined) for (let folder of folders) {
+            innerHTML += `
+        <label for="navbar_folder${navbar_folder_id_count}" class="navbar-folder">${folder.name}</label>
+        <div class="navbar-folder-box">${createFolder(folder)}</div>`;
+        }
+        if (category != undefined) innerHTML += `<ol data-category="${category}">${this.category[category]}</ol>`;
+        return innerHTML;
+    }.bind(this);
+
+    for (let navigation of navigations) {
+        html_navNavbarTitleWrapper.innerHTML += `<label class="navbar-title" data-navbar="${navbar_id_count}">${navigation.title}</label>`;
+        html_navNavbarWrapper.innerHTML += `<div class="navbar" data-navbar="${navbar_id_count++}">${createFolder(navigation)}</div>`;
+    }
+}
+*/
