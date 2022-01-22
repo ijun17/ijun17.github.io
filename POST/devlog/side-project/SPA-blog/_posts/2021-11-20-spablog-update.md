@@ -26,4 +26,8 @@ order: 30
 ### 21.12.06
 * js CSSStyleSheet을 제어하여 특정 url 데이터를 가진 링크 하이라이트
 
-<div></div>
+### 22.01.16
+* XmlHttpRequest에서 fetch로 변경
+
+### 22.01.17
+* URL과 CSS API를 만들어 리팩토링

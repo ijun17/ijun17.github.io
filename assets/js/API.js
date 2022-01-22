@@ -21,14 +21,14 @@ URL.init();
 let CSS={
     sheet:null,
     rules:[],
-    changeRule:function(index,p){
-        if(CSS.rules.length>index){
-            CSS.sheet.insertRule(CSS.rules[index](p),index);
-            CSS.sheet.deleteRule(index+1);
+    setState:function(id,state){
+        if(CSS.rules.length>id){
+            CSS.sheet.insertRule(CSS.rules[id](state),id);
+            CSS.sheet.deleteRule(id+1);
         }
     },
-    addRule:function(f,p){
-        CSS.sheet.insertRule(f(p),CSS.rules.length);
+    addRule:function(f,state){
+        CSS.sheet.insertRule(f(state),CSS.rules.length);
         CSS.rules.push(f);
         return CSS.rules.length-1;
     },

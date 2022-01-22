@@ -1,21 +1,17 @@
 <!--navbar tabs-->
 <div class="nav-navbar-title-wrapper">
-{% for nav in site.data.navigation %}
+{%- for nav in site.data.navigation -%}
     <label class="navbar-title" data-navbar="{% increment id1 %}">{{nav.name}}</label>
-{% endfor %}
+{%- endfor -%}
 </div>
 
 <!--navbar subs-->
 <div class="nav-navbar-wrapper">
-{% for nav in site.data.navigation %}
+{%- for nav in site.data.navigation -%}
     <div class="navbar" data-navbar="{% increment id2 %}">
-        {% include nav-sub.html navigation=nav %}
+        {%- include nav-sub.html navigation=nav -%}
     </div>
-{% endfor %}
+{%- endfor -%}
 </div>
 
-<!--
-{% for nav in site.data.navigation %}
-    {% decrement id1 %}
-    {% decrement id2 %}
-{% endfor %}-->
+<!--{%- for nav in site.data.navigation -%}{%- decrement id1 -%}{%- decrement id2 -%}{%- endfor -%}-->
