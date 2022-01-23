@@ -1,4 +1,5 @@
 const html_post=document.querySelector(".post");
+const html_postContent=html_post.querySelector(".post-content")
 
 let Post = {
     linkClassName:"post-link",
@@ -15,16 +16,32 @@ let Post = {
         if (historyPush) URL.set(url);
     },
     renderPost: function (text="") { 
-        text.replace(/<!--post start-->(.*)<!--post end-->/s, function (match, p1) { html_post.innerHTML = p1; });
-        document.title=html_post.querySelector(".post-title").innerText;
-
-        //하이퍼 링크 생성
-        const html_postHyperlink=html_post.querySelector(".post-hyperlink");
-        let hyperlinkList=html_post.querySelector(".post-content").querySelectorAll("h1");
-        for(let i=0; i<hyperlinkList.length;i++){
-            hyperlinkList[i].id="hyper"+i;
-            html_postHyperlink.innerHTML+=`<li><a href="#hyper${i}">${hyperlinkList[i].innerText}</a></li>`
-        }
+        text.replace(/<!--post start-->(.*)<!--post end-->/s, function (match, p1) { html_postContent.innerHTML = p1; });
+        document.title=document.querySelector(".post-info").dataset["title"];
+        Post.renderHeader();
+        Post.renderFooter();
+    },
+    renderHeader: function(){
+        const html_postHeader=document.querySelector(".post-header");
+        const html_postInfo=document.querySelector(".post-info");
+        html_postHeader.innerHTML=`
+            <div class="post-dir navbar-folder-opener" data-category="${html_postInfo.dataset["dir"].split(">").pop()}">${html_postInfo.dataset["dir"]}</div>
+            <h1 class="post-title">${html_postInfo.dataset["title"]}</h1>
+            <div class="post-date">${html_postInfo.dataset["date"]}</div>
+            <ol class="post-hyperlink"><p style="font-weight: bold;font-size:17px;">목차</p>
+            ${(function(){
+                let hyperlinkList=html_postContent.querySelectorAll("h1");
+                let html="";
+                for(let i=0; i<hyperlinkList.length;i++){
+                    hyperlinkList[i].id="hyper"+i;
+                    html+=`<li><a href="#hyper${i}">${hyperlinkList[i].innerText}</a></li>`
+                }
+                return html;
+            })()}
+            </ol>`;
+    },
+    renderFooter:function(){
+        const html_postFooter=document.querySelector(".post-footer");
     }
 }
 

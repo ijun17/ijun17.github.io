@@ -1,15 +1,15 @@
 [
-{"name":"devlog","folders":[
-    {"name":"side project","folders":[
-        {"name":"Level10(web game)","category":"Level10"},
-        {"name":"SPA blog","category":"SPA-blog"}
+{"name":"devlog","sub":[
+    {"name":"side project","sub":[
+        {"name":"Level10(web game)","category":"Level10(web game)"},
+        {"name":"SPA blog","category":"SPA blog"}
     ]},
-    {"name":"study","folders":[
+    {"name":"study","sub":[
         {"name":"data structure","category":"data-structure"},
         {"name":"algorithm","category":"algorithm"}
     ]}
 ]},
-{"name":"기록","folders":[
+{"name":"기록","sub":[
     {"name":"대학교","category":"대학교"},
     {"name":"독서","category":"book"}
 ]}

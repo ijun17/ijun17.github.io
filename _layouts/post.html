@@ -16,21 +16,14 @@ layout: default
 <body>
     <div class="sidebar-wrapper"></div>
     <article class="post">
-        <!--post start-->
-        <header class="post-header">
-            <div class="post-dir">{{page.categories | slice: 1, 10 | join: '>' | replace: '-', ' '}}</div>
-            <h1 class="post-title">{{ page.title | escape }}</h1>
-            <div class="post-info">
-                <div class="post-date">{{ page.date | date_to_string }}</div>
-            </div>
-            <ol class="post-hyperlink"><p style="font-weight: bold;font-size:17px;">목차</p></ol>
-        </header>
+        <header class="post-header"></header>
         <main class="post-content">
+            <!--post start-->
+            <div class="post-info" data-dir="{{page.categories | slice: 1, 10 | join: '>' | replace: '-', ' '}}" data-title="{{ page.title | escape }}" data-date="{{ page.date | date_to_string }}"></div>
             {{ content }}
+            <!--post end-->
         </main>
-        <footer class="post-footer">
-        </footer>
-        <!--post end-->
+        <footer class="post-footer"></footer>
     </article>
     <script src="/assets/js/API.js"></script>
     <script src="/assets/js/Navigation.js"></script>
