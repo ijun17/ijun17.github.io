@@ -40,16 +40,16 @@ order: 1
 ```html
 <!--navbar tabs-->
 <div class="nav-navbar-title-wrapper">
-{% for nav in site.data.navigation %}
-    <label class="navbar-title" data-navbar="{% increment id1 %}">{{nav.name}}</label>
-{% endfor %}
+{%- for nav in site.data.directory -%}
+    <div class="navbar-title" data-navbar="{% increment navbarID1 %}">{{nav.category}}</div>
+{%- endfor -%}
 </div>
 
 <!--navbar subs-->
 <div class="nav-navbar-wrapper">
-{% for nav in site.data.navigation %}
-    <div class="navbar" data-navbar="{% increment id2 %}">{% include nav-sub.html navigation=nav %}</div>
-{% endfor %}
+{%- for nav in site.data.directory -%}
+    <div class="navbar" data-navbar="{% increment navbarID2 %}">{%- include nav-sub.html navigation=nav -%}</div>
+{%- endfor -%}
 </div>
 ```
 
@@ -84,8 +84,8 @@ order: 1
 
 # js로 구현(사용X)
 js는 다음과 같은 이유로 **지금은 사용하지 않는다.**
-* 카테고리를 분류하는 작업은 jekyll의 도움이 필요하다.
-* 디렉토리 정보와 분류된 포스트 정보를 불러오는 작업을 해야한다.
+* 포스트를 분류하는 작업은 jekyll의 도움이 필요하다.
+* 사이드바를 불러온뒤 디렉토리 정보와 분류된 포스트 정보를 불러오는 작업을 해야한다.
 
 ```js
 createNavbars: function (navigations) {
@@ -94,16 +94,16 @@ createNavbars: function (navigations) {
     let navbar_id_count=0;
     let navbar_folder_id_count=0;
     let createFolder=function(dir) {
-        let folders = dir.sub;
+        let sub = dir.sub;
         let category = dir.category;
         let innerHTML = "";
-        if (folders != undefined) for (let folder of folders) {
+        if (sub != undefined) for (let folder of sub) {
             innerHTML += `
-        <label for="navbar_folder${navbar_folder_id_count}" class="navbar-folder">${folder.name}</label>
+        <div for="navbar_folder${navbar_folder_id_count}" class="navbar-folder">${folder.category}</div>
         <div class="navbar-folder-box">${createFolder(folder)}</div>`;
         }else{
             //this.category는 카테고리별로 분류한 포스트 리스트의 객체
-            innerHTML += `<ol>${this.category[category]}</ol>`;
+            innerHTML += `<ol>${this.categorizedPosts[category]}</ol>`;
         }
         return innerHTML;
     }.bind(this);

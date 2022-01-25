@@ -7,7 +7,7 @@ let Navigation = {
         
         let cssRuleid1=CSS.addRule((s)=>{return `.navbar-file[data-url="${s}"]{font-weight: bold;color:cornflowerblue;}`}, document.location.pathname);
         let cssRuleid2=CSS.addRule((s)=>{return `.navbar[data-navbar="${s}"]{width:100%;height:auto;}`}, 0);
-        let cssRuleid3=CSS.addRule((s)=>{return `.navbar-title[data-navbar="${s}"]{color:dimgrey;font-weight: bold;}`}, 0);
+        let cssRuleid3=CSS.addRule((s)=>{return `.navbar-title[data-navbar="${s}"]{color:#666;font-weight: bold;}`}, 0);
 
         document.addEventListener("click",function(event){
             let ele=event.target;
@@ -15,7 +15,10 @@ let Navigation = {
             else if (ele.classList.contains("navbar-title")) {
                 CSS.setState(cssRuleid2,ele.dataset.navbar);
                 CSS.setState(cssRuleid3,ele.dataset.navbar);
-            }else if (ele.classList.contains("navbar-folder-opener")) {Navigation.openCurrentFolder();}
+            }else if (ele.classList.contains("navbar-folder-opener")) {
+                Navigation.openCurrentFolder();
+                html_sidebarWrapper.querySelector("#sidebar_button").checked=true;
+            }
         });
         URL.addEvent(function (event) {CSS.setState(cssRuleid1,document.location.pathname); }) 
     },
