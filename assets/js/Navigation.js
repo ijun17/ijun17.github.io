@@ -15,18 +15,20 @@ let Navigation = {
             else if (ele.classList.contains("navbar-title")) {
                 CSS.setState(cssRuleid2,ele.dataset.navbar);
                 CSS.setState(cssRuleid3,ele.dataset.navbar);
-            }else if (ele.classList.contains("navbar-folder-opener")) {Navigation.openFolder(ele.dataset["category"]);}
+            }else if (ele.classList.contains("navbar-folder-opener")) {Navigation.openCurrentFolder();}
         });
         URL.addEvent(function (event) {CSS.setState(cssRuleid1,document.location.pathname); }) 
     },
-    openFolder:function(category){
-        let folder=html_sidebarWrapper.querySelector(`.navbar-folder-box[data-category="${category}"]`);
-        if(folder==null)return;
+    openCurrentFolder:function(){
+        const html_navbarWrapper=html_sidebarWrapper.querySelector(`.nav-navbar-wrapper`);
+        if(html_navbarWrapper==null)return;
+        let postLink = html_navbarWrapper.querySelector(`.navbar-file[data-url="${document.location.pathname}"`)
+        if(postLink==null)return;
+        let folder=postLink.parentElement;
         //폴더 열기
-        while(true){
+        while(!folder.classList.contains("navbar")){
             folder.classList.add("navbar-folder-open");
             folder=folder.parentElement;
-            if(folder.classList.contains("navbar"))break;
         }
         //탭 열기
         html_sidebarWrapper.querySelector(`.navbar-title[data-navbar="${folder.dataset["navbar"]}"]`).click();

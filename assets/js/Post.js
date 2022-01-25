@@ -23,11 +23,11 @@ let Post = {
     },
     renderHeader: function(){
         const html_postHeader=document.querySelector(".post-header");
-        const html_postInfo=document.querySelector(".post-info");
+        let postData=document.querySelector(".post-info").dataset;
         html_postHeader.innerHTML=`
-            <div class="post-dir navbar-folder-opener" data-category="${html_postInfo.dataset["dir"].split(">").pop()}">${html_postInfo.dataset["dir"]}</div>
-            <h1 class="post-title">${html_postInfo.dataset["title"]}</h1>
-            <div class="post-date">${html_postInfo.dataset["date"]}</div>
+            <div class="post-dir navbar-folder-opener">${postData["dir"]}</div>
+            <h1 class="post-title">${postData["title"]}</h1>
+            <div class="post-date">${postData["date"]}</div>
             <ol class="post-hyperlink"><p style="font-weight: bold;font-size:17px;">목차</p>
             ${(function(){
                 let hyperlinkList=html_postContent.querySelectorAll("h1");

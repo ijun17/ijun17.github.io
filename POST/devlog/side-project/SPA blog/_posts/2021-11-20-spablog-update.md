@@ -2,6 +2,7 @@
 layout: post
 title: "블로그 업데이트 기록"
 order: 30
+published: false
 ---
 ### 21.12.14
 * 포스트  위치 추적 기능 생성
@@ -27,7 +28,12 @@ order: 30
 * js CSSStyleSheet을 제어하여 특정 url 데이터를 가진 링크 하이라이트
 
 ### 22.01.16
+* jekyll만으로 네비게이션바 렌더링하게 
 * XmlHttpRequest에서 fetch로 변경
 
 ### 22.01.17
 * URL과 CSS API를 만들어 리팩토링
+
+### 22.01.26
+* 포스트 헤더에 카테고리 클릭시 네비게이션바에서 해당 폴더가 열리게함
+* 디렉토리를 yaml으로 수정, 축소 

@@ -18,6 +18,16 @@
     width:fit-content;
 }
 .post-dir:hover{text-decoration: underline;}
+.post-dir:hover::after{
+    content: "폴더 열기";
+    position: absolute;
+    margin-left:5px;
+    padding:3px;
+    border-radius: 5px;
+    font-size: 14px;
+    color:#FFF;
+    background-color: rgba(0,0,0,0.1);
+}
 .post-date{text-align: right;color:darkgray;font-weight:bold;}
 .post-hyperlink{
     background:var(--background);
