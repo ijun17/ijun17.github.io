@@ -1,13 +1,15 @@
-<!--navbar tabs-->
-<div class="nav-navbar-title-wrapper">
-{%- for nav in site.data.directory -%}
-    <div class="navbar-title" data-navbar="{% increment navbarID1 %}">{{nav.category}}</div>
-{%- endfor -%}
-</div>
+<div class="sidebar-nav">
+    <!--navbar tabs-->
+    <div class="nav-navbar-title-wrapper">
+        {%- for nav in site.data.directory -%}
+        <div class="navbar-title" data-navbar="{{nav.category}}">{{nav.category}}</div>
+        {%- endfor -%}
+    </div>
 
-<!--navbar subs-->
-<div class="nav-navbar-wrapper">
-{%- for nav in site.data.directory -%}
-    <div class="navbar" data-navbar="{% increment navbarID2 %}">{%- include nav-sub.html navigation=nav -%}</div>
-{%- endfor -%}
+    <!--navbar subs-->
+    <div class="nav-navbar-wrapper">
+        {%- for nav in site.data.directory -%}
+        <div class="navbar" data-navbar="{{nav.category}}">{%- include nav-sub.html navigation=nav -%}</div>
+        {%- endfor -%}
+    </div>
 </div>

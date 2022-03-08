@@ -4,7 +4,12 @@ title: "jekyll로 트리 구조 네비게이션바 만들기"
 order: 1
 ---
 # 구현하려는 네비게이션바
-이 블로그 사이드에 있는 네비게이션 바를 만들어보려고 한다. 트리구조 네비게이션바란 단순히 말해 폴더 밑에 폴더 또는 파일이 있는 윈도우의 디렉토리 구조와 유사하다. 나는 여기에 더해 최상위 카테고리를 탭으로 구분하여 더 효율적으로 포스트를 분류하도록 하였다. 이 포스트에서 다루는 것은 html 기본 뼈대를 만드는 것이며, 탭이나 링크가 클릭된 후에 일어나야할 작업 등은 js로 따로 구현해야한다. 디자인도 마찬가지이다. 블로그를 만드는 처음에는 js가 익숙해서 네비게이션바를 js로 구현하였는데, 몇가지 불편한점이 있어 현재는 jekyll만으로 네비게이션바를 구현을 한다. 혹시 몰라서 js로 구현한 코드도 올려보았다.
+이 블로그 사이드에 있는 네비게이션 바를 만들어보려고 한다. 트리구조 네비게이션바란 단순히 말해 폴더 밑에 폴더 또는 파일이 있는 윈도우의 디렉토리 구조와 유사하다. 나는 여기에 더해 최상위 카테고리를 탭으로 구분하여 더 효율적으로 포스트를 분류하도록 하였다. 이 포스트에서 다루는 것은 html 기본 뼈대를 만드는 것이며, 탭이나 링크가 클릭된 후에 일어나야할 작업 등은 js로 따로 구현해야한다. 디자인도 마찬가지이다. 블로그를 만드는 처음에는 js가 익숙해서 네비게이션바를 js로 구현하였는데, 몇가지 불편한점이 있어 현재는 jekyll만으로 네비게이션바를 구현을 한다. 기록용으로 js로 구현한 코드도 올려보았다.
+
+아래에 directory.yaml을 _data 폴더에, nav.html, sub-nav.html, categorizedPosts.html을 _includes 폴더에 넣고
+{% raw %}`{% include nav.html %}`{% endraw %}를 입력하면 네비게이션바를 실행할 수 있다. 
+
+{% include nav.html %}
 
 # 디렉토리 구조
 
@@ -41,14 +46,14 @@ order: 1
 <!--navbar tabs-->
 <div class="nav-navbar-title-wrapper">
 {%- for nav in site.data.directory -%}
-    <div class="navbar-title" data-navbar="{% increment navbarID1 %}">{{nav.category}}</div>
+    <div class="navbar-title" data-navbar="{{nav.category}}">{{nav.category}}</div>
 {%- endfor -%}
 </div>
 
 <!--navbar subs-->
 <div class="nav-navbar-wrapper">
 {%- for nav in site.data.directory -%}
-    <div class="navbar" data-navbar="{% increment navbarID2 %}">{%- include nav-sub.html navigation=nav -%}</div>
+    <div class="navbar" data-navbar="{{nav.category}}">{%- include nav-sub.html navigation=nav -%}</div>
 {%- endfor -%}
 </div>
 ```
@@ -83,9 +88,7 @@ order: 1
 {% endraw %}
 
 # js로 구현(사용X)
-js는 다음과 같은 이유로 **지금은 사용하지 않는다.**
-* 포스트를 분류하는 작업은 jekyll의 도움이 필요하다.
-* 사이드바를 불러온뒤 디렉토리 정보와 분류된 포스트 정보를 불러오는 작업을 해야한다.
+jekyll로 구현하는것이 더 효율적이라 **지금은 사용하지 않지만** 기록용으로 남겨놓았다.
 
 ```js
 createNavbars: function (navigations) {

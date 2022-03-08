@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "바닐라 js로 SPA 블로그 만들기(feat. jekyll)"
+title: "SPA 블로그 만들기(바닐라 js, jekyll)"
 order: 0
 ---
 # SPA란

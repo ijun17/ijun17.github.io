@@ -23,7 +23,7 @@
     overflow-y: scroll;
     overflow-x: hidden;
     transition: left 0.3s ease 0s;
-    box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.2);
+    /*box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.2);*/
 }
 .sidebar::-webkit-scrollbar{width: 0px;}
 
@@ -33,7 +33,7 @@
     background-color: rgba(0,0,0,0.5);
 }
 
-.sidebar-button{display: none;}
+.sidebar-button{display: none;position: fixed;z-index: 3;left:10px;top:10px}
 .sidebtn{width:25px;height:3px;border-radius:2px;margin:5px 0;background-color: rgba(0,0,0,0.7);}
 
 .sidebar-profile{
@@ -95,6 +95,7 @@
     flex-direction:row;
     margin-top:5px;
     background-color:rgba(0,0,0,0.1);
+    background-color:rgba(142, 156, 182,0.2);
     border-radius:5px;
     height:35px;
     width:100%;

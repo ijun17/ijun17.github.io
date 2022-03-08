@@ -6,8 +6,8 @@ let Navigation = {
         fetch("/assets/data/sidebar.html").then(res=>res.text()).then(function(text){html_sidebarWrapper.innerHTML=text;})
         
         let cssRuleid1=CSS.addRule((s)=>{return `.navbar-file[data-url="${s}"]{font-weight: bold;color:cornflowerblue;}`}, document.location.pathname);
-        let cssRuleid2=CSS.addRule((s)=>{return `.navbar[data-navbar="${s}"]{width:100%;height:auto;}`}, 0);
-        let cssRuleid3=CSS.addRule((s)=>{return `.navbar-title[data-navbar="${s}"]{color:#666;font-weight: bold;}`}, 0);
+        let cssRuleid2=CSS.addRule((s)=>{return `.navbar[data-navbar="${s}"]{width:100%;height:auto;}`}, "devlog");
+        let cssRuleid3=CSS.addRule((s)=>{return `.navbar-title[data-navbar="${s}"]{color:#666;font-weight: bold;}`}, "devlog");
 
         document.addEventListener("click",function(event){
             let ele=event.target;
@@ -20,14 +20,14 @@ let Navigation = {
                 html_sidebarWrapper.querySelector("#sidebar_button").checked=true;
             }
         });
-        URL.addEvent(function (event) {CSS.setState(cssRuleid1,document.location.pathname); }) 
+        URL.addEvent(function () {CSS.setState(cssRuleid1,document.location.pathname); }) 
     },
     openCurrentFolder:function(){
         const html_navbarWrapper=html_sidebarWrapper.querySelector(`.nav-navbar-wrapper`);
         if(html_navbarWrapper==null)return;
         let postLink = html_navbarWrapper.querySelector(`.navbar-file[data-url="${document.location.pathname}"`)
         if(postLink==null)return;
-        let folder=postLink.parentElement;
+        let folder=postLink.parentElement.parentElement.parentElement;//<div is folder><ol><li><a is postlink>
         //폴더 열기
         while(!folder.classList.contains("navbar")){
             folder.classList.add("navbar-folder-open");
