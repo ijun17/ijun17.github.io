@@ -37,24 +37,28 @@ order: 1
 
 # jekyll로 구현
 
+아래 nav.html, sub-nav.html, categorizedPosts.html 파일들은 jekyll의 리퀴드 언어로 작성되었다.
+
 {% raw %}
 ### 1. _includes/nav.html
 
 최상위 카테고리를 탭으로 만들고 하위 네비게이션을 생성하는 코드를 불러오는 include 파일. 
 **이것을 include 하면 네비게이션바가 생성된다.**
 ```html
-<!--navbar tabs-->
-<div class="nav-navbar-title-wrapper">
-{%- for nav in site.data.directory -%}
-    <div class="navbar-title" data-navbar="{{nav.category}}">{{nav.category}}</div>
-{%- endfor -%}
-</div>
+<div class="sidebar-nav">
+    <!--navbar tabs-->
+    <div class="nav-navbar-title-wrapper">
+        {%- for nav in site.data.directory -%}
+        <div class="navbar-title" data-navbar="{{nav.category}}">{{nav.category}}</div>
+        {%- endfor -%}
+    </div>
 
-<!--navbar subs-->
-<div class="nav-navbar-wrapper">
-{%- for nav in site.data.directory -%}
-    <div class="navbar" data-navbar="{{nav.category}}">{%- include nav-sub.html navigation=nav -%}</div>
-{%- endfor -%}
+    <!--navbar subs-->
+    <div class="nav-navbar-wrapper">
+        {%- for nav in site.data.directory -%}
+        <div class="navbar" data-navbar="{{nav.category}}">{%- include nav-sub.html navigation=nav -%}</div>
+        {%- endfor -%}
+    </div>
 </div>
 ```
 

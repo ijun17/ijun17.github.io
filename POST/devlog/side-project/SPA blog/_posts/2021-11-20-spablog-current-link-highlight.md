@@ -9,7 +9,7 @@ order: 3
 
 # CSSStyleSheet
 
-나는 이 문제를 `CSSStyleSheet`을 통해 간단하게 해결했다. CSSStyleSheet이란 쉽게 말해 css파일을 다루는 자바스크립트 인터페이스이다. css 파일을 만들고 이 안에 링크를 하이라이트하는 규칙을 넣으면 네비게이션안에서 링크를 탐색하고, 이전 링크를 원래대로 바꾸는 작업을 할 필요가 없다. 이는 css가 알아서 해준다. 우리는 링크가 바뀔때마다 css파일만 조금 바꾸면 되는것이다.
+나는 이 문제를 `CSSStyleSheet`을 통해 간단하게 해결했다. CSSStyleSheet이란 쉽게 말해 css파일을 수정할 수 있게하는 자바스크립트 인터페이스이다. css 파일을 만들고 이 안에 링크를 하이라이트하는 규칙을 넣으면 네비게이션안에서 링크를 탐색하고, 이전 링크를 원래대로 바꾸는 작업을 할 필요가 없다. 이는 css가 알아서 해준다. 우리는 링크가 바뀔때마다 css파일만 조금 바꾸면 되는것이다.
 
 아래에 `CSS` 객체는 CSSStyleSheet을 더욱 편리하게 쓰기 위해 캡슐화한 것이다.
 
@@ -39,10 +39,11 @@ CSS.init();
 아래는 CSS 객체를 이용해 현재 링크를 하이라이트하는 코드이다. 
 
 ```js
-let cssRuleid1=CSS.addRule((s)=>{
-    return `.navbar-file[data-url="${s}"]{font-weight: bold;color:cornflowerblue;}`
-    }, document.location.pathname);
+let ruleF=(s)=>{return `.navbar-file[data-url="${s}"]{font-weight: bold;color:cornflowerblue;}`}
+let cssRuleid1=CSS.addRule(ruleF, document.location.pathname)
 
-window.addEventListener("popstate",function () {
-    CSS.setState(cssRuleid1,document.location.pathname);}) 
+let popstateHandler=function(){CSS.setState(cssRuleid1,document.location.pathname)}) 
+window.addEventListener("popstate",popstateHandler) 
 ```
+
+이처럼 CSSStyleSheet는 html의 radio 버튼처럼 **여러개 중에 단 하나만 선택하는** 문제에 적합한 해결책이 될 수 있다.
