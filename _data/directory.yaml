@@ -1,14 +1,14 @@
 - category: devlog
   sub:
-  - category: side project
+  - category: 사이드 프로젝트
     sub:
-    - category: Level10(web game)
-    - category: SPA blog
-  - category: study
+    - category: Level10(웹게임) \\ Level10(web game)
+    - category: 내 블로그 \\ SPA blog
+  - category: 공부
     sub:
-    - category: data structure
-    - category: algorithm
-- category: memo
+    - category: 자료구조 \\ data structure
+    - category: 알고리즘 \\ algorithm
+- category: MEMO
   sub:
-  - category: 대학교
-  - category: books
+  - category: 대학교 \\ jbnu
+  - category: 독서 \\ books

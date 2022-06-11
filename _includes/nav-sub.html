@@ -1,9 +1,14 @@
 {%- assign sub = include.navigation.sub -%}
 {%- if sub -%}
     {%- for folder in sub -%}
-        <div class="navbar-folder">{{folder.category}}</div>
-        <div class="navbar-folder-box" data-category="{{folder.category}}">{% include nav-sub.html navigation=folder %}</div>
+        {% assign categoryname = folder.category | split: '\\' | first %}
+        <div class="navbar-folder">{{categoryname}}</div>
+        <div class="navbar-folder-box" data-category="{{categoryname}}">{%- include nav-sub.html navigation=folder -%}</div>
     {%- endfor -%}
 {%- else -%}
-    <ol>{% include categorizedPosts.html category=include.navigation.category %}</ol>
+    {% assign categoryname = include.navigation.category | split: ' \\ ' | last %}
+    {%- if categoryname -%}
+        <ol>{%- include categorizedPosts.html category=categoryname -%}</ol>
+    {%- endif -%}
 {%- endif -%}
+

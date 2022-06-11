@@ -1,10 +1,12 @@
 :root{
     --background:#F1F4F9;
-    --text-color:#333333;
+    --post-background:white;
+    --text-color:#3C3C3C;
     --text-highlight-color:cornflowerblue;
+    
     --base-font:sans-serif, Helvetica, Arial;
     --code-font:Consolas, sans-serif, Helvetica, Arial;
-    --post-background:white;
+
 }
 
 *{
@@ -24,7 +26,11 @@ body{
     background-color: #abc4f360;
 }
 
+
+
 img{
     border-radius: 5px;
-    width:100%;
+    max-width:100%;
+    display: block;
+    margin: auto;
 }

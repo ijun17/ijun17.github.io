@@ -2,14 +2,16 @@
     <!--navbar tabs-->
     <div class="nav-navbar-title-wrapper">
         {%- for nav in site.data.directory -%}
-        <div class="navbar-title" data-navbar="{{nav.category}}">{{nav.category}}</div>
+        {% assign categoryname = nav.category | split: '\\' | first %}
+        <div class="navbar-title" data-navbar="{{categoryname}}">{{categoryname}}</div>
         {%- endfor -%}
     </div>
 
     <!--navbar subs-->
     <div class="nav-navbar-wrapper">
         {%- for nav in site.data.directory -%}
-        <div class="navbar" data-navbar="{{nav.category}}">{%- include nav-sub.html navigation=nav -%}</div>
+        {% assign categoryname = nav.category | split: '\\' | first %}
+        <div class="navbar" data-navbar="{{categoryname}}">{%- include nav-sub.html navigation=nav -%}</div>
         {%- endfor -%}
     </div>
 </div>

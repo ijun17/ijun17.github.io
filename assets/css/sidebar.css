@@ -41,6 +41,7 @@
     display: flex;
     justify-content:center;
     align-items: center;
+    font-family: var(--code-font);
 }
 
 .profile-name{
@@ -73,6 +74,7 @@
 .nav-navbar-title-wrapper{
     display: flex;
     flex-direction: row;
+    font-family: var(--code-font);
 }
 
 .navbar-title{
@@ -101,11 +103,11 @@
     width:100%;
     line-height:35px;
     vertical-align:middle;
-    font-size:21px;
+    font-size:18px;
     color:var(--text-color);
     padding-left:5px;
 }
-.navbar-folder:hover{font-weight: bold;}
+.navbar-folder:hover{background-color:rgba(142, 156, 182,0.4);}
 
 .navbar-folder-box{
     padding-left:25px; 
