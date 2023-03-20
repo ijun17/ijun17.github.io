@@ -21,7 +21,7 @@
 }
 .post-dir:hover{text-decoration: underline;}
 .post-dir:hover::after{
-    content: "폴더 열기";
+    content: "카테고리 열기";
     position: absolute;
     margin-left:5px;
     padding:3px;
@@ -41,12 +41,12 @@
 .post-hyperlink>li{
     padding-left: 20px;
     margin: 5px 0;
+    color: var(--text-color);
     list-style-position: inside;
 }
 .post-hyperlink a{
     text-decoration: none;
-    color:var(--text-highlight-color);
-    font-weight: bold;
+    color: var(--text-highlight-color);
 }
 .post-hyperlink a:hover{text-decoration:underline;}
 
@@ -91,7 +91,7 @@
 .post-content>h1::before{
     counter-increment: index;
     content: counter(index) ". ";
-    color:gray;
+    color:lightgrey;
 }
 
 .post-content p{line-height: 30px;font-size: 16px;margin:10px 0;}

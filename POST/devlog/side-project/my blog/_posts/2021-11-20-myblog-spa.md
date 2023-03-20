@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "SPA 블로그 만들기(바닐라 js, jekyll)"
-order: 0
+title: "SPA 블로그 만들기(바닐라 js)"
+order: 1
 ---
 # SPA란
 `SPA(Single Page Application)`란 하나의 페이지에서 다른 페이지로 이동하지 않고 필요한 정보만 동적으로 가져오는 웹이다. 포스트 내용만 새로 렌더링하기 때문에 속도가 빠르다. 

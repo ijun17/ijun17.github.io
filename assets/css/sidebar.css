@@ -1,7 +1,7 @@
 .sidebar-wrapper{
     min-width:320px;
     width:320px;
-    background-color: rgba(0,0,0,0.5);
+    background-color: var(--background);
     -ms-user-select: none; 
     -moz-user-select: -moz-none;
     -khtml-user-select: none;

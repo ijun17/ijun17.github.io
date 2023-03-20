@@ -3,7 +3,9 @@ const html_sidebarWrapper=document.querySelector(".sidebar-wrapper");
 let Navigation = {
     load:false,
     init:function(){
-        fetch("/assets/data/sidebar.html").then(res=>res.text()).then(function(text){html_sidebarWrapper.innerHTML=text;})
+        fetch("/assets/data/sidebar.html")
+        .then(res=>res.text())
+        .then(function(text){html_sidebarWrapper.innerHTML=text;Navigation.openCurrentFolder();})
         
         let cssRuleid1=CSS.addRule((s)=>{return `.navbar-file[data-url="${s}"]{font-weight: bold;color:cornflowerblue;}`}, document.location.pathname);
         let cssRuleid2=CSS.addRule((s)=>{return `.navbar[data-navbar="${s}"]{width:100%;height:auto;}`}, "devlog");
