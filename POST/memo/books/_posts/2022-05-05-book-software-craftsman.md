@@ -1,4 +1,5 @@
 ---
 layout: post
 title: "소프트웨어 장인 : 프로페셔널리즘, 실용주의, 자부심"
+published: false
 ---
