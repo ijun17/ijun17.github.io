@@ -6,8 +6,8 @@
     - category: 내 블로그 \\ my blog
   - category: 공부
     sub:
-    - category: 자료구조 \\ data structure
-    - category: 알고리즘 \\ algorithm
+    - category: 코딩 테스트 \\ coding test
+    - category: 자바 스프링 \\ java spring
 - category: MEMO
   sub:
   - category: 대학교 \\ Univ
