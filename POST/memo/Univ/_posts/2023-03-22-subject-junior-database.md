@@ -10,6 +10,12 @@ XAMPP(잼프) 프로그램은 PHP, Apache, MySQL 프로그램을 패키지 형�
 * PHP : PHP언어로 작성된 프로그램을 PHP 해석기가 HTML로 변환하여 Apache가 클라이언트로 보낸다. 클라이언트 측 사용자는 해석된 HTML 파일(웹 페이지)을 웹 브라우저로 볼 수 있음.
 * MySQL : DBMS(DataBase Management System, 데이터베이스 관리 시스템)의 하나이다. MySQL 데이터베이스는 웹용 데이터를 저장, 검색, 수정, 삭제하는 역할 수행.
 
+다음은 PHP언어이다.
+```php
+
+```
+
+
 다음은 테이블을 생성하고 데이터를 조작하는 SQL언어이다.
 ```SQL
 --테이블 생성
