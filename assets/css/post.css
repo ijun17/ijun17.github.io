@@ -86,7 +86,7 @@
 }
 .post-content .post-link:hover{text-decoration: underline;}
 .post-content a{font-weight: bold;}
-.post-content>:is(h2,h3,h4){margin-top:30px;}
+.post-content>:is(h2,h3,h4){margin:20px 0;}
 .post-content>h1{font-size: 32px;margin-top:50px;margin-bottom: 10px;}
 .post-content>h1::before{
     counter-increment: index;
@@ -96,7 +96,7 @@
 
 .post-content p{line-height: 30px;font-size: 16px;margin:10px 0;}
 
-.post-content :is(ul, ol){line-height: 26px;font-size: 16px;margin:10px 0 10px 40px;}
+.post-content :is(ul, ol){line-height: 26px;font-size: 16px;margin-left: 25px;}
 
 table {
     display: table;
