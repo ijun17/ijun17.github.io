@@ -98,7 +98,7 @@
 .post-content p{
     line-height: 30px;
     font-size: 16px;
-    margin:16px 0 4px 0;}
+    margin:10px 0 4px 0;}
 
 .post-content :is(ul, ol){
     line-height: 26px;
