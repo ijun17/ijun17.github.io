@@ -13,7 +13,7 @@ order: 30
 
 * 변수 : `var age: Int = 25`
 * 상수 : `val age: Int = 25`
-* 자료형 : Int, Long, Float, Double, Boolean, Char, String
+* 자료형 : `Int`, `Long`, `Float`, `Double`, `Boolean`, `Char`, `String`
 * 세미콜론 필수가 아님
 
 ```java
