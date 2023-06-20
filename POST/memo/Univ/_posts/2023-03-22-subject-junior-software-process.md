@@ -252,6 +252,38 @@ Y-축
 
 # 코드 리팩토링 실습
 
+## java 문법
+
+```java
+public enum E{
+    A,B,C,D;
+    public String toString(){
+        switch(this){
+            case A: return "A";
+            ...
+            default: return "X"; 
+        }
+    }
+}
+
+//연결리스트 순회
+List list = new LinkedList();
+for(Iterator i=list.iterator(); i.hasNext(); ){
+    A a=(A)i.next();
+}
+
+//연결리스트 추가
+list.add(3);
+
+//소문자로
+(String).toLowerCase();
+
+//문자열 비교
+String.equals(String);
+
+
+```
+
 ## 용어
 
 `결합도(Coupling)` : 객체가 얼마나 연결되었는지
