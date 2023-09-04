@@ -2,7 +2,6 @@
   sub:
   - category: 팀 프로젝트
     sub:
-    - category: 제이클라우드 이상탐지 시스템 \\ JCloud DB
   - category: 사이드 프로젝트
     sub:
     - category: Level10(웹게임) \\ Level10(web game)
@@ -14,6 +13,5 @@
 - category: MEMO
   sub:
   - category: 대학교 \\ Univ
-    sub: 3학년1학기 운영체제 \\Univ OS
   - category: 독서 \\ books
   - category: 기타 \\ ETC
