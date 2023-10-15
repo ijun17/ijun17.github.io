@@ -1,16 +1,17 @@
 [
-{"category":"devlog","sub":[
-    {"category":"side project","sub":[
-        {"category":"Level10(web game)"},
-        {"category":"SPA blog"}
+{"name":"devlog","sub":[
+    {"name":"사이드 프로젝트","sub":[
+        {"name":"Level10(웹게임)","category":"Level10(web game)"},
+        {"name":"내 블로그","category":"SPA blog"},
+        {"name":"WebRTC chat","category":"WebRTC chat"}
     ]},
-    {"category":"study","sub":[
-        {"category":"data structure"},
-        {"category":"algorithm"}
+    {"name":"study","sub":[
+        {"name":"data structure"},
+        {"name":"algorithm"}
     ]}
 ]},
-{"category":"기록","sub":[
-    {"category":"대학교"},
-    {"category":"독서"}
+{"name":"exp","sub":[
+    {"name":"대학교","category":"univ"},
+    {"name":"독서","category":"book"}
 ]}
 ]

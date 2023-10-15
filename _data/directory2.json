@@ -1,16 +1,20 @@
 [
-{"category":"devlog","sub":[
-    {"category":"side project","sub":[
-        {"category":"Level10(web game)"},
-        {"category":"SPA blog"}
-    ]},
-    {"category":"study","sub":[
-        {"category":"data structure"},
-        {"category":"algorithm"}
-    ]}
-]},
-{"category":"기록","sub":[
-    {"category":"대학교"},
-    {"category":"독서"}
-]}
+    ["devlog",
+        ["사이드 프로젝트",
+            ["Level10(웹 게임)","Level10(web game)"],
+            ["내 블로그","SPA blog"],
+            ["WebRTC chat","WebRTC chat"]
+        ],
+        ["공부",
+            ["data structure","data structure"],
+            ["algorithm","algorithm"]
+        ]
+    ],
+    ["exp",
+        ["대학교",
+            ["3학년 2학기","univ 3-2"],
+            ["3학년 1학기","univ 3-1"]
+        ],
+        ["독서","book"]
+    ]
 ]
