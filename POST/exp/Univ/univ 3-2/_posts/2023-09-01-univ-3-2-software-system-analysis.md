@@ -7,6 +7,12 @@ order: 20
 * 요구사항 분석 설계
 * 유스케이스 - 기능적 요구사항
 * 액티비티 - 워크 플로우
+* 소스코드 주고 클래스 다이어그램 만들기
+* 교재에 안나오는 기본적인 
+* 교재에 안나옴(클래스 스코프 > 스태틱), (인스턴스 스코프), (메소드 스코프) 
+클래스 스코프의 스태틱은 다이어그램에서 및줄을 긋는다 
+스태틱 멤버들, 일
+* 추상클래스(상속표기법 extends), 인터페이스(implements, 클래스 다이어그램으로 어떻게 표시?: 상속 점선 화살표)
 
 중간고사
 * 소프트웨어모델링이란 무엇인가(자료와 개인적인 생각 / 논리적으로)
@@ -141,3 +147,27 @@ UML 기반의 방법론
 
 # 유스 케이스 모델링
 
+
+
+
+
+# Static Modeling
+
+시스템 안에 클래스들과 그들의 속성, 연산, 관계를 정의
+
+`Association`
+* 클래스 간의 관계
+* Multiplicity,Association Name,arrow
+* unary association : 자신과 연관
+* association class : 연관관계 자체가 자신의 속성을 가져야하는 경우
+
+`Link`
+* 객체 간의 연결(Association의 인스턴스)
+
+`Composition(집합) & Aggregation(구성)`
+* 둘다 비슷한 의미
+* 전체-부분 관계(has a)
+* association의 특수한 형태
+* composition : part object와 같이 생성, 소멸됨 - 한몸
+* aggregation : part가 whole과 떨어져 존재할 수 있음
+* part > whole 방향으로 표시
