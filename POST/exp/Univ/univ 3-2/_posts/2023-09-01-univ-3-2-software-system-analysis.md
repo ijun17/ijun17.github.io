@@ -120,6 +120,8 @@ order: 20
 
 # COMET
 
+엔티티, 바운더리, 컨트롤러, +
+
 UML 기반의 방법론
 
 * 유스 케이스 기반, 객체 지향 
@@ -153,6 +155,8 @@ UML 기반의 방법론
 
 # Static Modeling
 
+requirement > **analysis** > design
+
 시스템 안에 클래스들과 그들의 속성, 연산, 관계를 정의
 
 `Association`
@@ -171,3 +175,25 @@ UML 기반의 방법론
 * composition : part object와 같이 생성, 소멸됨 - 한몸
 * aggregation : part가 whole과 떨어져 존재할 수 있음
 * part > whole 방향으로 표시
+
+`Generalization & specialization`
+* is-a 관계(sub is a super)
+
+`Constraints`
+* 제약사항은 문자로 표현된다.
+* OCL(Object Constraint Language) - *ex) {count >= 0}*
+
+`static modeling`
+* physical class와 entity class를 주로 모델링(변하지 않을 것들)
+* Physical Class: 물리적인 장치, 사용자
+* Entity class: 데이터를 다루는 클래스, 오래 살아남음 
+
+`Context Modeling`
+* 시스템 내부와 외부를 식별하는 목적
+* 클래스 다이어그램 표기법으로
+* system context diagram: 전체 시스템 수준에서(하드웨어 + 소프트웨어)
+* software system context diagram: 소프트웨어 수준에서
+
+`UML Stereotypes`
+* guillemets을 사용 
+* 외부 장치를 <<External >>
