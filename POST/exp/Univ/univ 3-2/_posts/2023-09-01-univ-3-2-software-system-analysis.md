@@ -4,18 +4,23 @@ title: "[3학년2학기]소프트웨어시스템분석"
 order: 20
 ---
 
+중간고사
+* 소프트웨어모델링이란 무엇인가 소프트웨어 모델링에서 UML이 갖는 의미에 대해 서술하라(자료와 개인적인 생각 / 논리적으로)
+* 교재 연습문제
+* 영문 그대로
+* 클래스 다이어그램으로 표시(아마 교재에 있는 예시로 나올듯)
 * 요구사항 분석 설계
 * 유스케이스 - 기능적 요구사항
 * 액티비티 - 워크 플로우
 * 소스코드 주고 클래스 다이어그램 만들기
 * 교재에 안나오는 기본적인 
-* 교재에 안나옴(클래스 스코프 > 스태틱), (인스턴스 스코프), (메소드 스코프) 
-클래스 스코프의 스태틱은 다이어그램에서 및줄을 긋는다 
-스태틱 멤버들, 일
-* 추상클래스(상속표기법 extends), 인터페이스(implements, 클래스 다이어그램으로 어떻게 표시?: 상속 점선 화살표)
+* 교재에 안나옴(클래스 스코프 > 스태틱), (오브젝트or인스턴스 스코프), (메소드 스코프) 
+* 클래스 스코프의 스태틱은 다이어그램에서 및줄을 긋는다 
+* 추상클래스(상속표기법 extends), 인터페이스(implements, 클래스 다이어그램으로 어떻게 표시?: 상속 화살표에서 점선 화살표)
+* 자바 코드 실행결과(에러 발생할 수도?)
+* O/X 문제(모호한거 자세히 알아야 할듯)
 
-중간고사
-* 소프트웨어모델링이란 무엇인가(자료와 개인적인 생각 / 논리적으로)
+
 
 프로젝트
 * 자바 c++ 등 순수 객체지향적 언어로 된 프로젝트가 좋음
@@ -127,8 +132,22 @@ order: 20
 
 # COMET
 
-엔티티, 바운더리, 컨트롤러, +(어플리케이션 로직)
+클래스 분류
+* `엔티티`: 데이터 중심(DB)
+* `바운더리`: GUI 관련, input/output
+    * user interaction
+    * device I/O
+    * proxy
+* `컨트롤`
+    * timer
+    * state dependant control
+    * coordinator
+* `어플리케이션 로직`(COMET에서는 컨트롤 클래스에서 떨어져 나옴)
+    * business logic
+    * algorithm
+    * service
 
+특징
 * UML 기반의 방법론
 * 유스 케이스 기반, 객체 지향 
 * 요구사항, 분석, 설계 단계
@@ -138,7 +157,7 @@ order: 20
 2. `Analysis Modeling`: static, dynamic modeling
 3. `Desgin Modeling`: sw 아키텍처 설계
 4. `Incremental Software Construction`: 자세한 설계, 코딩, 유닛 테스트
-5. `Incremental Software Integration`: 각각의 use case의 통합 테스트(화이트 박스), 각 통합에서 **Incremental Prototyping**을 만듦, 만약 상당한 문제가 발생한다면 이전 단계 중 하나로 복귀
+5. `Incremental Software Integration`: 각각의 use case의 통합 테스트(화이트 박스), 각 통합에서 **Incremental Prototyping**을 만듦, 만약 중대한 문제가 발생한다면 이전 단계 중 하나로 복귀
 6. `System Testing`: 시스템의 기능 테스트(블랙 박스)
 
 COMET의 차별점
@@ -155,23 +174,43 @@ COMET의 차별점
 
 **requirement** > analysis > design
 
-기능적 요구사항 설명
+`기능적 요구사항` vs `비기능적 요구사항`
+* 기능적 요구사항: 시스템의 기능
+* 비기능적 요구사항: 시스템의 성능, 품질
+* 기능적 요구사항 설명이 main
+* 비기능적 요구사항을 서술식으로 보충 설명 가능
 
+use-case 확장
 * << extends >> : 조건부로 같이 발생하는 use case
 * << include >> : 항상 같이 발생하는 use case
-
-비기능적 요구사항을 서술식으로 보충 설명 가능
 
 `요구 사항 명세서`
 * 요구 사항 분석가 - 사용자의 합의로 만들어짐
 * 개발자도 이해해야함
 * 기능적, 비기능적 요구사항 둘다 명세
+* Good **SRS(Software Requirements Specification)**-"IEEE Recommended Practice for Software Requirements Specification"를 참조
 
-기능적 요구사항 vs 비기능적 요구사항
-* 기능적 요구사항 - 시스템의 기능
-* 비기능적 요구사항 - 시스템의 성능, 품질
+`use case model` 특징
+* 유스 케이스란 액터와 시스템의 상호작용(기능적 요구사항)
+* 액터는 시스템에 input을 주고, 시스템은 response를 줌
+* 한 유스케이스에 액터가 여러명일 수 있음(복잡한 경우)
+* 시스템을 블랙박스로 취급, 내부 동작 방식은 다루지 않음
+* 유스 케이스에 참여하는 객체는 아직 정하지 않음(분석 모델링에서 정함)
 
-`SRS(Software Requirements Specification)`
+유스케이스 핵심 요소
+* 유스 케이스 및 액터 이름
+* 유스 케이스 한 문장으로 요약
+* main 이벤트 순차적 설명
+* main 시퀸스 대안적 설명
+
+`Actor`
+* 시스템 외부 존재(사람, 외부 시스템, 입출력 디바이스 등)
+* 스틱 피규어로 표현
+* 같은 유형의 모든 액터를 하나의 역할로 표현
+* **primary actor**: 이것의 입력으로 유스 케이스가 시작됨
+* **secondary actor**: primary가 다른 유스 케이스에서는 이것이 될 수 있음 
+
+
 
 
 
@@ -186,9 +225,7 @@ requirement > **analysis** > design
 * Multiplicity,Association Name,arrow
 * unary association : 자신과 연관
 * association class : 연관관계 자체가 자신의 속성을 가져야하는 경우
-
-`Link`
-* 객체 간의 연결(Association의 인스턴스)
+* **Link**: 객체 간의 연결(Association의 인스턴스)
 
 `Composition(집합) & Aggregation(구성)`
 * 둘다 비슷한 의미
@@ -216,6 +253,19 @@ requirement > **analysis** > design
 * system context diagram: 전체 시스템 수준에서(하드웨어 + 소프트웨어)
 * software system context diagram: 소프트웨어 수준에서
 
-`UML Stereotypes`
-* guillemets을 사용 
-* 외부 장치를 <<External >>
+`«external class»`
+* «external user»: standard I/O devices (keyboard/display, mouse)
+* «external device» 
+    * «external input device»
+    * «external output device» *ex) ReciptPrinter, CashDispenser*
+    * «external I/O device» *ex) CardReader*
+* «external system» 
+* «external timer»
+
+`Entity Class`
+* 데이터 중심 클래스, 데이터를 저장하고 접근 통제(DB 같은)
+* COMET의 정적 모델링에서는 Entity class의 속성과 관계에 중점
+* 오퍼레이션은 아직 명세 안함(디자인 모델링 때 함)
+* E-R 모델링과의 차이는 정적 모델링은 오퍼레이션을 명시하는 것을 허용*
+
+!정적 모델링은 오퍼레이션을 포함해야 하지만, 동적 모델링 이후에 만드는게 쉽다
