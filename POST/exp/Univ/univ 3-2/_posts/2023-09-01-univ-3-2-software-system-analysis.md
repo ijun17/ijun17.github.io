@@ -22,6 +22,10 @@ order: 20
 * 상품성없어도 됨 비즈니스 필요없음 
 
 
+
+
+
+
 # 소프트웨어 모델링
 
 * OMG에 따르면 : 코딩하기 전에 응용 소프트웨어를 설계하는 것
@@ -44,6 +48,9 @@ order: 20
 `소프트웨어 아키텍처`
 * 높은 수준 : 시스템을 서브 시스템로 분해
 * 낮은 수준 : 서브 시스템을 모듈이나 컴포넌트로 분해
+
+
+
 
 
 # UML 표기법
@@ -120,36 +127,51 @@ order: 20
 
 # COMET
 
-엔티티, 바운더리, 컨트롤러, +
+엔티티, 바운더리, 컨트롤러, +(어플리케이션 로직)
 
-UML 기반의 방법론
-
+* UML 기반의 방법론
 * 유스 케이스 기반, 객체 지향 
 * 요구사항, 분석, 설계 단계
 
+과정
+1. `Requirement Modeling`: 기능적 요구사항 서술, **throwaway prototype**
+2. `Analysis Modeling`: static, dynamic modeling
+3. `Desgin Modeling`: sw 아키텍처 설계
+4. `Incremental Software Construction`: 자세한 설계, 코딩, 유닛 테스트
+5. `Incremental Software Integration`: 각각의 use case의 통합 테스트(화이트 박스), 각 통합에서 **Incremental Prototyping**을 만듦, 만약 상당한 문제가 발생한다면 이전 단계 중 하나로 복귀
+6. `System Testing`: 시스템의 기능 테스트(블랙 박스)
 
-## 유스케이스 다이어그램
+COMET의 차별점
+* Analysis: 문제의 분해
+* Design: 해결책을 합성
 
-* << extends >> : 옵셔널, 선택적인것 
-* << include >> : 여러 유스케이스 중 공통으로 사용될 때
-
-## 클래스 다이어그램
-
-* 클래스는 박스 안에 속성과 오퍼레이션을 가짐
-* 객체는 글자에 밑줄
-
-관계
-* assosiation : 화살표
-* 
-* composition : 검은색 다이아몬드 화살표
-* aggregation : 다이아몬드 화살표
+`SysML`
+* system modeling 
 
 
 
 
 # 유스 케이스 모델링
 
+**requirement** > analysis > design
 
+기능적 요구사항 설명
+
+* << extends >> : 조건부로 같이 발생하는 use case
+* << include >> : 항상 같이 발생하는 use case
+
+비기능적 요구사항을 서술식으로 보충 설명 가능
+
+`요구 사항 명세서`
+* 요구 사항 분석가 - 사용자의 합의로 만들어짐
+* 개발자도 이해해야함
+* 기능적, 비기능적 요구사항 둘다 명세
+
+기능적 요구사항 vs 비기능적 요구사항
+* 기능적 요구사항 - 시스템의 기능
+* 비기능적 요구사항 - 시스템의 성능, 품질
+
+`SRS(Software Requirements Specification)`
 
 
 
