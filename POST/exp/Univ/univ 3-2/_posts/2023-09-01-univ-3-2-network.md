@@ -29,12 +29,12 @@ order: 20
 * MAC 6바이트 
 * 스위치 MAC 주소 테이블을 만들어 해당 MAC port에만 데이터 전송(성능 좋음)
 
-웹 프로그래밍
+# 웹 프로그래밍
 * form : 브라우저에서 서버로 데이터 전송 name, method, action, input(tag)
 * php로 post 방식으로 데이터 받아 echo
 * GET 방식 php(href에서 ?뒤에 &로 여러개 지정가능)
 
-소켓 프로그래밍
+# 소켓 프로그래밍
 * 코드만 서버, 클라이언트
 * 포트 맞추는거
 * 서버 listen > accept > recv > send > close
@@ -46,11 +46,14 @@ order: 20
 * 서버 socket > bind > recvfrom > sendto > close
 * 클라 socket > sendto > recvfrom > close
 
+
+
+
+
 # 네트워크
 
-네트워크란 컴퓨터를 서로 연결하는 것
-
-연결(통신)방법은 LAN(Local Area Network), 케이블, 무선매체 등
+* `네트워크`란 컴퓨터를 서로 연결하는 것
+* 연결(통신)방법은 LAN(Local Area Network), 케이블, 무선매체 등
 
 `패킷`
 * 네트워크를 통해 전송되는 데이터의 전송 단위. 
