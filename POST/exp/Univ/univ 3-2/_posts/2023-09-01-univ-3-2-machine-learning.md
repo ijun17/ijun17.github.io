@@ -384,6 +384,8 @@ fit(X,y)에서
 
 스케일링이란 연속형 데이터의 범위를 바꾸는 것 ex) 토익 점수를 0~1로
 
+만약 이상치가 있다면 제거하는게 좋음
+
 잘못된 스케일링 방법
 1. 학습셋과 테스트셋의 최소,최대 범위가 다른데 다른 기준으로 스케일링
 2. 학습셋과 테스트셋을 일단 합쳐서 스케일링 한다.-**정보누수**
@@ -431,7 +433,58 @@ sclr2.fit_transform(df)
 
 # 오버피팅
 
-오버피팅은 학습 데이터에 과도하게 맞추어저 실제 데이터는 잘 예측을 못하는 경우
+`오버피팅`
+* 학습 데이터에 과도하게 맞추어저 실제 데이터는 잘 예측을 못하는 경우
+* 쓸모없거나 대체가능한 값 제거을 제거하여 방지
 
-오버피팅 방지 방법
-* 쓸모없는 값 제거
+`다중공선성`
+* 독립변수가 다른 독립변수의 조합으로 표현될 수 있는 경우
+
+## Ridge로 다중공선성 상쇄
+
+* 비슷한 변수의 계수가 거의 동일하게 나누어지는 효과
+* 원리: 제곱한뒤 합친값이 0에서 떨어져 있을 수록 패널티
+* 원래 변수 1개의 계수가 a이고, 비슷한 변수가 99개 있다면 계수는 a/100 
+* 그러나 비슷한 변수를 모두 없애는 것보단 효과가 떨어짐
+* Ridge의 alpha값이 커지면 계수들이 점점 비슷해지나 총합이 원본보다 조금 작아짐
+
+```python
+import sklearn.linear_model
+
+df_train, df_test = sklearn.model_selection.train_test_split(df,test_size=0.3,random_state=42)
+X = df_train.loc[:,'gpa':'toeic499']
+y = df_train.loc[:,'employment_score']
+XX = df_test.loc[:,'gpa':'toeic499']
+yy = df_test.loc[:,'employment_score']
+
+# Ridge 사용
+predictr = sklearn.linear_model.Ridge(alpha=5e8)
+predictr.fit(X,y)
+
+# RidgeCV 사용 - 알파값 선택해줌
+predictr2 = sklearn.linear_model.RidgeCV(alphas=[5e2, 5e3, 5e4, 5e5, 5e6, 5e7, 5e8])
+predictr2.fit(X,y)
+print(predictr.alpha_) #5e7
+```
+
+# Lasso로 다중공선성 상쇄
+
+* 적은 변수만을 살리고 나머지는 제거(계수를 0으로 만듦)
+* 원리: 절대값을 구하고 합친 값이 0에서 떨어져 있을 수록 패널티
+
+```python
+# 같은 데이터 섹 사용
+predictr = sklearn.linear_model.Lasso(alpha=1)
+predictr.fit(X,y)
+# 결과는 Ridge의 alpha가 5e7이였을 때와 비슷함
+
+predictr2 = sklearn.linear_model.LassoCV(alphas= np.linspace(0,2,100))
+predictr2.fit(X,y)
+```
+
+
+# 이상치 처리
+
+1. 이상치 제거
+2. sklearn.linear_model.HuberRegressor 사용
+3. sklearn.preprocessing.PowerTransformer로 이상치 완화

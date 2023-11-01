@@ -28,7 +28,6 @@ let Post = {
             <div class="post-dir navbar-folder-opener">${postData["dir"]}</div>
             <h1 class="post-title">${postData["title"]}</h1>
             <div class="post-date">${postData["date"]}</div>
-            <ol class="post-hyperlink">
             ${(function(){
                 let hyperlinkList=html_postContent.querySelectorAll("h1");
                 let html="";
@@ -36,9 +35,9 @@ let Post = {
                     hyperlinkList[i].id="hyper"+i;
                     html+=`<li><a href="#hyper${i}">${hyperlinkList[i].innerText}</a></li>`
                 }
-                return html;
-            })()}
-            </ol>`;
+                if(html=="")return ""
+                return `<ol class="post-hyperlink">${html}</ol>`;
+            })()}`
     },
     renderFooter:function(){
         const html_postFooter=document.querySelector(".post-footer");
