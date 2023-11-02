@@ -62,7 +62,8 @@ order: 20
 
 ## Use case Diagram
 * use case diagram: 액터와 타원형의 유스케이스
-* «extend»로 유스케이스 기능 확장
+* << extends >> : 조건부로 같이 발생하는 use case
+* << include >> : 항상 같이 발생하는 use case
 
 ## Class & Object
 * class name, attribute(생략 가능), operation(생략 가능) 순으로 사각형으로 나누어 표기
@@ -90,7 +91,7 @@ order: 20
 
 ## State Transition Diagram
 * = state machine = state chart
-* `Event\[condition]/Action` (조건은 생략 가능)
+* `Event[condition]/Action` (조건은 생략 가능)
 * Event: 다른 상태로 전환하게 하는 사건
 * Condition: Event가 발생할 때 상태가 전환될 조건
 * Action: 상태가 전환될 때 행동

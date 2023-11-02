@@ -488,3 +488,9 @@ predictr2.fit(X,y)
 1. 이상치 제거
 2. sklearn.linear_model.HuberRegressor 사용
 3. sklearn.preprocessing.PowerTransformer로 이상치 완화
+
+# 교호작용
+
+만약 이전에 했던 아이스크림 판매량 분석에서 초코, 바닐라에 따라 기울기가 다르다면 온도와 아이스크림 타입만으로는 언더피팅이 이루어진다.
+
+이때 온도*타입으로 새로운 feature을 만들면 이것이 해결된다.
