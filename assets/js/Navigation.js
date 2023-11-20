@@ -7,7 +7,7 @@ let Navigation = {
         .then(res=>res.text())
         .then(function(text){html_sidebarWrapper.innerHTML=text;Navigation.openCurrentFolder();})
         
-        let cssRuleid1=CSS.addRule((s)=>{return `.navbar-file[data-url="${s}"]{font-weight: bold;color:cornflowerblue;}`}, document.location.pathname);
+        let cssRuleid1=CSS.addRule((s)=>{return `.navbar li[data-url="${s}"]{font-weight: bold;color:cornflowerblue;}`}, document.location.pathname);
         let cssRuleid2=CSS.addRule((s)=>{return `.navbar[data-navbar="${s}"]{width:100%;height:auto;}`}, "devlog");
         let cssRuleid3=CSS.addRule((s)=>{return `.navbar-title[data-navbar="${s}"]{color:#666;font-weight: bold;}`}, "devlog");
 
@@ -27,9 +27,9 @@ let Navigation = {
     openCurrentFolder:function(){
         const html_navbarWrapper=html_sidebarWrapper.querySelector(`.nav-navbar-wrapper`);
         if(html_navbarWrapper==null)return;
-        let postLink = html_navbarWrapper.querySelector(`.navbar-file[data-url="${document.location.pathname}"`)
+        let postLink = html_navbarWrapper.querySelector(`.navbar li[data-url="${document.location.pathname}"`)
         if(postLink==null)return;
-        let folder=postLink.parentElement.parentElement.parentElement;//<div is folder><ol><li><a is postlink>
+        let folder=postLink.parentElement.parentElement;//<div is folder><ol><li><a is postlink>
         //폴더 열기
         while(!folder.classList.contains("navbar")){
             folder.classList.add("navbar-folder-open");

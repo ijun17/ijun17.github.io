@@ -76,7 +76,7 @@
 }
 
 /*post content*/
-.post-content .post-link{
+.post-content .post-link {
     color: var(--text-highlight-color);
     font-weight: bold;
     -ms-user-select: none; 
