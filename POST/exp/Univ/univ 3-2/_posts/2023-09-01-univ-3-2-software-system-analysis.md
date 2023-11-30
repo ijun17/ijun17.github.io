@@ -27,7 +27,8 @@ order: 20
 * 상품성없어도 됨 비즈니스 필요없음 
 
 
-
+기말
+* 브룩스 법칙: 프로젝트가 지체될때 인력을 더하는 것은 개발을 늦춘다
 
 
 
@@ -270,3 +271,97 @@ requirement > **analysis** > design
 * E-R 모델링과의 차이는 정적 모델링은 오퍼레이션을 명시하는 것을 허용*
 
 !정적 모델링은 오퍼레이션을 포함해야 하지만, 동적 모델링 이후에 만드는게 쉽다
+
+
+# Object & Class Structuring
+
+# Dynamic Interaction Modeling
+
+# Finite State Machines
+
+시스템이나 객체의 제어와 과정을 모델링
+
+실시간 시스템과 같은 많은 시스템은 상태 의존적임
+* 그들의 행도을 그드르이 입력 뿐만 아니라 이전에 무슨 일이 일어났는지에 의존
+* 높은 상태 의존적 시스템에서 그들의 표기법은 시스템의 복잡성을 이해하는 것으로 통찰력을 얻는데 도움이됨
+
+상태 머신 다이어그램
+* Statechart & State machine diagram은 비슷한 의미로 쓰임
+* flat statechart는 위계가 없고, hierarchical statechart는 위계가 있음
+
+Finite State Machine
+* 유한한 수의 상태를 다룸
+* State Machine은 단 하나의 상태를 가짐
+* 상태의 전이는 입력 이벤트로 이루어짐
+* 객체지향 모델에서 상태 의존적 관점의 시스템은 하나 이상의 Finite state machine을 의미함
+* 동적 측면을 모델링 하여 클래스의 수명을 표현함
+
+`Events`
+* 상태 전이를 일으키는 트리거
+* 이벤트는 특정 시간에 일어남
+* 이벤트는 즉시 일어남(zero duration)
+* 예를 들어 card inserted, pin entered, door opened
+
+`State`
+* 상태는 특정한 조건을 만족하고, 특정 행동을을 하고, 다른 이벤트를 기다리는 조건이나 상황임
+* round square로 표기
+
+`Gaurd Condition`
+* 
+
+`entry action`
+* 어떤 상태로 들어가자마자 즉시 발생하는 행동
+* 상태 안에다가 쓰고, 'Entry/Action'으로 표기
+* 어떤 상태로 들어가는 전이가 여러 개일 때
+* 상태에서 무조건 수행해야 하는 행동
+
+`exit action`
+* 다른 상태로 나갈 때 발생
+* 상태 박스 안에 exit/Action으로 표기
+* 다른 상태로 가는 전이가 많을 때 사용하면 좋음
+* 다른 상태로 나갈 때 반드시 수행되어야 하는 것
+
+flat statechart의 잠재적 위험
+* 상태와 전이의 증식이 읽기 어렵게 만듬
+* 상태를 단순화하는 방법은 composite state(super state)를 만드는것
+
+hierarchical statechart의 목적
+* 
+
+* 모든 계층적 상태 차트는 flat statechart로 매핑될 수 있다.
+
+`Composite State`
+* 내부 스테이트들을 가진 스테이트를 추상화 한것(블랙박스로)
+
+Aggregation State Transition
+* 
+
+Othogonal statechart
+* 같은 객체의 상태에서 모델의 다른 관점을 나타냄
+* 각각 독립적으로 작동
+
+statechart 가이드 라인
+* 상태의 이름은 인지가능한 상황이나 시간이 간격을 반영해야함 - 형용사구, 동명사구가 많음
+* 상태의 이름은 유일해야함
+* 모든 상태에서 빠져나올 수 있어야하나, 종료상태는 없어도됨
+* sequential statechart에서 한번에 하나의 상태만 가짐
+* 이벤트는 다른 상태로 가게 하는것에서 액션과 다름
+* 이벤트는 즉각적으로 발생
+* 액션은 명령임
+* 액션은 즉시 실행되며 동시에 실행되야 하며, 순서에 따라 결과가 달라지면 안됨
+* 조건은 불린 값
+* 액션과 컨디션은 없어도됨
+
+use case에서 statechart를 만들기 위해
+* 하나의 특정한 경로로 시작
+* 
+
+
+
+# Subsystem Architectural Design
+
+분석 모델링 중에 use case를 
+
+설계 모델링 중에 소프트웨어 아키텍처를 설계하는 것에 의해 
+
+

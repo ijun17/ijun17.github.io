@@ -1,12 +1,13 @@
 - category: devlog
   sub:
-  - category: 팀 프로젝트
+  - category: 프로젝트
     sub:
   - category: 사이드 프로젝트
     sub:
     - category: Level10(웹게임) \\ Level10(web game)
     - category: 내 블로그 \\ my blog
     - category: WebRTC chat \\ WebRTC chat
+    - category: 코인 예측 모델 \\ aiot coin
   - category: 공부
     sub:
     - category: 코딩 테스트 \\ coding test
