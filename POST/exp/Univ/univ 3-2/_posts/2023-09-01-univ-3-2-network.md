@@ -4,9 +4,33 @@ title: "[3학년2학기]데이터통신"
 order: 20
 ---
 
+기말
 
-wep - 무선랜 보안방식
-802.1x인증
+TCP
+* three way handshake  and  TCP flag - UAPRSF
+* error control - cli seq=5001(300B) > server ack=5301 > cli seq=5301(300) > server ack=5301(error) > cli seq=5301(300)
+* TCP window size : ex) 300B
+
+IP
+* FTP(TCP port 21)
+* HTTP 1.1 vs HTTP 1.2
+* SMTP(TCP port 25)
+* SNMP(UDP port 161)
+* DHCP(DUP posrt 67,68)
+
+network 
+* 네트워크 관리 5가지 기능 - 장애, 구성, 성능, 계정, 보안 관리
+* nbtstat -A
+* netstat -s
+* netstat -
+
+network 
+* 비밀성, 무결성, 가용성
+* IP spoofing(변조) vs IP sniffing(도청)
+* 대칭키(키 한개) vs 비대칭키(개인키 공개키)
+* 기밀성(암호화): 받은 공개키로 암호화하여 키 주인에게 전송
+* 전자서명: 개인키로 암호화된 데이터를 공개키로 풀음
+
 
 
 # 웹과 php
@@ -400,6 +424,14 @@ TCP/IP 주소
 
 ! ARP = IP 주소를 MAC 주소로 변환
 
+
+IPv4
+
+네트워크 규모에 따라 A,B,C,D,E로 나눔
+* ip = network ID + host ID
+* ip A class = 8+24
+* ip B class = 16+16
+* ip C class = 24+8
 
 
 
