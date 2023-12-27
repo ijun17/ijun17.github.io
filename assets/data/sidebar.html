@@ -8,12 +8,19 @@
 <input type="checkbox" id="sidebar_button" style="display: none;">
 <label for="sidebar_button" class="sidebar-overlay"></label>
 <div class="sidebar">
-    <div class="sidebar-profile">
-        <div class="profile-name post-link" data-url="/">
-            Jungi Kim
+    <div class="profile" onclick="Navigation.toggleRotate(event)">
+        <div class="front">
+            <div class="profile-name post-link" data-url="/">
+                Jungi Kim
+            </div>
+        </div>
+        <div class="back">
+            github: ijun17
+            <br>
+            email: ijun17@naver.com
         </div>
     </div>
     
     {% include nav.html %}
-    <p style="margin:20px;font-weight: bold; color:rgba(0,0,0,0.1)">made by Jungi</p>
+    <p style="margin:20px;font-weight: bold; color:rgba(0,0,0,0.1)">made by Jungi Kim</p>
 </div>

@@ -1,0 +1,39 @@
+@media screen and (max-width: 1280px) {
+    .post>*{
+        margin:40px;
+    }
+    .sidebar-wrapper{width:300px;min-width: 300px;}
+    .sidebar{width:300px;}
+
+}
+
+
+@media screen and (max-width: 900px) {
+    .sidebar-wrapper{width:340px;min-width: 340px;}
+    .sidebar{width:340px;left:-340px;}
+    .sidebar-overlay{position: fixed;}
+    .sidebar-wrapper{min-width:0;width:0;}
+    .sidebar-button{display: block;}
+    #sidebar_button:checked~.sidebar{left:0px;}
+    #sidebar_button:checked~.sidebar-overlay{width:100%}
+
+
+    .post{
+        width:100%;
+        margin:0;
+        border-radius: 0;
+    }
+    .post>*{
+        margin:60px;
+    }
+    .post-title{font-size: 30px;}
+    .post-dir{font-size: 14px;}
+    .post-date{font-size: 14px;}
+}
+
+
+@media screen and (max-width: 550px) {
+    .post>*{
+        margin:15px;
+    }
+}

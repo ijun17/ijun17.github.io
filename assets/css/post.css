@@ -1,14 +1,21 @@
+
 .post{
-    border-radius: 10px;
-    margin:0 60px;
-    padding: 60px;
+    border-radius: 20px;
     width:900px;
-    background-color: var(--post-background);
+    min-width:0px;
+    background-color: white;
+    margin:20px;
+    margin-left:0px;
     color:var(--text-color);
+    box-shadow: 0px 0px 5px 2px rgba(0,0,0,0.1);
+}
+
+.post>*{
+    margin:60px;
 }
 
 .post-title{
-    font-size:40px;
+    font-size:36px;
     margin-bottom:30px;
 }
 .post-dir{
@@ -51,22 +58,6 @@
 }
 .post-hyperlink a:hover{text-decoration:underline;}
 
-
-
-/*responsive*/
-@media screen and (max-width: 1260px) {
-    .post{
-        width:100%;
-        margin:0;
-        border-radius: 0;
-    }
-}
-@media screen and (max-width: 600px) {
-    .post{padding:15px;}
-    .post-title{font-size: 30px;}
-    .post-dir{font-size: 14px;}
-    .post-date{font-size: 14px;}
-}
 
 .post-content{
     padding:10px 0;

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[Level10]자바스크립트로 물리엔진 구현하기"
+title: "자바스크립트 물리엔진 구현"
 order: 2
 ---
 

@@ -8,7 +8,7 @@
 {%- else -%}
     {% assign categoryname = include.navigation.category | split: ' \\ ' | last %}
     {%- if categoryname -%}
-        <ol>{%- include categorizedPosts.html category=categoryname -%}</ol>
+        <ul>{%- include categorizedPosts.html category=categoryname -%}</ul>
     {%- endif -%}
 {%- endif -%}
 

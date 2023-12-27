@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[Level10] 자바스크립트 WebRTC로 멀티플레이 구현하기"
+title: "WebRTC 멀티플레이 구현"
 order: 5
 ---
 

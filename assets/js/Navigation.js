@@ -13,14 +13,16 @@ let Navigation = {
 
         document.addEventListener("click",function(event){
             let ele=event.target;
-            if (ele.classList.contains("navbar-folder")) ele.nextElementSibling.classList.toggle("navbar-folder-open");
-            else if (ele.classList.contains("navbar-title")) {
+            if (ele.classList.contains("navbar-folder")) {
+                ele.nextElementSibling.classList.toggle("navbar-folder-open");
+            }else if (ele.classList.contains("navbar-title")) {
                 CSS.setState(cssRuleid2,ele.dataset.navbar);
                 CSS.setState(cssRuleid3,ele.dataset.navbar);
             }else if (ele.classList.contains("navbar-folder-opener")) {
                 Navigation.openCurrentFolder();
                 html_sidebarWrapper.querySelector("#sidebar_button").checked=true;
             }
+            console.log(ele.classList)
         });
         URL.addEvent(function () {CSS.setState(cssRuleid1,document.location.pathname); }) 
     },
@@ -37,6 +39,11 @@ let Navigation = {
         }
         //탭 열기
         html_sidebarWrapper.querySelector(`.navbar-title[data-navbar="${folder.dataset["navbar"]}"]`).click();
+    },
+    toggleRotate:function(event){
+        const html_profile = document.querySelector(".sidebar>.profile")
+
+        html_profile.classList.toggle("rotate")
     }
 }
 

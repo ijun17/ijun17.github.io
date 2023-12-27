@@ -12,6 +12,7 @@ let Post = {
     },
     loadPost: function (url, historyPush=true) {
         if (url === document.location.pathname) return;
+
         fetch(url).then((response)=>response.text()).then(this.renderPost);
         if (historyPush) URL.set(url);
     },
@@ -20,6 +21,9 @@ let Post = {
         document.title=document.querySelector(".post-info").dataset["title"];
         Post.renderHeader();
         Post.renderFooter();
+    },
+    fadeoutPost: function(){
+
     },
     renderHeader: function(){
         const html_postHeader=document.querySelector(".post-header");

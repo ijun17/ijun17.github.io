@@ -1,7 +1,7 @@
 :root{
     --background:#F1F4F9;
     --post-background:white;
-    --text-color:#3F3F3F;
+    --text-color:#474748;
     --text-highlight-color:cornflowerblue;
     
     --base-font:sans-serif, Helvetica, Arial;
@@ -20,6 +20,7 @@ body{
     flex-direction:row;
     font-family: var(--base-font);
     background-color:white;
+    background-color: #F5F5F7;
 }
 
 ::selection{
@@ -34,3 +35,33 @@ img{
     display: block;
     margin: auto;
 }
+
+
+/* 스크롤바 전체 스타일 */
+::-webkit-scrollbar {
+    width: 10px; /* 수직 스크롤바의 너비 */
+    height: 100px;
+    
+}
+
+/* 스크롤바의 트랙(배경) 스타일 */
+::-webkit-scrollbar-track {
+    background-color: #f5f5f5; /* 스크롤바 트랙의 배경색 */
+}
+
+/* 스크롤바의 핸들(바) 스타일 */
+::-webkit-scrollbar-thumb {
+    background-color: #888; /* 스크롤바 핸들의 배경색 */
+    border-radius: 5px; /* 스크롤바 핸들의 모서리 둥글게 */
+}
+
+/* 마우스 오버 시 스크롤바의 트랙(배경) 스타일 */
+::-webkit-scrollbar-track:hover {
+    background-color: #f0f0f0;
+}
+
+/* 마우스 오버 시 스크롤바의 핸들(바) 스타일 */
+::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+}
+
