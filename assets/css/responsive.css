@@ -1,6 +1,7 @@
 @media screen and (max-width: 1280px) {
-    .post>*{
-        margin:40px;
+    .post{
+        /* margin:40px; */
+        padding: 40px;
     }
     .sidebar-wrapper{width:300px;min-width: 300px;}
     .sidebar{width:300px;}
@@ -22,10 +23,11 @@
         width:100%;
         margin:0;
         border-radius: 0;
+        padding: 60px;
     }
-    .post>*{
+    /* .post>*{
         margin:60px;
-    }
+    } */
     .post-title{font-size: 30px;}
     .post-dir{font-size: 14px;}
     .post-date{font-size: 14px;}
@@ -33,7 +35,10 @@
 
 
 @media screen and (max-width: 550px) {
-    .post>*{
-        margin:15px;
+    .post{
+        padding: 15px;
+        padding-top:50px;
+        /* margin:15px;
+        margin-top:40px; */
     }
 }

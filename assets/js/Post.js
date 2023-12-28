@@ -29,9 +29,13 @@ let Post = {
         const html_postHeader=document.querySelector(".post-header");
         let postData=document.querySelector(".post-info").dataset;
         html_postHeader.innerHTML=`
-            <div class="post-dir navbar-folder-opener">${postData["dir"]}</div>
+            <div class="info">
+                <div class="post-dir navbar-folder-opener">${postData["dir"]}</div>
+                <div class="post-date">${postData["date"]}</div>
+            </div>
             <h1 class="post-title">${postData["title"]}</h1>
-            <div class="post-date">${postData["date"]}</div>
+            
+            
             ${(function(){
                 let hyperlinkList=html_postContent.querySelectorAll("h1");
                 let html="";

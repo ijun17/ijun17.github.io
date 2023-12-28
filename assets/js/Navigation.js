@@ -22,7 +22,6 @@ let Navigation = {
                 Navigation.openCurrentFolder();
                 html_sidebarWrapper.querySelector("#sidebar_button").checked=true;
             }
-            console.log(ele.classList)
         });
         URL.addEvent(function () {CSS.setState(cssRuleid1,document.location.pathname); }) 
     },
@@ -46,5 +45,6 @@ let Navigation = {
         html_profile.classList.toggle("rotate")
     }
 }
+
 
 Navigation.init();
