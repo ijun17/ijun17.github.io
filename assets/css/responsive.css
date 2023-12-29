@@ -20,6 +20,7 @@
 
 
     .post{
+        max-width: 100%;
         width:100%;
         margin:0;
         border-radius: 0;
@@ -40,5 +41,6 @@
         padding-top:50px;
         /* margin:15px;
         margin-top:40px; */
+
     }
 }
