@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "코인 예측 서비스 여러 설정들"
+title: "코인 예측 서비스 호스팅"
 order: 2
 ---
 
