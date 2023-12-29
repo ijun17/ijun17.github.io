@@ -2,8 +2,7 @@
   sub:
   - category: 프로젝트
     sub:
-    - category: 이상결제 탐지 시스템 \\ fraud-detection-system
-    - category: 키오스크 시스템 설계 \\ fraud-detection-system
+    - category: 대학교 팀플 \\ univ-team-project
   - category: 사이드 프로젝트
     sub:
     - category: Level10(웹게임) \\ Level10(web game)
