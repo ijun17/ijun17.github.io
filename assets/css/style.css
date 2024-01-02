@@ -4,7 +4,8 @@
     --text-color:rgb(29, 29, 31);
     --text-highlight-color:cornflowerblue;
     
-    --base-font:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
+    /* --base-font:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji"; */
+    --base-font: sans-serif, Helvetica, Arial;
     --code-font:Consolas, sans-serif, Helvetica, Arial;
 
 }
