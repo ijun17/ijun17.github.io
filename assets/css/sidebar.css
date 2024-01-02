@@ -138,7 +138,6 @@
     font-size: 16px;
     font-weight: bold;
     color:var(--text-color);
-    color:#343541;
     padding-left:5px;
 }
 .navbar-folder:hover{background-color:rgba(142, 156, 182,0.4);}
