@@ -130,6 +130,7 @@
     flex-direction:row;
     margin-top:5px;
     background-color:rgba(142, 156, 182,0.2);
+    background-color: var(--background);
     border-radius:5px;
     height:35px;
     width:100%;

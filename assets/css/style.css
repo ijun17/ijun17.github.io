@@ -21,7 +21,7 @@ body{
     display: flex;
     flex-direction:row;
     font-family: var(--base-font);
-    background-color:white;
+    background-color:var(--background);
     background-color: #F5F5F7;
 }
 
