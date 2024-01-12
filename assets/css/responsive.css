@@ -26,9 +26,7 @@
         border-radius: 0;
         padding: 60px;
     }
-    /* .post>*{
-        margin:60px;
-    } */
+    .post-content>h1{font-size: 32px;margin-top:40px;}
     .post-title{font-size: 30px;}
     .post-dir{font-size: 14px;}
     .post-date{font-size: 14px;}
