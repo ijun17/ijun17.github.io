@@ -74,7 +74,7 @@
 
 .sidebar>.profile>.back{
     transform: rotateY(180deg);
-    background:#292930;
+    background:black;
 }
 
 .sidebar>.rotate{
@@ -130,8 +130,9 @@
     flex-direction:row;
     margin-top:5px;
     background-color:rgba(142, 156, 182,0.15);
+    background-color: var(--background);
     /* background-color: var(--background); */
-    border-radius:5px;
+    border-radius:7px;
     height:32px;
     width:100%;
     line-height:32px;
@@ -141,7 +142,10 @@
     color:var(--text-color);
     padding-left:5px;
 }
-.navbar-folder:hover{background-color:rgba(142, 156, 182,0.4);}
+.navbar-folder:hover{
+    background-color:rgba(142, 156, 182,0.4);
+    background-color: #F0F0F2;
+}
 
 .navbar-folder-box{
     padding-left:25px; 

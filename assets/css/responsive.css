@@ -26,7 +26,8 @@
         border-radius: 0;
         padding: 60px;
     }
-    .post-content>h1{font-size: 32px;margin-top:40px;}
+    .post-content>h1{font-size: 32px;}
+    .post-content>h2{font-size: 20px;}
     .post-title{font-size: 30px;}
     .post-dir{font-size: 14px;}
     .post-date{font-size: 14px;}
