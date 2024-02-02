@@ -1,11 +1,16 @@
 :root{
     /* --background:#F1F4F9; */
     --background:#F5F5F7;
-    /* --background:#F5F5F7; */
     --post-background:white;
     --text-color:rgb(29, 29, 31);
+    --text-color:#444;
     --text-highlight-color:cornflowerblue;
-    --line-color:#d2d2d7;
+    --line-color:lightgray;
+
+    
+    /* --background:#111;
+    --post-background:#222;
+    --text-color:#DDD; */
     
     /* --base-font:-apple-system, BlinkMacSystemFont, "Helvetica Neue", "Apple SD Gothic Neo", "Malgun Gothic", "맑은 고딕", 나눔고딕, "Nanum Gothic", "Noto Sans KR", "Noto Sans CJK KR", arial, 돋움, Dotum, Tahoma, Geneva, sans-serif; */
     /* --base-font: Helvetica,Arial,sans-serif; */
@@ -25,7 +30,6 @@ body{
     flex-direction:row;
     font-family: var(--base-font);
     background-color:var(--background);
-    background-color: #F5F5F7;
 }
 
 ::selection{

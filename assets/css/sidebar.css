@@ -22,7 +22,7 @@
 }
 
 .sidebar>div{
-    background-color: white;
+    /* background-color: white; */
     border-radius: 15px;
     box-shadow: 0px 0px 5px 2px rgba(0,0,0,0.1);
     margin:20px;
@@ -37,7 +37,7 @@
 }
 
 .sidebar-button{display: none;position: fixed;z-index: 3;left:10px;top:10px}
-.sidebtn{width:25px;height:4px;border-radius:2px;margin:5px 0;background-color: rgba(0,0,0,0.7);}
+.sidebtn{width:25px;height:4px;border-radius:2px;margin:5px 0;background-color: var(--text-color);}
 
 .sidebar>.profile{
     height:200px;
@@ -101,6 +101,7 @@
 /*SIDEBAR - NAVIGATION*/
 .sidebar-nav{
     padding: 10px;
+    background-color: var(--post-background);
 }
 
 .nav-navbar-title-wrapper{
