@@ -10,9 +10,8 @@
 
 
 @media screen and (max-width: 900px) {
-    .sidebar-wrapper{width:340px;min-width: 340px;}
     .sidebar{width:340px;left:-340px;}
-    .sidebar-overlay{position: fixed;}
+    .sidebar-overlay{position: fixed;background: linear-gradient(to right, #000C, #0006);}
     .sidebar-wrapper{min-width:0;width:0;}
     .sidebar-button{display: block;}
     #sidebar_button:checked~.sidebar{left:0px;}
