@@ -6,7 +6,12 @@ order: 4
 
 # c++ string
 
-c++에서 등장한 string은 문자열을 쉽게 처리할 수 있다. char 배열과의 차이는 길이가 동적이라는 것이다. +나 +=연산자로 길이를 증가시킬 수 있다.
+c++에서 등장한 string은 문자열을 쉽게 처리할 수 있다. char 배열과의 차이는 길이가 동적이라는 것이다. string은 라이브러리를 추가하지 않고 그냥 사용할 수 있다. 다만 string 라이브러리를 추가해 유용한 함수를 사용할 수 있다.
+
+```cpp
+std::string s="123";
+std::string s2(100, 'a'); //a가 100개
+```
 
 # 기본 연산자
 
@@ -18,6 +23,8 @@ c++에서 등장한 string은 문자열을 쉽게 처리할 수 있다. char 배
 |<,>,<=,>=|사전 순으로 뒤에 위치한게 큼|
 
 # 유용한 함수
+
+string 라이브러리를 추가해 아래 함수를 사용할 수 있다. 
 
 |함수|설명|
 |:---:|:---:|
@@ -34,9 +41,9 @@ c++에서 등장한 string은 문자열을 쉽게 처리할 수 있다. char 배
 ```cpp
 #include <string>
 
-std::string = "123";
-int num = std::stoi(string);
 //만약 숫자가 아니면 0을 반환한다.
+int num = std::stoi("123");
+//그외: std::stoi, std::stol, std::stoll, std::stoul, std::stoull, std::stof, std::stod, std::stold
 ```
 
 ## int에서 string으로
