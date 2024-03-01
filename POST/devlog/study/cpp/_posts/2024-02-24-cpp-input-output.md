@@ -53,18 +53,43 @@ ios_base::sync_with_stdio(0); // c++11 이후
 cin.tie(0);
 ```
 
-# 입출력 최적화(버퍼)
+# 입력 최적화(fread)
 
-나는 보통 문제를 풀고 다른 사람의 코드도 보는데 나보다 빠르게 푼 코드에서 아래와 같은 코드가 공통적으로 있었다. 잘 보니 이는 버퍼에 출력할 데이터를 담아두고 한번에 출력하는 것이었다. 이 코드는 cstdio를 사용하여 C언어 스타일로 작성된 코드이다. 
+입력해야할 내용이 많은 경우 한번에 입력하고 그 이후에 해석을 하는 방식이다. fread는 EOF를 만나기 전까지 입력을 받는다. EOF는 윈도우 상에서 ctrl+z이다. 만약 스트림 분리를 했다면 cout,cin과 같이 쓰지 말자.
 
 ```cpp
-//C 스타일
+#include <cstdio>
+#define MAX 1<<16
+char buff[MAX];
+static inline char read(){
+	static int idx = MAX;
+	if(idx==MAX){
+		fread(buff,1,MAX,stdin);
+		idx = 0;
+	}
+	return buff[idx++];
+}
+static inline int readInt(){
+	char now = read();
+	int num = 0;
+	while(now >= '0' && now <= '9'){
+		num = num * 10 + now - '0';
+		now = read();
+	}
+	return num;
+}
+```
+
+# 출력 최적화(fwrite)
+
+나는 보통 문제를 풀고 다른 사람의 코드도 보는데 나의 코드보다 시간복잡도가 더 나은 코드에서 아래와 같은 코드가 공통적으로 있었다. 잘 보니 이는 버퍼에 출력할 데이터를 담아두고 한번에 출력하는 것이었다. 출력해야할 양이 많은 경우 아래의 방법을 활용하면 좋을 것이다. 이 코드는 cstdio를 사용하여 C언어 스타일로 작성된 코드이다. 만약 스트림 분리를 했다면 cout,cin과 같이 쓰지 말자.
+
+```cpp
 #include <cstdio>
 #define MAX 1<<16
 
 char wbuf[MAX];
-int widx, result[8], N, M;
-bool check[8]{};
+int widx, result[8];
 
 inline void bflush() {
     fwrite(wbuf, 1, widx, stdout);
@@ -73,42 +98,10 @@ inline void bflush() {
 
 inline void write(int c) {
     if (widx + 2 * c >= MAX) bflush();
-
+    //아래는 예시
     for (int i = 0; i < c - 1; i++) wbuf[widx++] = result[i] + '0', wbuf[widx++] = ' ';
     wbuf[widx++] = result[c - 1] + '0', wbuf[widx++] = '\n';
 }
 ```
 
-아래는 cpp 스타일로 작성한 것이다.
-
-```cpp
-//C++ 스타일
-#include <iostream>
-#include <vector>
-#include <array>
-
-constexpr int MAX = 1 << 16;
-std::vector<char> wbuf(MAX);
-int widx;
-std::array<int, 8> result;
-int N, M;
-std::array<bool, 8> check{};
-
-inline void bflush() {
-    std::cout.write(wbuf.data(), widx);
-    widx = 0;
-}
-
-inline void write(int c) {
-    if (widx + 2 * c >= MAX) bflush();
-
-    for (int i = 0; i < c - 1; i++) {
-        wbuf[widx++] = result[i] + '0';
-        wbuf[widx++] = ' ';
-    }
-    wbuf[widx++] = result[c - 1] + '0';
-    wbuf[widx++] = '\n';
-}
-
-```
 

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "[c++]vector"
-order: 1
+order: 6
 ---
 
 # vector
