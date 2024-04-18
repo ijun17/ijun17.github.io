@@ -20,6 +20,7 @@
 }
 
 *{
+    font-family: var(--base-font);
     margin:0px;
     padding:0px;
     box-sizing: border-box;
@@ -28,7 +29,6 @@
 body{
     display: flex;
     flex-direction:row;
-    font-family: var(--base-font);
     background-color:var(--background);
 }
 
