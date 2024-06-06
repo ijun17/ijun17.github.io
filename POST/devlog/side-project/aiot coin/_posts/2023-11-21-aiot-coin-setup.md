@@ -41,7 +41,7 @@ ntp는 Network Time Protocol의 약자로 네트워크를 통해 시스템의 �
 2. 작동하는지 확인 `ntpq -p`
 
 
-# 매일 파이썬 작동 cron
+# cron으로 정적 사이트 생성
 
 cron이란 특정 작업을 특정 시간에 수행하게 해주는 스케줄러와 같다. 아래 크론탭에 작성한 명령은 매일 0시 10분(한국시간으로 9시 10분)에 프로젝트 폴더로 cd하고 coin_predict.py를 실행하고, 이때 로그나 에러 출력을 data.log에 저장한다는 것이다. 왜 프로젝트의 코드가 있는 곳으로 cd를 하냐면 파이썬 내부 코드는 상대경로를 사용하기 때문에 cd로 프로젝트 폴더로 이동한 것이다.
 
@@ -49,3 +49,4 @@ cron이란 특정 작업을 특정 시간에 수행하게 해주는 스케줄러
 2. 그리고 이것을 추가한다 `10 0 * * * cd /home/ubuntu/aiotcoin/surge-coin-predictor && /usr/bin/python3 /home/ubuntu/aiotcoin/surge-coin-predictor/coin_predict.py > /home/ubuntu/aiotcoin/surge-coin-predictor/web/coin/data.log 2>&1`
 3. `sudo service cron restart`
 
+여기서 cron을 이용해 매일 정적사이트를 생성한다. cron은 매일 coin_predict.py을 실행하는데 이것을 실행시키면 업비트 API로 모든 잡코인의 현재부터 200일 이전까지의 데이터를 받아와 예측을 하고 자바스크립트 파일을 생성한다. 여기서 데이터 베이스를 사용할 수도 있었지만 정적 사이트 생성이 가장 서버 부담이 적다는 판단을 하였다.
