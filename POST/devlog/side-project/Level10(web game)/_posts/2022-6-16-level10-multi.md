@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "WebRTC 멀티플레이 구현"
+title: "[Level10]JS로 멀티플레이 구현"
 order: 5
 ---
 
