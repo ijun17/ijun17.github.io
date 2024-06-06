@@ -40,9 +40,11 @@ let Navigation = {
         html_sidebarWrapper.querySelector(`.navbar-title[data-navbar="${folder.dataset["navbar"]}"]`).click();
     },
     toggleRotate:function(event){
-        const html_profile = document.querySelector(".sidebar>.profile")
-
-        html_profile.classList.toggle("rotate")
+        if(!event.target.classList.contains("profile-name")){
+            const html_profile = document.querySelector(".sidebar>.profile")
+            html_profile.classList.toggle("rotate")
+        }
+        
     }
 }
 
