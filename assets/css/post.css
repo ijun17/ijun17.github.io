@@ -84,13 +84,10 @@
 /* .post-header:hover>.post-hyperlink{
     display: block;
 } */
-.post-hyperlink>li{
-    /* padding-left: 20px; */
-    /* margin: 1px 0; */
-    color: var(--text-highlight-color);
+/* .post-hyperlink>li{
+    color: var(--text-highlight-color); 
     list-style-position: inside;
-    /* font-weight:bold; */
-}
+} */
 .post-hyperlink a{
     text-decoration: none;
     color: var(--text-highlight-color);
@@ -163,10 +160,9 @@
     margin:0px 0;
 } */
 
-.post-content ol>li::marker {
-    /* font-size: 0.9em; */
+/* .post-content ol>li::marker {
     font-weight: bold;
-}
+} */
 
 table {
     display: table;
