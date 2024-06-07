@@ -1,5 +1,9 @@
 # frozen_string_literal: true
 
+source "https://rubygems.org"
+
+gem "github-pages", group: :jekyll_plugins
+
 Gem::Specification.new do |spec|
   spec.name          = "jungi"
   spec.version       = "0.1.0"

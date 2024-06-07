@@ -45,12 +45,12 @@ node.js, flask 등 서버 프레임워크를 사용해보았으며 클라우드�
 * 다른 포스트로 이동했을 때 네비게이션 바가 초기화되는 것을 막기 위해 SPA로 구현하였습니다. 
 * 페이지 이동없이 네비게이션 바에서 모든 카테고리와 포스트를 볼 수 있도록 하였습니다. 
 * 반응형 웹으로 컴퓨터, 태블릿, 모바일 화면이 모두 잘 보이도록 하였습니다. 
-* 그밖에 군더더기없이 유용한 기능들을 구현했습니다.
+* 그 밖에 군더더기없이 유용한 기능들을 구현했습니다.
 {% endcapture %}
 
 
 {% capture project4 %}
-## 그외
+## 그 외
 
 * 모바일 기기 원격 접근 시스템([배포(웹)]({{page.oracle_url}}/connect), [블로그]({{page.blog_url}}/post/devlog/side-project/mobile%20connect/mobile-connect.html), [깃허브](https://github.com/ijun17/mobile-connect)): 하이브리드 앱에 관심이 생겨 개발하였습니다.
 * 코인 급상승 예측 시스템([배포]({{page.oracle_url}}/coins), [블로그]({{page.blog_url}}/post/devlog/side-project/aiot%20coin/aiot-coin.html), [깃허브](https://github.com/ijun17/surge-coin-predictor)): 대학교에서 ML을 배우게 되어 진행한 프로젝트입니다. 
