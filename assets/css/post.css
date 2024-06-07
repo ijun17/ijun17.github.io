@@ -146,6 +146,12 @@
     margin-left: 20px;
 }
 
+.post-content hr{
+    height: 1px;
+    background-color: #F0F0F0;
+    border:none;
+}
+
 
 .post-content ul{
     list-style-type:disc;
