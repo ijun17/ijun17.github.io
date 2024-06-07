@@ -15,7 +15,7 @@ node.js, flask 등 서버 프레임워크를 사용해보았으며 클라우드�
 # 프로젝트
 
 {% capture project1 %}
-## 1. 연구실 AR 안전교육 시스템(LSA)
+## 연구실 AR 안전교육 시스템(LSA)
 
 `vanila javascript` `SPA`
 
@@ -23,7 +23,7 @@ node.js, flask 등 서버 프레임워크를 사용해보았으며 클라우드�
 {% endcapture %}
 
 {% capture project2 %}
-## 2. 웹 게임(Level10)
+## 웹 게임(Level10)
 
 `vanila javascript` `SPA` `node.js`
 
@@ -34,13 +34,13 @@ node.js, flask 등 서버 프레임워크를 사용해보았으며 클라우드�
 
 
 {% capture project3 %}
-## 3. 블로그
+## 블로그
 
 `javascript` `jekyll` `SPA`
 
 [블로그]({{page.blog_url}}/post/devlog/side-project/my%20blog/myblog.html)
 
-이 블로그는 제 성격을 가장 잘 반영하는 프로젝트입니다. 깔끔함과 군더더기 없음을 지향하며 디자인했습니다. 이 블로그처럼 다른 사람이 이해하기 쉽고, 유지보수하기 쉬운 코드를 작성하려고 노력합니다. 또한 지금까지 보고 개인적으로 느껴왔던 블로그들의 모든 단점을 해결했습니다. 
+이 블로그는 제 성향을 가장 잘 반영하는 프로젝트입니다. 깔끔함과 군더더기 없음을 지향하며 디자인했습니다. 이 블로그처럼 다른 사람이 이해하기 쉽고, 유지보수하기 쉬운 코드를 작성하려고 노력합니다. 또한 지금까지 보고 개인적으로 느껴왔던 블로그들의 모든 단점을 해결했습니다. 
 
 * 다른 포스트로 이동했을 때 네비게이션 바가 초기화되는 것을 막기 위해 SPA로 구현하였습니다. 
 * 페이지 이동없이 네비게이션 바에서 모든 카테고리와 포스트를 볼 수 있도록 하였습니다. 
@@ -50,7 +50,7 @@ node.js, flask 등 서버 프레임워크를 사용해보았으며 클라우드�
 
 
 {% capture project4 %}
-## 4. 그외
+## 그외
 
 * 모바일 기기 원격 접근 시스템([배포(웹)]({{page.oracle_url}}/connect), [블로그]({{page.blog_url}}/post/devlog/side-project/mobile%20connect/mobile-connect.html), [깃허브](https://github.com/ijun17/mobile-connect)): 하이브리드 앱에 관심이 생겨 개발하였습니다.
 * 코인 급상승 예측 시스템([배포]({{page.oracle_url}}/coins), [블로그]({{page.blog_url}}/post/devlog/side-project/aiot%20coin/aiot-coin.html), [깃허브](https://github.com/ijun17/surge-coin-predictor)): 대학교에서 ML을 배우게 되어 진행한 프로젝트입니다. 
