@@ -2,8 +2,9 @@
   sub:
   - category: 프로젝트
     sub:
-    - category: 대학교 프로젝트 \\ univ-project
-    - category: 냉장고 관리 \\ jcop-4-1
+    - category: 연구실 AR 안전교육 시스템 \\ capstone
+    - category: 대학교 프로젝트들 \\ univ-project
+    - category: 냉장고 관리 애플리케이션 \\ jcop-4-1
   - category: 사이드 프로젝트
     sub:
     - category: Level10(웹게임) \\ Level10(web game)
