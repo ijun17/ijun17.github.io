@@ -121,8 +121,8 @@
 }
 .post-content .post-link:hover{text-decoration: underline;}
 .post-content a{font-weight: bold;}
-.post-content>:is(h2,h3,h4){margin-top:20px;}
-.post-content>h2{font-size: 24px;margin-top:35px;}
+.post-content :is(h2,h3,h4){margin-top:20px;}
+.post-content h2{font-size: 24px;margin-top:35px;}
 .post-content>h1{
     font-size: 34px;
     margin-top:70px;
@@ -152,6 +152,21 @@
     border:none;
 }
 
+.post-content .box{
+    width:100%;
+    background-color: inherit;
+    border-radius: 15px;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+    margin: 20px 0;
+    padding: 10px;
+}
+.post-content .box>:is(ul, ol){
+    margin-left: 30px;
+}
+
+.post-content .box>*{
+    margin:10px;
+}
 
 .post-content ul{
     list-style-type:disc;
