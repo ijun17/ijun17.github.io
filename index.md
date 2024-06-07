@@ -16,7 +16,7 @@ blog_url: "https://ijun17.github.io"
 
 `vanila javascript` `SPA`
 
-[배포]() / [블로그]() / [깃허브]() / [REST API 정의서](https://cyber-mitten-d95.notion.site/LSA-REST-API-df2116c15a564d15acd39837cec2684e)
+[배포]({{page.oracle_url}}/LSA) / [블로그]({{page.blog_url}}/post/devlog/project/capstone/capstone-4-1.html) / [깃허브](https://github.com/ijun17/LSA-web) / [REST API 정의서](https://cyber-mitten-d95.notion.site/LSA-REST-API-df2116c15a564d15acd39837cec2684e)
 
 ## 2. 웹 게임(Level10)
 
@@ -32,7 +32,7 @@ blog_url: "https://ijun17.github.io"
 
 [블로그]({{page.blog_url}}/post/devlog/side-project/my%20blog/myblog.html)
 
-지금 보고 계신 블로그는 제 성격을 가장 잘 반영하는 프로젝트입니다. 모든 디자인을 제가 하였으며, 지금까지 보고 개인적으로 느껴왔던 블로그들의 모든 단점을 해결했습니다. 이 블로그처럼 다른 사람이 이해하기 쉽고, 유지보수하기 쉬운 코드를 작성하려고 노력합니다.
+이 블로그는 제 성격을 가장 잘 반영하는 프로젝트입니다. 깔끔함과 군더더기 없음을 지향하며 디자인했습니다. 이 블로그처럼 다른 사람이 이해하기 쉽고, 유지보수하기 쉬운 코드를 작성하려고 노력합니다. 또한 지금까지 보고 개인적으로 느껴왔던 블로그들의 모든 단점을 해결했습니다. 
 
 * 다른 포스트로 이동했을 때 네비게이션 바가 초기화되는 것을 막기 위해 SPA로 구현하였습니다. 
 * 네비게이션 바에서 페이지 이동없이 모든 카테고리와 포스트를 볼 수 있도록 하였습니다. 
@@ -41,9 +41,9 @@ blog_url: "https://ijun17.github.io"
 
 ## 4. 그외
 
-* 모바일 기기 원격 접근 시스템([포스트]({{page.blog_url}}/post/devlog/side-project/mobile%20connect/mobile-connect.html), [깃허브](https://github.com/ijun17/mobile-connect)): 하이브리드 앱에 관심이 생겨 개발하였습니다.
-* 코인 급상승 예측 시스템([포스트]({{page.blog_url}}/post/devlog/side-project/aiot%20coin/aiot-coin.html), [깃허브](https://github.com/ijun17/surge-coin-predictor)): 대학교에서 ML을 배우게 되어 진행한 프로젝트입니다. 
-* WebRTC 채팅 서비스([포스트]({{page.blog_url}}/post/devlog/side-project/webrtc%20chat/webrtc-chat.html), [깃허브](https://github.com/ijun17/WebRTC-chat)): WebRTC를 공부하기 위해 진행한 프로젝트입니다.
+* 모바일 기기 원격 접근 시스템([배포(웹)]({{page.oracle_url}}/connect), [포스트]({{page.blog_url}}/post/devlog/side-project/mobile%20connect/mobile-connect.html), [깃허브](https://github.com/ijun17/mobile-connect)): 하이브리드 앱에 관심이 생겨 개발하였습니다.
+* 코인 급상승 예측 시스템([배포]({{page.oracle_url}}/coins), [포스트]({{page.blog_url}}/post/devlog/side-project/aiot%20coin/aiot-coin.html), [깃허브](https://github.com/ijun17/surge-coin-predictor)): 대학교에서 ML을 배우게 되어 진행한 프로젝트입니다. 
+* WebRTC 채팅 서비스([배포]({{page.blog_url}}/WebRTC-chat), [포스트]({{page.blog_url}}/post/devlog/side-project/webrtc%20chat/webrtc-chat.html), [깃허브](https://github.com/ijun17/WebRTC-chat)): WebRTC를 공부하기 위해 진행한 프로젝트입니다.
 
 # 수상내역
 # 교내활동
