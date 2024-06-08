@@ -23,22 +23,26 @@ let Post = {
         document.addEventListener("mousedown", linkWheelClickEventHandler);
         document.addEventListener("auxclick", linkWheelClickEventHandler);
         //페이지 이전, 이후로 갈때 loadPost 메소드 실행
-        URL.addEvent(function(){this.loadPost(document.location, false);}.bind(this))
+        URL.addEvent(function(){this.loadPost(document.location, false, false);}.bind(this))
     },
-    loadPost: function (url, historyPush=true) {
+    loadPost: function (url, historyPush=true, scrollUp=true) {
         if (url === document.location.href) return;
-        window.scroll({top: 0,left: 0,behavior: "smooth"})
-        fetch(url).then((response)=>response.text()).then(this.renderPost);
+        html_post.classList.add("gradient-box")
+        fetch(url)
+        .then((response)=>response.text())
+        .then((data)=>{
+            this.renderPost(data)
+            html_post.classList.remove("gradient-box")
+            if (scrollUp) window.scroll({top: 0,left: 0,behavior: "smooth"})
+        });
         if (historyPush) URL.set(url);
+        Navigation.openCurrentFolder()
     },
     renderPost: function (text="") { 
         text.replace(/<!--post start-->(.*)<!--post end-->/s, function (match, p1) { html_postContent.innerHTML = p1; });
         document.title=document.querySelector(".post-info").dataset["title"];
         Post.renderHeader();
         Post.renderFooter();
-    },
-    fadeoutPost: function(){
-
     },
     renderHeader: function(){
         const html_postHeader=document.querySelector(".post-header");

@@ -53,12 +53,11 @@ node.js, flask 등 서버 프레임워크를 사용해보았으며 클라우드�
 
 `javascript` `jekyll` `SPA`
 
-이 블로그는 제 성향을 가장 잘 반영하는 프로젝트입니다. 깔끔함과 군더더기 없음을 지향하며 디자인했습니다. 이 블로그처럼 다른 사람이 이해하기 쉽고, 유지보수하기 쉬운 코드를 작성하려고 노력합니다. 또한 지금까지 보고 개인적으로 느껴왔던 블로그들의 모든 단점을 해결했습니다. 
+개발하면서 맞닥뜨린 문제 상황을 기록하기 위해 만들었습니다. 깔끔함과 군더더기 없음을 지향하며 디자인했으며, 지금까지 보고 개인적으로 느껴왔던 블로그들의 모든 단점을 해결했습니다. 
 
 * 다른 포스트로 이동했을 때 네비게이션 바가 초기화되는 것을 막기 위해 SPA로 구현하였습니다. 
 * 페이지 이동없이 네비게이션 바에서 모든 카테고리와 포스트를 볼 수 있도록 하였습니다. 
 * 반응형 웹으로 컴퓨터, 태블릿, 모바일 화면이 모두 잘 보이도록 하였습니다. 
-* 그 밖에 군더더기없이 유용한 기능들을 구현했습니다.
 
 <ul>{%- include categorizedPosts.html category="my blog" -%}</ul>
 {% endcapture %}
@@ -67,9 +66,27 @@ node.js, flask 등 서버 프레임워크를 사용해보았으며 클라우드�
 {% capture project4 %}
 ## 그 외
 
-* 모바일 기기 원격 접근 시스템([배포(웹)]({{page.oracle_url}}/connect), [블로그]({{page.blog_url}}/post/devlog/side-project/mobile%20connect/mobile-connect.html), [깃허브](https://github.com/ijun17/mobile-connect)): 하이브리드 앱에 관심이 생겨 개발하였습니다.
-* 코인 급상승 예측 시스템([배포]({{page.oracle_url}}/coins), [블로그]({{page.blog_url}}/post/devlog/side-project/aiot%20coin/aiot-coin.html), [깃허브](https://github.com/ijun17/surge-coin-predictor)): 대학교에서 ML을 배우게 되어 진행한 프로젝트입니다. 
-* WebRTC 채팅 서비스([배포]({{page.blog_url}}/WebRTC-chat), [블로그]({{page.blog_url}}/post/devlog/side-project/webrtc%20chat/webrtc-chat.html), [깃허브](https://github.com/ijun17/WebRTC-chat)): WebRTC를 공부하기 위해 진행한 프로젝트입니다.
+### 모바일 기기 원격 접근 시스템
+[배포(웹)]({{page.oracle_url}}/connect) / [깃허브](https://github.com/ijun17/mobile-connect)
+
+안드로이드 웹 뷰로 하이브리드 앱을 개발하였고, 파일을 접근하는 브리지를 만들었습니다.
+<ul>{%- include categorizedPosts.html category="mobile connect" -%}</ul>
+
+<br>
+
+### 코인 급상승 예측 시스템
+[배포]({{page.oracle_url}}/coins) / [깃허브](https://github.com/ijun17/surge-coin-predictor)
+
+스팸 코인의 가격 급상승을 ML로 예측하였습니다. 시계열 데이터를 학습하기 위해 윈도우로 데이터를 전처리했습니다.
+<ul>{%- include categorizedPosts.html category="aiot coin" -%}</ul>
+
+<br>
+
+### WebRTC 채팅 서비스
+[배포]({{page.blog_url}}/WebRTC-chat) / [깃허브](https://github.com/ijun17/WebRTC-chat)
+
+WebRTC를 공부하기 위해 개발한 간단한 채팅 서비스입니다.
+<ul>{%- include categorizedPosts.html category="WebRTC chat" -%}</ul>
 {% endcapture %}
 
 <div class="box">{{project1 | markdownify}}</div>
@@ -78,4 +95,35 @@ node.js, flask 등 서버 프레임워크를 사용해보았으며 클라우드�
 <div class="box">{{project4 | markdownify}}</div>
 
 # 수상내역
-# 교내활동
+
+### 2023 XR 디바이스 콘텐츠 아이디어톤 장려상
+
+(구미전자정보기술원장상, 2023.11)
+
+### 2024 자율주행 SW 교육 및 경진대회 대상
+
+(전북대학교 공과대학장상, 2024.02)
+
+### 2024 한국정보기술학회 대학생논문경진대회 금상
+
+(”자이로센서 데이터 및 이미지 데이터를 이용한 Aruco 마커 기반 AR 안전 교육 시스템”, 2024.05)
+
+
+
+
+# 활동
+
+### 전북대학교 소프트웨어공학과 동아리 AM:PM
+
+* 기간: 2020.03 ~ 현재
+* 활동: 2020년도 웹 스터디 멘티, 2023년도 운영진, 2023년도 깃허브 스터디 멘토  
+
+### 코드클럽 한국위원회 코딩교육 봉사활동
+
+* 기간: 2023.04 ~ 2023.07
+* 활동: 중산초등학교 학생들에게 코딩 교육을 했습니다.
+
+### 전북대학교 AI동아리 Jbig
+
+* 기간: 2024.03 ~ 현재
+* 활동: 매주 파이썬 인공지능 세미나에 참석했고, 비전공자 분들과 프로젝트를 진행중입니다. 

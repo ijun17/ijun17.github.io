@@ -72,8 +72,8 @@
 }
 .post-hyperlink{
     /* display: none; */
-    background-color: rgba(142, 156, 182,0.13);
-    background-color: var(--background);
+    background-color: rgba(142, 142, 150,0.07);
+    /* background-color: var(--background); */
     border-radius: 10px;
     padding:15px;
     margin:20px 0;
@@ -154,7 +154,7 @@
     background-color: inherit;
     border-radius: 15px;
     box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
-    margin: 20px 0;
+    margin: 30px 0;
     padding: 10px;
 }
 .post-content .box>:is(ul, ol){
@@ -242,3 +242,24 @@ code :is(.dl,.s1,.s2,.sr,.se,.s,.sh){color:lightsalmon;}
 code .p{color:violet;}
 code :is(.nf,.na,.nc){color:khaki;}
 code :is(.mi,.nd,.nx,.nb,.n){color:lightskyblue;}
+
+
+
+
+.gradient-box {
+    background: linear-gradient(135deg, #CCC, #FFF, #CCC);
+    background-size: 200% 200%;
+    animation: diagonal-move 2s linear infinite;
+}
+
+@keyframes diagonal-move {
+    0% {
+        background-position: 100% 100%;
+    }
+    50% {
+        background-position: 0% 0%;
+    }
+    100% {
+        background-position: 100% 100%;
+    }
+}
