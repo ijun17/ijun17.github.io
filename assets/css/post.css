@@ -53,6 +53,7 @@
 .post-dir{
     color:var(--text-highlight-color);
     font-weight: bold;
+    cursor: pointer;
 }
 .post-dir:hover{text-decoration: underline;}
 .post-dir:hover::after{
@@ -113,11 +114,7 @@
 .post-content .post-link {
     color: var(--text-highlight-color);
     font-weight: bold;
-    -ms-user-select: none; 
-    -moz-user-select: -moz-none;
-    -khtml-user-select: none;
-    -webkit-user-select: none;
-    user-select: none;
+    text-decoration:none;
 }
 .post-content .post-link:hover{text-decoration: underline;}
 .post-content a{font-weight: bold;}

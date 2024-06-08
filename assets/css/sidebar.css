@@ -50,8 +50,6 @@
     cursor: pointer;
 }
 
-
-
 .sidebar>.profile>div {
     position: absolute;
     width: 100%;
@@ -82,15 +80,16 @@
     transform: rotateY(180deg);
 }
 
-.profile-name{
+.profile-name>a{
     color:white;
     font-size: 30px;
     font-weight:bold;
     font-family: var(--code-font);
     text-align:center;
+    text-decoration: none;
     transition: all 0.3s ease 0s;
 }
-.profile-name:hover{font-size: 34px;}
+.profile-name>a:hover{font-size: 34px;}
 
 
 
@@ -159,9 +158,10 @@
 }
 .navbar-folder-open{height: auto;transform: scaleY(1);}
 
-.navbar li {
+.navbar a {
     font-size:14px;
     color:var(--text-color);
+    text-decoration: none;
     line-height: 25px;
     border-radius:5px;
     vertical-align:middle;

@@ -4,15 +4,30 @@ const html_postContent=html_post.querySelector(".post-content")
 let Post = {
     linkClassName:"post-link",
     init:function(){
+        const linkClickEventHandler = (event)=>{
+            if (event.target.classList.contains(this.linkClassName)){
+                event.preventDefault();
+                this.loadPost(event.target.href, true);
+            }
+        }
+        const linkWheelClickEventHandler = (event)=>{
+            if (event.button === 1 && event.target.classList.contains(this.linkClassName)){
+                event.preventDefault();
+                window.open(event.target.href, '_blank')
+            }
+        }
+
         this.renderPost();
         //포스트 링크를 클릭시 loadPost 메소드 실행
-        document.addEventListener("click", function(event){if (event.target.classList.contains(this.linkClassName)) this.loadPost(event.target.dataset.url, true);}.bind(this));
+        document.addEventListener("click", linkClickEventHandler);
+        document.addEventListener("mousedown", linkWheelClickEventHandler);
+        document.addEventListener("auxclick", linkWheelClickEventHandler);
         //페이지 이전, 이후로 갈때 loadPost 메소드 실행
         URL.addEvent(function(){this.loadPost(document.location, false);}.bind(this))
     },
     loadPost: function (url, historyPush=true) {
-        if (url === document.location.pathname) return;
-
+        if (url === document.location.href) return;
+        window.scroll({top: 0,left: 0,behavior: "smooth"})
         fetch(url).then((response)=>response.text()).then(this.renderPost);
         if (historyPush) URL.set(url);
     },
