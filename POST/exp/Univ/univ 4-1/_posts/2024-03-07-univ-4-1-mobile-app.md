@@ -307,8 +307,11 @@ raw 파일
     * android:layout_height=
         * `"wrap_content"`
         * `"match_parent"`
-* 불필요하게 임포트된 문장 제거: ctrl+alt+o
-* 필요한 패키지 임포트: `alt+enter`
+* `MainActivity.java`
+* `activity_main.xml`
+* `ctrl+alt+o` 불필요하게 임포트된 문장 제거
+* `alt+enter`필요한 패키지 임포트
+* `ctrl+alt+l` 소스코드 정렬
 * @Override
 * (Button) findViewById(R.id.button1)
 * onClick
@@ -361,9 +364,9 @@ raw 파일
 ## 7장 메뉴와 대화상자
 * 메뉴 종류 - 옵션 메뉴, 컨텍스트 메뉴
 * 옵션 메뉴 코딩: XML 작성 > onCreateOptionMenu() > onOptionSelected()
+* 컨텍스트 메뉴 코딩: XML 작성 > **registerForContextMenu()** > onCreateContextMenu() > onContextItemSelected() 
 * `inflater`: XML 파일을 Java로 동작되게 
     * MenuInflater : onCreateOptionMenu()안에서 메뉴를 동작되게
-* 컨텍스트 메뉴 코딩: XML 작성 > **registerForContextMenu()** > onCreateContextMenu() > onContextItemSelected() 
 * Toast.makeText(Context context, String message, int duration).show()
 * `NoActionBar`
 
@@ -392,9 +395,11 @@ raw 파일
 * 액티비티는 xml이 아니라 자바 파일임
 * intent
     * 명시적 인텐트
-    * 암시적 인텐트
-* 양방향 액티비티 
-    * onActivityResult
+    * 암시적 인텐트 ex) Intent.ACTION_SENDTO 문자
+* 단방향 액티비티
+    * startActivity
+* 양방향 액티비티
+    * startActivityForResult
     * setResult
 * 생명주기
 * 로그캣 `android.util.Log.d(tag, message)`
@@ -402,8 +407,10 @@ raw 파일
 
 ## 11장 어댑터뷰
 * 어댑터뷰 - 리스트뷰, 익스펜더블뷰, 그리드뷰, 스피너, 갤러리 등
+    * ArrayAdapter< T > 어댑터뷰에서 데이터를 채우기 위해
 * 리스트뷰  
-    * 리스트로 생성
+    * 리스트뷰에 나열할 내용을 미리 String 배열로 생성
+    * 모양 - simple_list_item_1(기본), simple_list_item_single_choice(라디오 버튼), simple_list_item_multiple_choice(체크박스)
 * 갤러리
 * 스피너
 
@@ -416,9 +423,10 @@ raw 파일
 
 ## 13장 멀티미디어 구글 지도
 * 오디오 MediaPlayer
-    * play()
+    * start()
     * pause()
     * stop()
+    * raw폴더에 저장
 * 구글맵 구글 API 키 필요
 * `CSV(comma-separated values)`
 
