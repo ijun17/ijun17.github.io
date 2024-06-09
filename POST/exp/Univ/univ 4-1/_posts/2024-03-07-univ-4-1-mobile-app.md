@@ -278,3 +278,152 @@ raw 파일
 
 
 기말 - select table 등 쿼리 나옴
+
+
+
+
+
+
+# 기말 정리
+
+## 1장 안드로이드
+* `API(Application Programming Interface)`
+* `ART(Android Run Time)`
+* SQLite - 모바일 용 데이터베이스
+* 안드로이드 구조
+    1. **응용 프로그램**
+    2. 응용 프로그램 프레임워크
+    1. 라이브러리, 안드로이드 런타임
+    1. **리눅스 커널**
+* `AVD(Android Virtual Device)`
+* 하드웨어 제어 및 커널 관련 - C,C++로 개발
+
+## 2장 안드로이드 스튜디오
+* `SDK(Software Development Kit)`
+* Layout
+    * ConstraintLayout
+    * LinearLayout
+* 위젯 속성
+    * android:layout_height=
+        * `"wrap_content"`
+        * `"match_parent"`
+* 불필요하게 임포트된 문장 제거: ctrl+alt+o
+* 필요한 패키지 임포트: `alt+enter`
+* @Override
+* (Button) findViewById(R.id.button1)
+* onClick
+* `R 클래스`
+
+
+## 3장 자바
+* 캐스트 연산자: (Button) View
+* 메소드 오버로딩: 이름이 같아도 매개변수의 차이로 구분
+* 상속 extends
+* 추상클래스 abstract
+* 익명 내부 클래스 new ClickListener { ... }
+* 패키지
+* 제네릭스 ArrayList< String > strList
+
+
+## 4장 위젯
+* View 클래스(위젯)
+* Layout View를 담을 수 있는 위젯
+* id 속성 "@+id/" 형식
+* android:background="#000000" 색깔 16진수
+* android:padding="30dp"
+* android:layout_margin="20dp"
+* android:visibility=
+    * "invisible" 안보이는데 자리는 차지
+    * "visible" 보임
+    * "gone" 안보이고 자리도 차지않음
+* android:enabled="false" 위젯이 동작하지 않음(버튼 클릭 안됨)
+* android:rotation = "45"
+* 위젯 종류 - Button, TextView, RadioGroup, RadioButton, ImageView
+* 라디오 버튼은 라디오 그룹안에 존재한다.
+
+
+## 5장 레이아웃
+* Object > View > ViewGroup > LinearLayout
+    * orientation =
+        * "vertical" 수직
+        * "hrizontal" 수평
+    * gravity = 
+        * "rightbottom"
+    * layout_gravity =   자신의  위치를 부모의 어디쯤에 위치할까
+        * "right"
+        * "center"
+        * "left"
+
+## 6장 고급 위젯 다루기
+* WebView
+    * AndroidManifest.xml에 `android:usesCleartextTraffic="true"`
+
+## 7장 메뉴와 대화상자
+* 메뉴 종류 - 옵션 메뉴, 컨텍스트 메뉴
+* 옵션 메뉴 코딩: XML 작성 > onCreateOptionMenu() > onOptionSelected()
+* `inflater`: XML 파일을 Java로 동작되게 
+    * MenuInflater : onCreateOptionMenu()안에서 메뉴를 동작되게
+* 컨텍스트 메뉴 코딩: XML 작성 > **registerForContextMenu()** > onCreateContextMenu() > onContextItemSelected() 
+* Toast.makeText(Context context, String message, int duration).show()
+* `NoActionBar`
+
+
+## 8장 파일 처리
+
+* 내장 메모리 파일 위치: `/data/data/패키지명/files` 폴더
+* 파일 처리 과정: 
+    * openFileOutput() (FileOutputStream) > read() > close()
+    * openFileInput() (FileInputStream) > write() > close()
+* device explore
+
+## 9장 그래픽과 이미지
+
+* Canvas
+    * drawPoint
+    * rotate
+    * scale
+    * translate
+    * skew
+* Paint
+    * setColor
+
+## 10장 액티비티와 인텐트
+* 4대 컴포넌트: 액티비티, 서비스,  브로드캐스트 리시버, 콘텐트 프로바이더
+* 액티비티는 xml이 아니라 자바 파일임
+* intent
+    * 명시적 인텐트
+    * 암시적 인텐트
+* 양방향 액티비티 
+    * onActivityResult
+    * setResult
+* 생명주기
+* 로그캣 `android.util.Log.d(tag, message)`
+
+
+## 11장 어댑터뷰
+* 어댑터뷰 - 리스트뷰, 익스펜더블뷰, 그리드뷰, 스피너, 갤러리 등
+* 리스트뷰  
+    * 리스트로 생성
+* 갤러리
+* 스피너
+
+## 12장 데이터베이스
+* SQLite
+* `DBMS(DataBase Management System)`
+* `SQL(Structured Query Language)`
+* SQLiteOpenHelper, SQLiteDatabase, Cursor
+* create table, select, insert
+
+## 13장 멀티미디어 구글 지도
+* 오디오 MediaPlayer
+    * play()
+    * pause()
+    * stop()
+* 구글맵 구글 API 키 필요
+* `CSV(comma-separated values)`
+
+## 14장 서비스와 브로드캐스트리시버
+* 서비스: 백그라운드
+* 브로드캐스트리시버: 특정 메시지 받는거(예-배터리상태확인)
+* 콘텐트프로바이더: 앱 내부 데이터 외부 제공
+    * `URI(Uniform Resource Identifier)` - 이걸로 암시적 인텐트에 사용
