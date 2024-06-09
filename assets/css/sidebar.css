@@ -121,7 +121,7 @@
 
 .navbar{
     overflow-x: hidden;
-    transition: all 0.2s ease 0s;
+    transition: width 10s ease 0s;
     height:0;
     width:0;
 }
@@ -129,10 +129,10 @@
 .navbar-folder{
     display:flex;
     flex-direction:row;
+    overflow-x: hidden;
     margin-top:5px;
     background-color:rgba(142, 156, 182,0.15);
     background-color: var(--background);
-    /* background-color: var(--background); */
     border-radius:7px;
     height:32px;
     width:100%;
@@ -142,6 +142,7 @@
     font-weight: bold;
     color:var(--text-color);
     padding-left:5px;
+    white-space: nowrap;
 }
 .navbar-folder:hover{
     background-color:rgba(142, 156, 182,0.4);
