@@ -121,7 +121,7 @@
 
 .navbar{
     overflow-x: hidden;
-    transition: width 10s ease 0s;
+    transition: width 0.2s ease 0s;
     height:0;
     width:0;
 }
