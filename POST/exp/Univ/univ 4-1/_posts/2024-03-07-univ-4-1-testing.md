@@ -4,6 +4,11 @@ title: "[4학년1학기]소프트웨어품질테스팅"
 order: 20
 ---
 
+* 테스트
+    * level에 따라 - unit, integration, system, acceptance
+    * method에 따라 - 블랙 박스, 화이트 박스
+    * type에 따라 - manual, automated
+
 V&V 
 * `validation(확인)`: 올바르게 제품을 구축했는가 - 요구사항대로 제품이 동작하는가
 * `verification(검증)`: 올바르게 제품을 구축하고 있는가 - 스펙에 부합하는가
@@ -132,31 +137,6 @@ _
 * input/output error: 파일 위치, 권한, rw 모드, EOF 처리
 * interface error: 함수 매개변수
 
--
-
-byte b =127
-int a =100;
-b = b+a // 오류
-값이 줄어들음
--
-
-
-
-```java
-// 마지막 0을 반환하는 함수
-public static int lastZero(int[] x){
-    for(int i=0; i<x.length(); i++){
-        if(x[i]==0){
-            return i;
-        }
-    }
-    return -1;
-}
-// 결함 : for문에서 역순으로 찾아야함
-// 결함을 실행시키지 않는 경우  [1,2,3,4]
-// 실행하지만 오류를 발생시키지 않는 경우  [1,0,1]
-// 오류를 발생시키는 경우 [1,0,0,1]
-```
 
 
 
@@ -209,5 +189,259 @@ ab b a     길이가 -1
 
 
 
+
+
 # 5 test case design 3
 
+# 6 MBT(Model Based Testing)
+
+## 상태 전이 테스팅
+
+* 유한 상태에 대한 전이 테스팅
+* Finite State Machine - state, transition, event, action
+
+- All states coverage
+- All transitions coverage
+- All transition pairs coverage
+- path coverage
+
+# 7 테스트 자동화
+
+테스트 자동화란 소프트웨어를 사용하여 자동으로 실제 결과와 예상 결과를 비교하는 것
+
+- 회귀 테스트: 변경 이후 기존 기능과 새로 추가된 기능 테스트
+* 리팩토링: 코드의 복잡도를 낮추는 것
+
+## Manual vs Automated
+
+|Manual Testing|Automated Testing|
+|:--:|:--:|
+|사람 실수 발생 가능|안정적|
+|느림|빠름|
+|탐색 테스팅, 사용성 테스팅에 적합|회귀 테스특와 퍼포먼스 테스트에 적합|
+|초기 비용 낮음|초기 비용 높음|
+|ROI 낮음|ROI 높음|
+|사용자 친화적||
+
+## 테스트 자동화 과정
+
+1. 자동화 툴 선정
+2. 자동화 SUT 선정
+3. 테스트 suite와 script 작성
+4. 테스트 실행
+5. 유지보수
+
+## JUnit 
+
+자바 테스트 자동화 프레임워크
+
+### method
+- assertTrue (a) : a가 참인지 확인
+- assertArrayEquals(a, b) : 배열 a와b가 일치함을 확인
+- assertEquals(a, b) : 객체 a와b의 값이 같은지 확인
+- assertSame(a, b) : 객체 a와b가 같은 객체임을 확인
+- assertNotNull(a) : a객체가 null이 아님을 확인
+
+### annotation
+* @AfterAll: 테스트 후 한번만 실행
+* @BeforeAll: 테스트 전 한번만 실행
+* @AfterEach: 각 테스트 케이스 후 실행
+* @BeforeEach: 각 테스트 케이스 전 실행
+
+### Data-Driven Tests
+
+미리 정의된 입출력 Set을 사용하여 동일한 테스트를 반복
+```java
+@ParameterizedTest
+@CsvSource()
+void calTest(){}
+```
+
+# 8 단위 테스트
+
+- 객체 지향에서 유닛 - 메소드, 클래스
+- 절차 지향에서 유닛 - 함수, 한페이지 코드, 4~40시간 분량 코드, 컴파일 가능한 가장 작은 단위
+
+## 단위 시험 특징
+- 코드를 작성한 사람이 수행
+- 맥락에서 자유로움
+- 프로젝트에서 명시적인 결과물로 간주되지 않음
+- 정적 분석과 하면 가장 효과 좋음
+- 프로그램 테스트 프로세스에 병렬성 도입
+- 일반적으로 비용 많이 듬
+- 테스트 드라이버와 스텁이 필요
+
+## Test Double
+
+실제로 동작하는 것처럼 보이게 만들어 놓은 dummy 객체
+
+- Dummy: 아무 동작도 하지 않고, 단지 메소드의 시그니처를 맞추기 위해 사용됩니다.
+- Fake: 실제로 동작하지만, 프로덕션 환경에서 사용되는 객체와는 다른 단순화된 버전입니다.(in-memory db)
+- Stub: 특정 메소드 호출에 대해 하드코딩된 값을 반환하는 객체로, 호출 검증 기능은 없습니다.
+- Spy: 실제 객체처럼 동작하면서 호출 기록을 남기는 객체로, 호출 검증이 가능합니다.
+- Mock: 호출 기록과 함께 예상 동작을 설정할 수 있는 가장 강력한 테스트 더블입니다.
+
+## Mock 프레임워크
+- Mockito
+
+## Test Driver
+테스트할 unit을 호출함
+
+- 테스트케이스 초기화
+- 입력 시뮬레이션
+- 출력 비교
+- 기록
+- 디버깅 지원 
+
+## Test Harness
+테스트 실행을 도와주는 테스트 드라이버, 스텁 및 기타 도구
+
+## 단위 테스트 중지 조건
+- 시간이 없을때
+- 새로운 Failer와 Fault가 없을때
+- 테스트 케이스가 생각이 안날 때
+- 의무적인 커버리지 달성
+- 모든 fault가 제거되었을 때
+
+
+
+# 9 통합 테스팅
+
+- 컴포넌트 그룹을 테스트
+- 유닛들의 상호작용과 그들의 인터페이스를 테스트
+- 명세에 대한 잘못된 모듈을 찾는 것이 목적
+
+## 통합 오류
+- 해석 오류: 잘못된 명세 해석으로 모듈의 기능이 잘못됨
+- 잘못된 요청 오류: 모듈끼리 요청하는데 오류
+- 인터페이스 오류: 모듈의 입출력 형식, 타입
+
+## 통합 테스트 케이스 선정 기준
+- 모듈의 요청
+- 모든 가능한 응답
+- 파라미터 전달
+
+## 통합 테스트 종류
+- Top-Down Testing(TDT): 테스트 스텁 모듈 사용
+- Bottom-Up Testing(BUT): 테스트 드라이버 모듈 사용
+- Big Bang Testing(BBT): 한번에 합치기
+- Call Graph-Based Testing (CGBT): 메소드의 호출 관계를 그래프로
+- Sandwich: top-bottom까지 하나의 패스를 빅뱅처럼 통합. 스텁과 드라이버를 적게 만들 수 있지만 결함 격리가 어려움
+- Path-based Integration: 
+
+## 빅뱅의 단점
+- 잘못된 인터페이스를 늦게 발견함
+- 디버깅이 어려움
+- Non-incremental testing은 철저한 테스트가 어려움
+
+incremental testing이 더 우수하다 할 수 있음
+
+## TDT vs BUT
+|TDT|BUT|
+|:--:|:--:|
+|테스트 스텁|테스트 드라이버|
+|여러 버전의 스텁 필요|드라이버 하나만 있으면 됨|
+|상위 모듈이 중요할 때|하위 모듈이 중요할 때|
+|초기에 시연 가능|테스트 출력 관찰 쉬움|
+
+## Call Graph-Based Integration
+
+decomposition-based integration의 문제를 해결
+
+- 함수나 메소드 간의 호출 관계를 그래프로 나타냄
+- call graph에 호출 순서에 따라 통합(일반적으로 최상위 모듈)
+- 모듈 트리에서 나타나지 않은 call을 표현 가능
+- 모듈 간의 의존성 명확, 체계적 통합.
+
+### Pairwise Integration
+
+- 간선 하나를 테스트
+- 스텁, 드라이버없이 실제 모듈 사용
+- 호출의 한 쌍을 단위로 테스트 세션 제한
+- 호출 그래프 각 간선마다 하나의 테스트 세션 생성
+- 결함 격리가 쉽고 두 페어 중 하나에 결함이 존재함을 알 수 있음
+- 한 페어를 수정하면 다른 페어가 동작이 안될 수 있음
+
+### Neighborhood Integration
+
+- 하나의 노드와 연결된 간선을 테스트
+- 통합 테스트 세션의 개수가 작지만, 결함 격리가 어려움
+
+## Path-base Integration
+- 구조적이면서 행동적인 통합
+- 시스템의 모듈 간의 상호작용을 경로를 기반으로 통합
+- 시스템 장치 간 상호작용의 중점
+
+
+
+
+
+
+
+
+# 10 Higher Order Testing
+
+- 전체 시스템을 테스트
+- 코딩 오류보다 설계 오류가 더 많이 발생하기 때문에 필요
+
+## 과정
+1. alpha test(functional test, system test): 최종 사용자처럼 테스트
+1. acceptance test
+1. beta test(installation test): 고객의 대표자가 테스트
+    * Open beta: 모든 사람이 테스트 가능
+    * Closed beta: 제한된 사람만이 테스트 가능
+1. release
+1. gamma test(post-deployment test): 제품의 배포가 준비되었는지, 피드백 받음
+
+
+## Functional Testing (System level)
+
+- 기능적 요구사항을 만족하는지
+- user case based test
+- 반면에 Non-Functional Testing은 신뢰성, 유지보수성, 확장성 등을 검사
+
+## System Testing
+- programs, documentation, and data를 포함한 많은 산출물로 구성
+- 제품에 대한 측정 가능한 목표가 있어야함
+- 테스트를 하는데 정해진 방법이 없다 - 창의적이어야함
+- 번역 오류에 중점을 둠
+
+### 형상 테스트(Configuration Test)
+소프트웨어가 설치되거나 연결될 하드웨어의 조합 테스트
+
+### 호환성 테스트(Compatibility Test)
+소프트웨어가 다른 소프트웨어와 더불어 작동해도 문제가 없는지
+
+### 순응 테스트(Comformence Test)
+각종 프로토콜, 표준, 지침을 지키는지
+
+### Localization Test
+번역 이상 없는지
+
+### 종류
+* stress test: 지정된 한계 이상으로 스트레스를 주는것, 메모리 누수
+* load test: 최대 부하 조건에서 응용 프로그램이나 시스템의 성능을 확인합니다.
+
+
+## Acceptance Testing
+- 초기 요구사항 및 현재 요구사항을 비교하는 시험
+- 고객 또는 최종 사용자가 수행
+
+## Installation Testing
+- 하드웨어에 설치 잘되는지
+
+## 회귀 시험
+- 변경된 사항으로 인해 변경되지 않은 사항이 오작동하지 않는지
+- 새로운 테스트를 만들지 않는다.
+- 종류
+    - Re-testing (retest all)
+    - selective retest
+    - Test cases prioritization
+
+## 시험 종료 조건
+- 계획된 시험 100% 성공했을 때
+- 해결되지 않은 심각한 결함이 없음
+- 모든 위험 상황 완화
+- 각 테스트 주기마다 2개 미만의 오류
+- 회귀 시험 모두 시행
+- 중요하거나 회귀 결함이 제거
