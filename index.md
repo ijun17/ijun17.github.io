@@ -6,7 +6,7 @@ oracle_url: "https://tawkor.xyz"
 blog_url: "https://ijun17.github.io"
 ---
 
-## 안녕하세요, 프론트엔드 개발자 김준기입니다.
+## 프론트엔드 개발자 김준기입니다.
 
 바닐라 자바스크립트에 가장 익숙하며, 다른 사람과의 협업을 위해 react도 공부 중입니다.
 
@@ -15,7 +15,7 @@ Node.js, Flask 등으로 서버를 개발해 클라우드에 배포한 경험이
 # 프로젝트
 
 {% capture project1 %}
-## 연구실 AR 안전교육 시스템(LSA)
+## 연구실 AR 안전교육 시스템
 
 `vanila javascript` `SPA`
 
@@ -95,6 +95,8 @@ WebRTC를 공부하기 위해 개발한 간단한 채팅 서비스입니다.
 <div class="box">{{project4 | markdownify}}</div>
 
 # 수상내역
+
+[증빙자료](https://cyber-mitten-d95.notion.site/11d1f8769793474e8c4ce2c8f3c0d1c6?pvs=4)
 
 ### 2023 XR 디바이스 콘텐츠 아이디어톤 장려상
 
