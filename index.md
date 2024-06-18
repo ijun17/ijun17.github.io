@@ -19,7 +19,7 @@ Node.js, Flask 등으로 서버를 개발해 클라우드에 배포한 경험이
 
 `vanila javascript` `SPA`
 
-[배포]({{page.oracle_url}}/LSA) / [깃허브](https://github.com/ijun17/LSA-web) / [REST API 정의서](https://cyber-mitten-d95.notion.site/LSA-REST-API-df2116c15a564d15acd39837cec2684e)
+[배포1(백엔드 테스트 더블)]({{blog_url}}/LSA-web) / [배포2]({{page.oracle_url}}/LSA) / [깃허브](https://github.com/ijun17/LSA-web) / [REST API 정의서](https://cyber-mitten-d95.notion.site/LSA-REST-API-df2116c15a564d15acd39837cec2684e)
 
 * 개발인원: 5명
 * 개발기간: 2024.03 ~ 진행중
