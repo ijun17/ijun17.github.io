@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[c++]입출력"
+title: "[C++]입출력"
 order: 3
 ---
 

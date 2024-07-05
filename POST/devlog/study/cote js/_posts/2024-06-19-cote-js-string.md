@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[js 코테]문자열"
+title: "[JS]문자열"
 order: 2
 ---
 

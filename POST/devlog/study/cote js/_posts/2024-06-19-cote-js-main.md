@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[js 코테]자바스크립트 코딩테스트"
+title: "[JS]자바스크립트 코딩테스트"
 order: 1
 ---
 

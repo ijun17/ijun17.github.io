@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[c++]string"
+title: "[C++]string"
 order: 4
 ---
 

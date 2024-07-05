@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[c++]비트 마스킹"
+title: "[C++]비트 마스킹"
 order: 5
 ---
 

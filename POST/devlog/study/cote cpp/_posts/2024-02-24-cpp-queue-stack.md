@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[c++]큐 & 스택"
+title: "[C++]큐 & 스택"
 order: 6
 ---
 

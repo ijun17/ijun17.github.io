@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[c++]vector"
+title: "[C++]vector"
 order: 6
 ---
 

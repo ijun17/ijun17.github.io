@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[c++]기본 자료형"
+title: "[C++]기본 자료형"
 order: 2
 ---
 

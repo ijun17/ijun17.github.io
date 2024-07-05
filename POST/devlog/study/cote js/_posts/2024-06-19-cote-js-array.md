@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[js 코테]배열"
+title: "[JS]배열"
 order: 2
 ---
 

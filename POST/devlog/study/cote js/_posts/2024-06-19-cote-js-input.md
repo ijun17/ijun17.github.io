@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[js 코테]입출력"
+title: "[JS]입출력"
 order: 2
 ---
 
