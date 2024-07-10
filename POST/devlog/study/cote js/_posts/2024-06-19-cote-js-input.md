@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "[JS]입출력"
-order: 2
+order: 1
 ---
 
 # 입력
