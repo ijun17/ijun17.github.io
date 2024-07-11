@@ -7,11 +7,11 @@
     - category: 냉장고 관리 애플리케이션 \\ jcop-4-1
   - category: 사이드 프로젝트
     sub:
-    - category: Level10(웹게임) \\ Level10(web game)
+    - category: Level10(2D RPG 웹게임) \\ Level10(web game)
     - category: 내 블로그 \\ my blog
-    - category: 코인급상승예측시스템 \\ aiot coin
+    - category: 코인 급상승 예측 시스템 \\ aiot coin
     - category: 모바일 기기 원격 접근 시스템 \\ mobile connect
-    - category: WebRTC chat \\ WebRTC chat
+    - category: WebRTC p2p chat \\ WebRTC chat
   - category: 학습
     sub:
     - category: 프로그래밍 언어

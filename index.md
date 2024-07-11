@@ -12,6 +12,7 @@ blog_url: "https://ijun17.github.io"
 
 Node.js, Flask 등으로 서버를 개발해 클라우드에 배포한 경험이 있습니다. 이러한 경험은 백엔드와의 협업에 도움이 되고 있습니다.
 
+
 # 프로젝트
 
 {% capture project1 %}
@@ -19,7 +20,7 @@ Node.js, Flask 등으로 서버를 개발해 클라우드에 배포한 경험이
 
 `vanila javascript` `SPA`
 
-[배포1(백엔드 테스트 더블)]({{blog_url}}/LSA-web) / [배포2]({{page.oracle_url}}/LSA) / [깃허브](https://github.com/ijun17/LSA-web) / [REST API 정의서](https://cyber-mitten-d95.notion.site/LSA-REST-API-df2116c15a564d15acd39837cec2684e)
+[배포1(백엔드 테스트 더블)]({{page.blog_url}}/LSA-web) / [배포2]({{page.oracle_url}}/LSA) / [깃허브](https://github.com/ijun17/LSA-web) / [REST API 정의서](https://cyber-mitten-d95.notion.site/LSA-REST-API-df2116c15a564d15acd39837cec2684e)
 
 * 개발인원: 5명
 * 개발기간: 2024.03 ~ 진행중
@@ -37,7 +38,7 @@ Node.js, Flask 등으로 서버를 개발해 클라우드에 배포한 경험이
 
 `vanila javascript` `SPA` `node.js`
 
-[배포(게임링크)](https://ijun17.github.io/Level10/) / [깃허브](https://github.com/ijun17/Level10)
+[배포(게임링크)]({{page.blog_url}}/Level10/) / [깃허브](https://github.com/ijun17/Level10)
 
 * 개발인원: 1명(본인)
 * 개발기간: 2020년 1월부터 시작해 꾸준히 개발하고 있습니다.

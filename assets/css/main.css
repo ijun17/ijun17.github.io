@@ -58,18 +58,13 @@ img{
 
 /* 스크롤바의 핸들(바) 스타일 */
 ::-webkit-scrollbar-thumb {
-    background-color: #888; /* 스크롤바 핸들의 배경색 */
-    border-radius: 5px; /* 스크롤바 핸들의 모서리 둥글게 */
-}
-
-/* 마우스 오버 시 스크롤바의 트랙(배경) 스타일 */
-::-webkit-scrollbar-track:hover {
-    background-color: #f0f0f0;
+    background-color: #0004; /* 스크롤바 핸들의 배경색 */
+    /* border-radius: 5px; 스크롤바 핸들의 모서리 둥글게 */
 }
 
 /* 마우스 오버 시 스크롤바의 핸들(바) 스타일 */
 ::-webkit-scrollbar-thumb:hover {
-    background-color: #555;
+    background-color: #0005;
 }
 
 @font-face {
