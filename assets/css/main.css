@@ -59,12 +59,13 @@ img{
 /* 스크롤바의 핸들(바) 스타일 */
 ::-webkit-scrollbar-thumb {
     background-color: #0004; /* 스크롤바 핸들의 배경색 */
+    background: linear-gradient(to bottom, #0000, #0004, #0005, #0004, #0000);;
     /* border-radius: 5px; 스크롤바 핸들의 모서리 둥글게 */
 }
 
 /* 마우스 오버 시 스크롤바의 핸들(바) 스타일 */
 ::-webkit-scrollbar-thumb:hover {
-    background-color: #0005;
+    background-color: #0002;
 }
 
 @font-face {

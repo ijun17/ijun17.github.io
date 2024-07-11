@@ -18,6 +18,7 @@
       sub:
       - category: C++ \\ cote cpp
       - category: Javascript \\ cote js
+      - category: Python \\ cote python
     - category: WebRTC \\ WebRTC
     - category: ubuntu \\ ubuntu
 - category: exp
