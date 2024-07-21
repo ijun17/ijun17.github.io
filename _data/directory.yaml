@@ -23,6 +23,7 @@
     - category: ubuntu \\ ubuntu
 - category: exp
   sub:
+  - category: 네이버 부스트캠프 \\ naver boostcamp
   - category: 대학교
     sub: 
     - category: 4학년 1학기 \\ univ 4-1

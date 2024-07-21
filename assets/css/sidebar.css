@@ -72,7 +72,8 @@
 
 .sidebar>.profile>.back{
     transform: rotateY(180deg);
-    background:black;
+    background:#0004;
+    font-weight: bold;
 }
 
 .sidebar>.rotate{
