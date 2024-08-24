@@ -4,6 +4,8 @@
     --post-background:white;
     --text-color:rgb(29, 29, 31);
     --text-color:#444;
+    --text-color:#333333;
+    /* --text-color:#4A4A4A; */
     --text-highlight-color:cornflowerblue;
     --line-color:lightgray;
 
@@ -13,7 +15,7 @@
     --text-color:#DDD; */
 
     --base-font:"Pretendard",-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, system-ui;
-    --code-font:Consolas, sans-serif, Helvetica, Arial;
+    --code-font:Consolas, "Pretendard",-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, system-ui;
 
 }
 
@@ -25,6 +27,8 @@
     box-sizing: border-box;
 }
 
+html { font-size: 17px; }
+
 body{
     display: flex;
     flex-direction:row;
@@ -35,8 +39,6 @@ body{
     background-color: #abc4f360;
 }
 
-
-
 img{
     border-radius: 5px;
     max-width:100%;
@@ -45,41 +47,67 @@ img{
 }
 
 
-/* 스크롤바 전체 스타일 */
-::-webkit-scrollbar {
-    width: 10px; /* 수직 스크롤바의 너비 */
+/* ::-webkit-scrollbar {
+    width: 10px; 
 }
 
-/* 스크롤바의 트랙(배경) 스타일 */
 ::-webkit-scrollbar-track {
-    background-color: #f5f5f5; /* 스크롤바 트랙의 배경색 */
-    background-color: unset;
+    background-color: var(--background);
 }
 
-/* 스크롤바의 핸들(바) 스타일 */
+
 ::-webkit-scrollbar-thumb {
-    background-color: #0004; /* 스크롤바 핸들의 배경색 */
-    background: linear-gradient(to bottom, #0000, #0004, #0005, #0004, #0000);;
-    /* border-radius: 5px; 스크롤바 핸들의 모서리 둥글게 */
+    min-height: 100px;
+    background-color: #0004;
 }
 
-/* 마우스 오버 시 스크롤바의 핸들(바) 스타일 */
 ::-webkit-scrollbar-thumb:hover {
     background-color: #0002;
+} */
+
+
+::-webkit-scrollbar {
+    width: 14px;
+    height: 14px;
+}
+
+::-webkit-scrollbar-thumb {
+    outline: none;
+    border-radius: 10px;
+    border: 4px solid transparent;
+    box-shadow: inset 6px 6px 0 rgba(34, 34, 34, 0.2);
+    min-height: 100px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    border: 4px solid transparent;
+    box-shadow: inset 6px 6px 0 rgba(34, 34, 34, 0.4);
+}
+
+::-webkit-scrollbar-track {
+    box-shadow: none;
+    background-color: transparent;
 }
 
 
 @font-face {
 	font-family: 'Pretendard';
 	font-weight: 700;
-	font-display: swap;
+	font-display: block;
 	src: local('Pretendard Bold'), url(../fonts/Pretendard-Bold.subset.woff2) format('woff2'), url(../fonts/Pretendard-Bold.subset.woff) format('woff');
 }
 
 
-@font-face {
+/* @font-face {
 	font-family: 'Pretendard';
 	font-weight: 500;
-	font-display: swap;
+	font-display: block;
 	src: local('Pretendard Medium'), url(../fonts/Pretendard-Medium.subset.woff2) format('woff2'), url(../fonts/Pretendard-Medium.subset.woff) format('woff');
+} */
+
+@font-face {
+	font-family: 'Pretendard';
+	font-weight: 400;
+	font-display: block;
+	src: local('Pretendard Regular'), url(../fonts/Pretendard-Regular.subset.woff2) format('woff2'), url(../fonts/Pretendard-Regular.subset.woff) format('woff');
 }

@@ -6,37 +6,26 @@ oracle_url: "https://tawkor.xyz"
 blog_url: "https://ijun17.github.io"
 ---
 
-## 프론트엔드 개발자 김준기입니다.
-
-바닐라 자바스크립트에 가장 익숙하며, 다른 사람과의 협업을 위해 react도 공부 중입니다.
-
-Node.js, Flask 등으로 서버를 개발해 클라우드에 배포한 경험이 있습니다. 이러한 경험은 백엔드와의 협업에 도움이 되고 있습니다.
-
-
 # 프로젝트
 
 {% capture project1 %}
 ## 연구실 AR 안전교육 시스템
 
-`vanila javascript` `SPA`
-
 [배포1(백엔드 테스트 더블)]({{page.blog_url}}/LSA-web) / [배포2]({{page.oracle_url}}/LSA) / [깃허브](https://github.com/ijun17/LSA-web) / [REST API 정의서](https://cyber-mitten-d95.notion.site/LSA-REST-API-df2116c15a564d15acd39837cec2684e)
 
 * 개발인원: 5명
-* 개발기간: 2024.03 ~ 진행중
+* 개발기간: 2024.03 ~ 2024.07
 * 역할: 프론트엔드
 
 이 프로젝트는 AR 기반의 연구실 안전교육 시스템입니다. 사용자가 AR 환경에서 연구 매뉴얼을 직접 작성할 수 있어 맞춤형 안전교육을 받을 수 있는 시스템입니다.
 
-저는 프론트엔드를 담당하여, 브라우저 및 앱의 웹 뷰에서 동작할 반응형 웹을 개발했습니다. 이 과정에서 디자이너와 피그마로 협력했으며, 백엔드 담당과 REST API 정의서를 만들어 협력했습니다. 현재 진행 중인 프로젝트입니다.
+저는 프론트엔드를 담당하여, 브라우저 및 앱의 웹 뷰에서 동작할 반응형 웹을 개발했습니다. 이 과정에서 디자이너와 피그마로 협력했으며, 백엔드 담당과 REST API 정의서를 만들어 협력했습니다.
 
 <ul>{%- include categorizedPosts.html category="capstone" -%}</ul>
 {% endcapture %}
 
 {% capture project2 %}
 ## 웹 게임(Level10)
-
-`vanila javascript` `SPA` `node.js`
 
 [배포(게임링크)]({{page.blog_url}}/Level10/) / [깃허브](https://github.com/ijun17/Level10)
 
@@ -51,8 +40,6 @@ Node.js, Flask 등으로 서버를 개발해 클라우드에 배포한 경험이
 
 {% capture project3 %}
 ## 블로그
-
-`javascript` `jekyll` `SPA`
 
 개발하면서 맞닥뜨린 문제 상황을 기록하기 위해 만들었습니다. 깔끔함과 군더더기 없음을 지향하며 디자인했으며, 지금까지 보고 개인적으로 느껴왔던 블로그들의 단점을 해결했습니다. 
 

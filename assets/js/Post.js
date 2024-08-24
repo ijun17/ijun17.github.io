@@ -49,7 +49,7 @@ let Post = {
         let postData=document.querySelector(".post-info").dataset;
         html_postHeader.innerHTML=`
             <div class="info">
-                <div class="post-dir navbar-folder-opener">${postData["dir"]}</div>
+                <div class="post-dir navbar-folder-opener">${postData["dir"].toUpperCase()}</div>
                 <div class="post-date">${postData["date"]}</div>
             </div>
             <h1 class="post-title">${postData["title"]}</h1>
