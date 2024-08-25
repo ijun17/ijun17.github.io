@@ -10,6 +10,7 @@ let Post = {
             if (event.target.classList.contains(this.linkClassName)) {
                 event.preventDefault();
                 URL.set(event.target.href);
+                window.scroll({ top: 0, left: 0, behavior: "smooth" });
             }
         }
         const linkWheelClickEventHandler = (event) => {
@@ -25,16 +26,15 @@ let Post = {
         document.addEventListener("mousedown", linkWheelClickEventHandler);
         document.addEventListener("auxclick", linkWheelClickEventHandler);
         //페이지 이전, 이후로 갈때 loadPost 메소드 실행
-        URL.addEvent(function () { this.loadPost(document.location, false); }.bind(this));
+        URL.addEvent(function () { this.loadPost(document.location); }.bind(this));
     },
-    loadPost: function (url, scrollUp = true) {
+    loadPost: function (url) {
         html_post.classList.add("gradient-box");
         fetch(url)
             .then((response) => response.text())
             .then((data) => {
                 this.renderPost(data);
                 html_post.classList.remove("gradient-box");
-                if (scrollUp) window.scroll({ top: 0, left: 0, behavior: "smooth" });
             });
         Navigation.openCurrentFolder()
     },
