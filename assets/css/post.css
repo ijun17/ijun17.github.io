@@ -1,4 +1,3 @@
-
 .post{
     border-radius: 20px;
     width:900px;
@@ -11,6 +10,7 @@
     padding:60px;
     overflow-x: hidden;
 }
+
 
 .post-title{
     font-size:36px;
@@ -273,4 +273,21 @@ code :is(.mi,.nd,.nx,.nb,.n){color:lightskyblue;}
     100% {
         opacity: 0.5;
     }
+}
+
+@keyframes slideDownFadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+/* 애니메이션 적용 */
+.render-animation {
+opacity: 0; /* 애니메이션 전에 투명하게 설정 */
+animation: slideDownFadeIn 0.5s ease-out forwards;
 }

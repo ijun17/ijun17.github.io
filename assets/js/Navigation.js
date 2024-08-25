@@ -23,7 +23,10 @@ let Navigation = {
                 html_sidebarWrapper.querySelector("#sidebar_button").checked=true;
             }
         });
-        URL.addEvent(function () {CSS.setState(cssRuleid1,document.location.pathname); }) 
+        URL.addEvent(function () {
+            CSS.setState(cssRuleid1,document.location.pathname); 
+            html_sidebarWrapper.querySelector("#sidebar_button").checked=false;
+        }) 
     },
     openCurrentFolder:function(){
         const html_navbarWrapper=html_sidebarWrapper.querySelector(`.nav-navbar-wrapper`);

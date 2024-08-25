@@ -1,5 +1,7 @@
 const html_post = document.querySelector(".post");
-const html_postContent = html_post.querySelector(".post-content")
+const html_postContent = html_post.querySelector(".post-content");
+const html_postHeader = html_post.querySelector(".post-header");
+const html_postFooter = html_post.querySelector(".post-footer");
 
 let Post = {
     linkClassName: "post-link",
@@ -37,13 +39,20 @@ let Post = {
         Navigation.openCurrentFolder()
     },
     renderPost: function (text = "") {
-        text.replace(/<!--post start-->(.*)<!--post end-->/s, function (match, p1) { html_postContent.innerHTML = p1; });
+        html_postContent.classList.remove('render-animation');
+        html_postHeader.classList.remove('render-animation');
+        html_postFooter.classList.remove('render-animation');
+        const match = text.match(/<!--post start-->([\s\S]*?)<!--post end-->/);
+        if(match) html_postContent.innerHTML = match[1];
         document.title = document.querySelector(".post-info").dataset["title"];
         Post.renderHeader();
         Post.renderFooter();
+        html_postContent.classList.add('render-animation');
+        html_postHeader.classList.add('render-animation');
+        html_postFooter.classList.add('render-animation');
+
     },
     renderHeader: function () {
-        const html_postHeader = document.querySelector(".post-header");
         let postData = document.querySelector(".post-info").dataset;
         html_postHeader.innerHTML = `
             <div class="info">
@@ -65,7 +74,6 @@ let Post = {
             })()}`;
     },
     renderFooter: function () {
-        const html_postFooter = document.querySelector(".post-footer");
     }
 }
 
