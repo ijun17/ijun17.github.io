@@ -7,7 +7,8 @@ let URL={
         URL.eventList.push(f);
     },
     set:function(url){
-        history.pushState(null,"",url);
+        if (url === document.location.href) return;
+        history.pushState(null,null,url);
         URL.onurlchange();
     },
     init:function(){

@@ -48,10 +48,10 @@
     background-color: rgba(142, 142, 150,0.07);
     border-radius: 10px;
     padding:1rem;
-    margin:1rem 0;
     font-size: 1rem;
     font-weight: bold;  
-    margin-top:10px;
+    margin-top:1rem;
+    margin-bottom:4rem;
 }
 
 .post-hyperlink>li{
@@ -243,9 +243,10 @@ code :is(.mi,.nd,.nx,.nb,.n){color:lightskyblue;}
 
 
 .gradient-box {
-    background: linear-gradient(135deg, #CCC, #FFF, #CCC);
+    /* background: linear-gradient(135deg, #CCC, #FFF, #CCC);
     background-size: 200% 200%;
-    animation: diagonal-move 2s linear infinite;
+    animation: diagonal-move 2s linear infinite; */
+    animation: opacity-flow 0.7s linear infinite;
 }
 
 @keyframes diagonal-move {
@@ -257,5 +258,19 @@ code :is(.mi,.nd,.nx,.nb,.n){color:lightskyblue;}
     }
     100% {
         background-position: 100% 100%;
+    }
+}
+
+
+
+@keyframes opacity-flow {
+    0% {
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.5;
     }
 }
