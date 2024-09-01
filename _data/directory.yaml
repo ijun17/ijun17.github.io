@@ -22,7 +22,7 @@
     - category: WebRTC \\ WebRTC
     - category: ubuntu \\ ubuntu
     - category: 프론트엔드 \\ frontend
-  - category: 미분류 \\ not-categorized
+    - category: Node.js \\ nodejs
 - category: exp
   sub:
   - category: 대학교

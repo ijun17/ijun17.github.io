@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[Node.js]MySQL 연결"
+title: "[Node.js]mysql2 연결 및 작업"
 order: 1
 ---
 
@@ -9,6 +9,7 @@ Node.js에서 MySql연결하는 과정을 기록합니다.
 참고자료
 - <https://www.npmjs.com/package/mysql2>
 - <https://sidorares.github.io/node-mysql2/docs>
+- <https://medium.com/tech-tajawal/mysql2-with-nodejs-prepared-statement-cache-issue-cant-create-more-than-8b3818341df6>
 
 # MySql 설치 및 실행
 
@@ -135,3 +136,40 @@ const mysql = require('mysql2/promise');
   connection.end();
 })();
 ```
+
+
+# 커넥션 풀 사용하기
+
+데이터베이스 작업을 할 때마다 커넥션을 만드는 것은 비효율적입니다. 커넥션 풀을 만들면 미리 일정 개수의 커넥션을 만들어 놓고 필요할 때 가져다가 쓸 수 있습니다.
+
+```js
+const mysql = require('mysql2/promise');
+
+const pool = mysql.createPool({
+    host: 'localhost',          // 호스트 주소
+    user: 'root',      // MySQL 사용자 이름
+    password: 'your_password',  // MySQL 비밀번호
+    database: 'your_database',  // 데이터베이스 이름
+    port: 3306,                 // MySQL 포트(기본으로 3306)
+    connectionLimit: 10         // 최대 커넥션 수
+
+    //그외 다른 옵션: 기본값
+    //waitForConnections: true, // 풀의 모든 커넥션을 사용중일 때 요청을 대기열에 넣을지
+    //maxIdle: 10,              // idle 상태인 최대 커넥션 수
+    //idleTimeout: 60000,       // 이 시간 동안 idle인 커넥션은 해제됨(기본 60초)
+    //queueLimit: 0,            // 대기열 길이(0은 제한이 없음을 의미)
+    //enableKeepAlive: true,    // TCP Keep-Alive 활성화 여부
+    //keepAliveInitialDelay: 0, // TCP Keep-Alive 패킷을 보내기 전까지 초기 지연 시간
+});
+
+// 풀 사용하기
+// 풀을 사용하고 연결을 끊지 않아도 됩니다.
+pool.query(`SELECT * FROM users;`);
+```
+
+
+# query vs execute
+
+connection 또는 pool은 `query`과 `execute`를 실행할 수 있습니다. 
+
+이 둘의 차이점은 execute는 `prepared statement`를 사용한다는 점입니다. 
