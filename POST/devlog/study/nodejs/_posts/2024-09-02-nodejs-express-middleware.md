@@ -4,7 +4,7 @@ title: "[Node.js]Express 미들웨어"
 order: 1
 ---
 
-<https://expressjs.com/en/guide/using-middleware.html>를 요약하여 작성하였다 **(Express 4.X 기준이다)**.
+<https://expressjs.com/en/guide/using-middleware.html>를 요약하여 작성하였다 **(Express 4.X 기준)**.
 
 # 미들웨어란
 
@@ -92,7 +92,6 @@ app.use(express.static(path.join(__dirname, 'public'), options));
 
 |미들웨어|이전 이름|기능|
 |:---:|:---:|:---|
-|[`body-parser`](https://www.npmjs.com/package/body-parser)| bodyParser,<br>json,<br>urlencoded|요청 본문을 JSON 또는 URL-encoded 형식으로 파싱|
 |[`compression`](https://www.npmjs.com/package/compression)| compress|HTTP 응답을 압축하여 전송|
 |[`connect-timeout`](https://www.npmjs.com/package/connect-timeout)| timeout| 요청의 타임아웃을 설정|
 |[`cookie-parser`](https://www.npmjs.com/package/cookie-parser)| cookieParser| 쿠키를 파싱하여`req.cookies`에 저장|
@@ -105,5 +104,4 @@ app.use(express.static(path.join(__dirname, 'public'), options));
 |[`response-time`](https://www.npmjs.com/package/response-time)| response-time| 요청 처리 시간 정보를 응답 헤더에 추가|
 |[`serve-favicon`](https://www.npmjs.com/package/serve-favicon)| favicon| 애플리케이션에 파비콘을 제공|
 |[`serve-index`](https://www.npmjs.com/package/serve-index)| directory| 디렉토리 목록을 제공하는 기능을 추가|
-|[`serve-static`](https://www.npmjs.com/package/serve-static)| static| 정적 파일을 제공하는 기능을 추가|
 |[`vhost`](https://www.npmjs.com/package/vhost)| vhost| 가상 호스트를 지원하여 여러 도메인을 처리|
