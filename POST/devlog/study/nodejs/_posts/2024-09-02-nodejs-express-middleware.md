@@ -4,13 +4,13 @@ title: "[Node.js]Express 미들웨어"
 order: 1
 ---
 
-<https://expressjs.com/ko/guide/using-middleware.html>를 요약하여 작성하였습니다.
+<https://expressjs.com/en/guide/using-middleware.html>를 요약하여 작성하였다 **(Express 4.X 기준이다)**.
 
 # 미들웨어란
 
 >Express 애플리케이션은 기본적으로 일련의 `미들웨어` 함수 호출입니다.
 
-위와 같은 말처럼 Express는 미들웨어에서 시작해 미들웨어로 끝난다. **미들웨어 함수**는 요청 오브젝트(req), 응답 오브젝트 (res), 그 다음의 미들웨어 함수(next)를 매개변수로 전달받는다.
+위 말처럼 Express는 미들웨어에서 시작해 미들웨어로 끝난다. 그만큼 Express에서 미들웨어는 중요한 개념이다. **미들웨어 함수**는 요청 오브젝트(req), 응답 오브젝트 (res), 그 다음의 미들웨어 함수(next)를 매개변수로 전달받는 함수이다. 인증, 요청 검증, 요청 처리, 오류 처리 등 다양한 기능을 미들웨어로 만들 수 있다. 
 
 
 # 미들웨어의 종류
@@ -60,7 +60,11 @@ app.use((err, req, res, next) => { ... })
 
 ## 기본 제공 미들웨어
 
-4.x 버전에서 Express의 유일한 기본 제공 미들웨어 함수는 express.static이다. 이 함수는 serve-static을 기반으로 한다.
+Express에서 **기본적으로 제공하는** 미들웨어 함수이다. 4.X 버전에서는 기본 제공 미들웨어는 아래 3가지를 제공한다.
+
+- `express.static`: 정적 파일을 제공하는 기능. 이 함수는 serve-static을 기반으로 한다.
+- `express.json`: 요청 본문을 JSON으로 파싱. (4.16버전 이상에서 사용 가능)
+- `express.urlencoded`: 요청 본문을 URL-encoded 형식으로 파싱. (4.16버전 이상에서 사용 가능)
 
 ```js
 const options = {
