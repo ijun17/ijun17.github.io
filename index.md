@@ -2,7 +2,7 @@
 layout: post
 title: "About Me"
 category: "main"
-oracle_url: "https://tawkor.xyz"
+oracle_url: "https://taskify.shop"
 blog_url: "https://ijun17.github.io"
 ---
 
