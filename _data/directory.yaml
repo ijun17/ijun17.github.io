@@ -19,10 +19,8 @@
       - category: C++ \\ cote cpp
       - category: Javascript \\ cote js
       - category: Python \\ cote python
-    - category: WebRTC \\ WebRTC
-    - category: ubuntu \\ ubuntu
-    - category: 프론트엔드 \\ frontend
-    - category: Node.js \\ nodejs
+    - category: Frontend \\ frontend
+    - category: Backend \\ nodejs
 - category: exp
   sub:
   - category: 대학교
