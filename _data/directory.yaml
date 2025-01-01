@@ -1,33 +1,34 @@
 - category: devlog
   sub:
-  - category: 프로젝트
-    sub:
-    - category: 연구실 AR 안전교육 시스템 \\ capstone
-    - category: 대학교 프로젝트들 \\ univ-project
-    - category: 냉장고 관리 애플리케이션 \\ jcop-4-1
-  - category: 사이드 프로젝트
-    sub:
-    - category: Level10(2D RPG 웹게임) \\ Level10(web game)
-    - category: 내 블로그 \\ my blog
-    - category: 코인 급상승 예측 시스템 \\ aiot coin
-    - category: 모바일 기기 원격 접근 시스템 \\ mobile connect
-    - category: WebRTC p2p chat \\ WebRTC chat
-  - category: 학습
-    sub:
-    - category: 프로그래밍 언어
+    - category: 프로젝트
       sub:
-      - category: C++ \\ cote cpp
-      - category: Javascript \\ cote js
-      - category: Python \\ cote python
-    - category: Frontend \\ frontend
-    - category: Backend \\ nodejs
+        - category: 실시간 퀴즈 QuizGround \\ quiz-ground
+        - category: 연구실 AR 안전교육 시스템 \\ capstone
+        - category: 대학교 프로젝트들 \\ univ-project
+        - category: 냉장고 관리 애플리케이션 \\ jcop-4-1
+    - category: 사이드 프로젝트
+      sub:
+        - category: Level10(2D RPG 웹게임) \\ Level10(web game)
+        - category: 내 블로그 \\ my blog
+        - category: 코인 급상승 예측 시스템 \\ aiot coin
+        - category: 모바일 기기 원격 접근 시스템 \\ mobile connect
+        - category: WebRTC p2p chat \\ WebRTC chat
+    - category: 학습
+      sub:
+        - category: 프로그래밍 언어
+          sub:
+            - category: C++ \\ cote cpp
+            - category: Javascript \\ cote js
+            - category: Python \\ cote python
+        - category: Frontend \\ frontend
+        - category: Backend \\ nodejs
 - category: exp
   sub:
-  - category: 대학교
-    sub: 
-    - category: 4학년 1학기 \\ univ 4-1
-    - category: 3학년 2학기 \\ univ 3-2
-    - category: 3학년 1학기 \\ univ 3-1
-  - category: 네이버 부스트캠프 \\ naver boostcamp
-  - category: 독서 \\ books
-  - category: 메모 \\ ETC
+    - category: 대학교
+      sub:
+        - category: 4학년 1학기 \\ univ 4-1
+        - category: 3학년 2학기 \\ univ 3-2
+        - category: 3학년 1학기 \\ univ 3-1
+    - category: 네이버 부스트캠프 \\ naver boostcamp
+    - category: 독서 \\ books
+    - category: 메모 \\ ETC
