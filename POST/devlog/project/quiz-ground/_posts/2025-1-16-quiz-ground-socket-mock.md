@@ -60,7 +60,7 @@ type SocketInterface = {
 
 SocketMock은 SocketInterface의 변수/함수를 지원해야 합니다.
 
-중요한 것은 `emit` , `on` , `off`입니다.
+중요한 것은 `emit`, `on`, `off`입니다.
 
 - `emit` : 클라이언트 요청에 따른 서버 비즈니스 로직을 구현해야 합니다.
   - 서버 비즈니스 로직을 어느 정도까지 비슷하게 구현할지 결정해야 합니다.
