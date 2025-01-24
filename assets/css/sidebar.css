@@ -1,5 +1,5 @@
 .sidebar-wrapper {
-  min-width: 340px;
+  min-width: calc(50% - 450px);
   width: 340px;
   background-color: var(--background);
   -ms-user-select: none;
@@ -12,20 +12,23 @@
 .sidebar {
   position: fixed;
   z-index: 2;
-  top: 0px;
-  left: 0px;
+  top: 0;
+  left: 0;
   width: 340px;
+  min-width: calc(50% - 450px);
   height: 100%;
   overflow-y: scroll;
   overflow-x: hidden;
   transition: left 0.3s ease 0s;
+  padding: 20px;
 }
 
 .sidebar > div {
-  /* background-color: white; */
+  max-width: 320px;
   border-radius: 20px;
   box-shadow: 0px 4px 12px #00000014;
-  margin: 20px;
+  margin-left: auto;
+  margin-bottom: 20px;
 }
 
 .sidebar::-webkit-scrollbar {
@@ -46,11 +49,11 @@
   top: 10px;
 }
 .sidebtn {
-  width: 25px;
-  height: 4px;
+  width: 24px;
+  height: 3px;
   border-radius: 2px;
-  margin: 5px 0;
-  background-color: var(--text-color);
+  margin: 4px 0;
+  background-color: gray;
 }
 
 .sidebar > .profile {
