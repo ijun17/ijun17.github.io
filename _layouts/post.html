@@ -30,7 +30,7 @@ layout: default
         <header class="post-header"></header>
         <main class="post-content">
             <!--post start-->
-            <div class="post-info" data-dir="{{page.categories | last}}" data-title="{{ page.title | escape }}" data-date="{{ page.date | date: "%Y.%m.%d" }}"></div>
+            <div class="post-info" data-dir="{{page.categories | last}}" data-title="{{ page.title | escape }}" data-date="{{ page.date | date: "%Y. %-m. %-d." }}"></div>
             {{ content }}
             <!--post end-->
         </main>

@@ -48,12 +48,12 @@
   left: 10px;
   top: 10px;
 }
-.sidebtn {
+.sidebar-button > div {
   width: 24px;
-  height: 3px;
+  min-height: 4px;
   border-radius: 2px;
   margin: 4px 0;
-  background-color: gray;
+  background-color: lightgray;
 }
 
 .sidebar > .profile {
