@@ -59,7 +59,10 @@ let Post = {
     html_postFooter.classList.add("render-animation");
 
     // 머메이드 렌더링
-    mermaid.init(undefined, document.querySelectorAll(".language-mermaid"));
+    if (window.mermaid)
+      mermaid.run({
+        querySelector: ".language-mermaid",
+      });
   },
   renderHeader: function () {
     let postData = document.querySelector(".post-info").dataset;
