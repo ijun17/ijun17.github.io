@@ -2,15 +2,19 @@ permalink: none
 image_url: https://raw.githubusercontent.com/ijun17/blog-image/main
 
 data_dir: src/_data
-layouts_dir: src/_layouts
 includes_dir: src/_includes
+layouts_dir: src/_layouts
 assets_dir: src/assets
 
 exclude:
-  - .git
-  - README.md
+  - .git/
+  - _site/
+  - .jekyll-cache/
+  - .gitignore
+  - .jekyll-metadata
   - Gemfile
   - Gemfile.lock
-  - _site
-  - .vs
-  - .vscode
+  - jungi.gemspec
+  - LICENSE.txt
+  - package.json
+  - README.md
