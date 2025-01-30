@@ -10,6 +10,7 @@ exclude:
   - .git/
   - _site/
   - .jekyll-cache/
+  - src/.jekyll-cache/
   - .gitignore
   - .jekyll-metadata
   - Gemfile
