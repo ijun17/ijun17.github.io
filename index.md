@@ -1,28 +1,18 @@
 ---
 layout: post
-title: "About Me"
+title: "Home"
 category: "main"
 oracle_url: "https://taskify.shop"
 blog_url: "https://ijun17.github.io"
 ---
 
 <ul>
-  {% for category in site.categories %}
-    <li>
-      <a href="{{ site.baseurl }}/category/{{ category[0] }}">
-        {{ category[0] }} ({{ category[1].size }}) 
-      </a>
-    </li>
-  {% endfor %}
-</ul>
-
-<ul>
   {% for post in site.posts %}
     <li>
-      <a href="{{ post.url }}">{{ post.url }}</a>
+      <span style="color:gray;">[{{ post.date | date: "%Y-%m-%d" }}] </span> 
+      <a  class="post-link" href="{{ post.url }}">{{ post.title }} </a>
     </li>
 {% endfor %}
-
 </ul>
 
 <!--
