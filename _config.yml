@@ -1,2 +1,11 @@
 permalink: none
 image_url: https://raw.githubusercontent.com/ijun17/blog-image/main
+
+exclude:
+  - .git
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - _site
+  - .vs
+  - .vscode
