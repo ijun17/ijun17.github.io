@@ -183,14 +183,16 @@
 }
 
 .navbar a {
+  display: block;
   font-size: 14px;
   color: var(--text-color);
   text-decoration: none;
   line-height: 25px;
+  height: 25px;
   border-radius: 5px;
-  vertical-align: middle;
   white-space: nowrap;
 }
+
 .navbar li:hover {
   font-weight: bold;
 }
