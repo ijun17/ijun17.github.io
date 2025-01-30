@@ -1,49 +1,78 @@
 @media screen and (max-width: 1280px) {
-    .post{
-        padding: 3rem;
-    }
-    .sidebar-wrapper{width:300px;min-width: 300px;}
-    .sidebar{width:300px;}
-
+  .post {
+    padding: 3rem;
+  }
+  .sidebar-wrapper {
+    width: 300px;
+    min-width: 300px;
+  }
+  .sidebar {
+    width: 300px;
+  }
 }
-
 
 @media screen and (max-width: 900px) {
-    .sidebar{width:340px;left:-340px;}
-    .sidebar-overlay{position: fixed;background: linear-gradient(to right, #000C, #0006);}
-    .sidebar-wrapper{min-width:0;width:0;}
-    .sidebar-button{display: block;}
-    .sidebar-nav{opacity: 1;}
-    #sidebar_button:checked~.sidebar{left:0px;}
-    #sidebar_button:checked~.sidebar-overlay{width:100%}
+  .sidebar {
+    width: 340px;
+    left: -340px;
+  }
+  .sidebar-overlay {
+    position: fixed;
+    background: linear-gradient(to right, #000c, #0006);
+  }
+  .sidebar-wrapper {
+    min-width: 0;
+    width: 0;
+  }
+  .sidebar-button {
+    display: block;
+  }
+  .sidebar-nav {
+    opacity: 1;
+  }
+  #sidebar_button:checked ~ .sidebar {
+    left: 0px;
+  }
+  #sidebar_button:checked ~ .sidebar-overlay {
+    width: 100%;
+  }
 
+  .post {
+    max-width: 100%;
+    width: 100%;
+    height: 100dvh;
+    margin: 0;
+    border-radius: 0;
+    padding: 60px;
+  }
+  .post-content > h1 {
+    font-size: 2rem;
+  }
+  .post-content > h2 {
+    font-size: 1.5rem;
+  }
+  .post-title {
+    font-size: 2rem;
+  }
+  .post-dir {
+    font-size: 0.8rem;
+  }
+  .post-date {
+    font-size: 0.8rem;
+  }
 
-    .post{
-        max-width: 100%;
-        width:100%;
-        margin:0;
-        border-radius: 0;
-        padding: 60px;
-    }
-    .post-content>h1{font-size: 2rem;}
-    .post-content>h2{font-size: 1.5rem;}
-    .post-title{font-size: 2rem;}
-    .post-dir{font-size: 0.80rem;}
-    .post-date{font-size: 0.80rem;}
-
-    ::-webkit-scrollbar-track {
-        background-color: var(--post-background);
-    }
+  ::-webkit-scrollbar-track {
+    background-color: var(--post-background);
+  }
 }
 
-
 @media screen and (max-width: 550px) {
-    .post{
-        padding: 1rem;
-        padding-top:3rem;
-    }
+  .post {
+    padding: 1rem;
+    padding-top: 3rem;
+  }
 
-    html{
-        font-size:16px;
-    }
+  html {
+    font-size: 16px;
+  }
 }
