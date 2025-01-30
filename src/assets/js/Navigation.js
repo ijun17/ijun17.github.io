@@ -3,7 +3,7 @@ const html_sidebarWrapper = document.querySelector(".sidebar-wrapper");
 let Navigation = {
   load: false,
   init: function () {
-    fetch("/assets/data/sidebar.html")
+    fetch("/src/assets/data/sidebar.html")
       .then((res) => res.text())
       .then(function (text) {
         html_sidebarWrapper.innerHTML = text;

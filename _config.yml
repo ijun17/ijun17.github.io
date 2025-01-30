@@ -1,6 +1,11 @@
 permalink: none
 image_url: https://raw.githubusercontent.com/ijun17/blog-image/main
 
+data_dir: src/_data
+layouts_dir: src/_layouts
+includes_dir: src/_includes
+assets_dir: src/assets
+
 exclude:
   - .git
   - README.md

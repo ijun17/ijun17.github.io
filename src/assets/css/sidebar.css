@@ -83,7 +83,7 @@
 .sidebar > .profile > .front {
   transform: rotateY(0deg);
   background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)),
-    url("/assets/images/sidebar.jpg");
+    url("/src/assets/images/sidebar.jpg");
   background-size: cover;
   background-position: fixed;
 }
