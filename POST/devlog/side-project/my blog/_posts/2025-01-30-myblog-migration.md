@@ -348,17 +348,3 @@ assets_dir: src/assets
 # 결론
 
 jekyll이 생각보다 더 빨라질 수 있음을 알게 되었다. jekyll에 대해 더 알아보지 않고 프레임워크를 바꿔보려는 것은 너무 안일한 생각이었던 것 같다.
-
-추가적으로 아래는 jekyll에서 유용하게 쓸 수 있는 gem이다. 문제는 github page gem에서 이를 잘 적용해 줄지가 문제인데 앞으로 더 알아보아야 한다.
-
-| Gem 이름                  | 주요 기능                             |
-| ------------------------- | ------------------------------------- |
-| **jekyll-multiple-pages** | 병렬로 여러 페이지 렌더링             |
-| **jekyll-assets**         | 자산 최적화 (CSS, JavaScript, 이미지) |
-| **jekyll-sass-converter** | SASS 파일 최적화                      |
-| **jekyll-seo-tag**        | SEO 메타 태그 자동 생성               |
-| **jekyll-paginate-v2**    | 페이지네이션 최적화                   |
-| **jekyll-compress-html**  | HTML 압축                             |
-| **jekyll-redirect-from**  | 페이지 리다이렉션 설정                |
-| **jekyll-minifier**       | CSS, JS, HTML 압축                    |
-| **jekyll-feed**           | 자동 RSS 피드 생성                    |
