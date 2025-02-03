@@ -41,12 +41,16 @@ let Navigation = {
     const html_navbarWrapper =
       html_sidebarWrapper.querySelector(`.nav-navbar-wrapper`);
     if (html_navbarWrapper == null) return;
-    let postLink = html_navbarWrapper.querySelector(
+    // 모든 폴더 닫기
+    html_navbarWrapper
+      .querySelectorAll(".navbar-folder-open")
+      .forEach((e) => e.classList.remove("navbar-folder-open"));
+    //폴더 열기
+    const postLink = html_navbarWrapper.querySelector(
       `.navbar a[href="${document.location.pathname}"`
     );
     if (postLink == null) return;
     let folder = postLink.parentElement.parentElement; //<div is folder><ol><li><a is postlink>
-    //폴더 열기
     while (!folder.classList.contains("navbar")) {
       folder.classList.add("navbar-folder-open");
       folder = folder.parentElement;

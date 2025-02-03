@@ -10,7 +10,7 @@ let Post = {
       if (event.target.classList.contains(this.linkClassName)) {
         event.preventDefault();
         URL.set(event.target.href);
-        window.scroll({ top: 0, left: 0, behavior: "smooth" });
+        window.scroll(0, 0);
       }
     };
     const linkWheelClickEventHandler = (event) => {
