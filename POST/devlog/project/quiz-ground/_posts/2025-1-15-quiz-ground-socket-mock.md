@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "소켓 서버 없이 게임 테스트하기"
+title: "웹소켓 서버없이 게임 진행 테스트하기"
 order: 3
 ---
 
@@ -132,9 +132,9 @@ SocketMock은 게임 시나리오를 손쉽게 구현할 수 있도록 여러 �
 
 url은 언제든지 비활성화될 수 있습니다!
 
-- <https://quizground.duckdns.org/game/test-load-with-quiz>
-- <https://quizground.duckdns.org/game/test-load>
-- <https://quizground.duckdns.org/game/test-load-only-move>
+- <https://quizground.site/game/test-load-with-quiz>
+- <https://quizground.site/game/test-load>
+- <https://quizground.site/game/test-load-only-move>
 
 ![200명의 플레이어가 테스트하는 화면](https://github.com/user-attachments/assets/d134e1b4-afde-4796-820b-d510b6749d1f)
 
