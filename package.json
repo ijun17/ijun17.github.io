@@ -1,5 +1,5 @@
 {
   "scripts": {
-    "start": "jekyll serve --watch --livereload --incremental"
+    "start": "jekyll serve --watch --livereload"
   }
 }
