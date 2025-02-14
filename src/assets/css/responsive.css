@@ -43,17 +43,9 @@
     min-height: 100dvh;
     margin: 0;
     border-radius: 0;
-    padding: 60px;
+    padding: 40px;
   }
-  .post-content > h1 {
-    font-size: 2rem;
-  }
-  .post-content > h2 {
-    font-size: 1.5rem;
-  }
-  .post-title {
-    font-size: 2rem;
-  }
+
   .post-dir {
     font-size: 0.9rem;
   }
@@ -70,5 +62,20 @@
   .post {
     padding: 1rem;
     padding-top: 3rem;
+  }
+
+  html{
+    font-size: 16px;
+  }
+
+  .post-title {
+    font-size: 2.25rem;
+    line-height: 120%;;
+  }  
+  .post-content > h1 {
+    font-size: 2rem;
+  }
+  .post-content > h2 {
+    font-size: 1.5rem;
   }
 }
