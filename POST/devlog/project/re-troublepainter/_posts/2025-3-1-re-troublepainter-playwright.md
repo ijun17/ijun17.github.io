@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[방해꾼은 못 말려] Playwright와 CDP로 드로잉 성능 측정"
+title: "Playwright와 CDP로 드로잉 성능 측정"
 order: 1
 ---
 
@@ -290,8 +290,7 @@ const performanceMetrics = await Promise.all(cdpSessions.map((e) => e.send('Perf
 - **`RecalcStyleCount`**: **스타일 재계산** 횟수. CSS 변경이 많을수록 증가한다.
 - **`LayoutDuration`**: 레이아웃 계산에 소요된 **누적 시간(초)**
 - **`RecalcStyleDuration`**: 스타일 재계산에 소요된 **누적 시간(초)**
-- **`ScriptDuration`**: JavaScript 실행에 소요된 **누적 시간(초)**
-- **`V8CompileDuration`**: V8 엔진에서 **JavaScript 컴파일**에 소요된 **누적 시간(초)**
+- **`ScriptDuration`**: JavaScript 실행에 소요된 **누적 시간(초)** 
 - **`TaskDuration`**: 모든 작업(Task) 처리에 걸린 **누적 시간(초)**
 - **`TaskOtherDuration`**: 기타 작업 처리에 걸린 **누적 시간(초)**
 - **`DevToolsCommandDuration`**: **DevTools 명령어** 처리에 걸린 시간
@@ -309,7 +308,6 @@ const performanceMetrics = await Promise.all(cdpSessions.map((e) => e.send('Perf
 | **LayoutDuration** | 0.04107 | 0.0082345 |
 | **RecalcStyleDuration** | 0.09295 | 0.003816 |
 | **ScriptDuration** | 1.65815 | 0.290524 |
-| **V8CompileDuration** | 0 | 0 |
 | **TaskDuration** | 7.96949 | 1.4498015 |
 | **TaskOtherDuration** | 2.10131 | 1.1472135 |
 | **DevToolsCommandDuration** | 4.07601 | 0.0000135 |
