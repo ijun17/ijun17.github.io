@@ -19,7 +19,7 @@ order: 1
 
 > Playwright enables reliable end-to-end testing for modern web apps.
 
-Playwright란 다양한 브라우저를 지원하는 e2e 테스트 도구로 아래 기능을 제공한다.
+Playwright란 웹 e2e 테스트 도구로 아래 기능을 제공한다.
 
 - 크로스 브라우저, 크로스 플랫폼, 크로스 언어
 - 엘레멘트가 실행가능할 때까지 자동 대기
@@ -64,16 +64,157 @@ function seedRandom(key: any) {
 }
 ```
 
-그러나 랜덤 드로잉 방식은 여전히 문제가 있었다. 바로 실제 드로잉과 다르다는 것이다. 실제로는 1초에 보통 60번의 주기(마우스 무브 이벤트)로 드로잉을 하며, 한번 드로잉하는데 그려지는 직선의 길이도 다르다. 이러한 문제로 랜덤 드로잉이 실제 드로잉을 대변한다고 하기에는 한계가 있었다. 아래에서 실제 드로잉 데이터를 수집하여 이 문제를 해결하였다.
+이제 항상 아래의 그림을 그리게 되었다.
+
+![alt text](image.png)
+
+그러나 랜덤 드로잉 방식은 여전히 문제가 있었다. 바로 실제 드로잉과 다르다는 것이다. 실제로는 1초에 보통 60번 이상의 주기(마우스 무브 이벤트)로 드로잉을 하며, 한번 드로잉하는데 그려지는 직선의 길이도 다르다. 이러한 문제로 랜덤 드로잉이 실제 드로잉을 대변한다고 하기에는 한계가 있었다. 아래에서 실제 드로잉 데이터를 수집하여 이 문제를 해결하였다.
 
 # 실제 드로잉 데이터를 수집
 
-## Playwright로 이벤트를 수집해보자
+드로잉은 마우스 이벤트에 의해 발생한다. `mousedown`에서 드로잉이 시작되며, 각 `mousemove` 이벤트마다 직선이 생성되고, `mouseup`에서 이벤트가 끝난다. 이 이벤트를 수집하기 위해 캔버스에 그림을 그리면서 마우스 이벤트를 수집하는 html 코드를 작성하였다. 
 
-Playwright에는 자체적으로 이벤트를 수집하
+<details>
+  <summary><b>마우스 이벤트 수집 코드</b></summary>
+  {% capture code %}
+```js
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Canvas Event Collector</title>
+    <style>
+      canvas {
+        border: 1px solid black;
+        display: block;
+        margin: 20px auto;
+      }
+      button {
+        display: block;
+        margin: 10px auto;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+      div {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="drawingCanvas" width="800" height="600"></canvas>
+    <button id="downloadButton">Download Event Data</button>
+    <div id="timer"></div>
 
-## 마우스 이벤트를 수집하는 프로그램 제작
+    <script>
+      const canvas = document.getElementById("drawingCanvas");
+      const ctx = canvas.getContext("2d");
+      const result = [];
+      let drawing = false;
+      let lastTimestamp = performance.now(); // 초기 타임스탬프
+      const startTimestamp = Date.now();
+      const timer = document.getElementById("timer");
 
+      setInterval(() => {
+        timer.innerText = `${((Date.now() - startTimestamp) / 1000).toFixed(
+          1
+        )}s`;
+      }, 100);
+
+      function recordEvent(type, x, y) {
+        const now = performance.now();
+        const delay = now - lastTimestamp;
+        result.push([
+          type,
+          [Number((x / 800).toFixed(4)), Number((y / 600).toFixed(4))],
+          Math.floor(delay),
+        ]);
+        lastTimestamp = now;
+      }
+
+      canvas.addEventListener("mousedown", (e) => {
+        drawing = true;
+        const rect = canvas.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        recordEvent("down", x, y);
+      });
+
+      canvas.addEventListener("mousemove", (e) => {
+        if (!drawing) return;
+        const rect = canvas.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        // 선 그리기
+        ctx.lineTo(x, y);
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.moveTo(x, y);
+
+        recordEvent("move", x, y);
+      });
+
+      canvas.addEventListener("mouseup", (e) => {
+        if (!drawing) return;
+        drawing = false;
+        const rect = canvas.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        recordEvent("up", x, y);
+
+        ctx.beginPath(); // 경로 초기화
+      });
+
+      canvas.addEventListener("mouseleave", () => {
+        // 마우스가 캔버스를 벗어나면 그리기 중지
+        if (drawing) {
+          drawing = false;
+          recordEvent("up", -1, -1); // 특수한 경우로 처리
+        }
+      });
+
+      document
+        .getElementById("downloadButton")
+        .addEventListener("click", () => {
+          const blob = new Blob([JSON.stringify(result, null, 2)], {
+            type: "application/json",
+          });
+          const url = URL.createObjectURL(blob);
+          const a = document.createElement("a");
+          a.href = url;
+          a.download = "event-data.json";
+          a.click();
+          URL.revokeObjectURL(url);
+        });
+    </script>
+  </body>
+</html>
+``` 
+{% endcapture %}
+{{ code | markdownify }}
+</details>
+
+아래 그림처럼 캔버스에 이미지를 그릴 수 있으며, 그리는 동시에 이벤트를 수집한다.
+
+![alt text](image-1.png)
+
+이벤트는 아래와 같은 형식으로 기록된다. 각 이벤트는 배열에 순서대로 기록되며, 이벤트 이름-위치-딜레이 순서이다. 
+
+```json
+[
+  ["down", [0.2998, 0.3733], 1239],
+  ["move", [0.2998, 0.3733], 41],
+  ["move", [0.2986, 0.3767], 16],
+  ["move", [0.2948, 0.39], 16],
+  ["move", [0.2911, 0.4], 16],
+  ["move", [0.2886, 0.4083], 16],
+  ["move", [0.2848, 0.415], 16],
+  ["move", [0.2811, 0.4267], 17],
+  ["move", [0.2773, 0.4333], 16],
+  ["move", [0.2736, 0.4417], 16],
+```
 
 
 # CDP로 성능 테스트
