@@ -3,6 +3,7 @@
     - category: 프로젝트
       sub:
         - category: 실시간 퀴즈 QuizGround \\ quiz-ground
+        - category: (리팩토링) 방해꾼은 못말려 \\ re-troublepainter
         - category: 연구실 AR 안전교육 시스템 \\ capstone
         - category: 대학교 프로젝트들 \\ univ-project
     - category: 사이드 프로젝트

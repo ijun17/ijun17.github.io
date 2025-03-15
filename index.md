@@ -6,65 +6,56 @@ oracle_url: "https://taskify.shop"
 blog_url: "https://ijun17.github.io"
 ---
 
-<ul>
-  {% for post in site.posts %}
-    <li>
-      <span style="color:gray;">[{{ post.date | date: "%Y-%m-%d" }}] </span> 
-      <a  class="post-link" href="{{ post.url }}">{{ post.title }} </a>
-    </li>
-{% endfor %}
-</ul>
-
-<!--
 # 프로젝트
 
 {% capture project1 %}
 
-## 연구실 AR 안전교육 시스템
+## 실시간 퀴즈 플랫폼 QuizGround
 
-[배포1(백엔드 테스트 더블)]({{page.blog_url}}/LSA-web) / [배포2]({{page.oracle_url}}/LSA) / [깃허브](https://github.com/ijun17/LSA-web) / [REST API 정의서](https://cyber-mitten-d95.notion.site/LSA-REST-API-df2116c15a564d15acd39837cec2684e)
+[배포 링크](https://quizground.site/) / [깃허브](https://github.com/boostcampwm-2024/web10-QuizGround)
 
 - 개발인원: 5명
-- 개발기간: 2024.03 ~ 2024.07
+- 개발기간: 2024.11 ~ 2024.12
 - 역할: 프론트엔드
 
-이 프로젝트는 AR 기반의 연구실 안전교육 시스템입니다. 사용자가 AR 환경에서 연구 매뉴얼을 직접 작성할 수 있어 맞춤형 안전교육을 받을 수 있는 시스템입니다.
+네이버 부스트캠프에서 개발한 실시간 퀴즈 플랫폼입니다. 직접 퀴즈를 만들 수 있고, 다른 사용자와 같이 퀴즈를 풀 수 있습니다.
 
-저는 프론트엔드를 담당하여, 브라우저 및 앱의 웹 뷰에서 동작할 반응형 웹을 개발했습니다. 이 과정에서 디자이너와 피그마로 협력했으며, 백엔드 담당과 REST API 정의서를 만들어 협력했습니다.
+![이미지](https://github.com/user-attachments/assets/79707267-b5f4-4df3-83b5-5d47ae515598)
 
-<ul>{%- include categorizedPosts.html category="capstone" -%}</ul>
+<ul>{%- include categorizedPosts.html category="quiz-ground" -%}</ul>
 {% endcapture %}
 
 {% capture project2 %}
 
-## 웹 게임(Level10)
+## 웹 게임 Level10
 
-[배포(게임링크)]({{page.blog_url}}/Level10/) / [깃허브](https://github.com/ijun17/Level10)
+[배포 링크]({{page.blog_url}}/Level10/) / [깃허브](https://github.com/ijun17/Level10)
 
 - 개발인원: 1명(본인)
-- 개발기간: 2020년 1월부터 시작해 꾸준히 개발하고 있습니다.
+- 개발기간: 2020.01 ~
 
-코드를 작성해 스킬을 만들 수 있는 2D RPG 게임입니다. 자바스크립트에 대한 실력을 향상하고 싶어 진행했던 사이드 프로젝트입니다. 바닐라 자바스크립트로 물리엔진, 멀티 플레이, 화면 UI 및 렌더링, 스케줄링 등을 구현했습니다. 또한 Node.js로 멀티플레이의 매칭 서버(시그널링 서버)를 구현했습니다.
+코딩으로 스킬을 만들어 몬스터를 물리치는 2D RPG 게임입니다. 자바스크립트에 대한 실력을 향상하고 싶어 진행했던 사이드 프로젝트입니다. 바닐라 자바스크립트로 물리엔진, 멀티 플레이, 화면 UI 및 렌더링, 스케줄링 등을 구현했습니다. 또한 Node.js로 멀티플레이의 매칭 서버(시그널링 서버)를 구현했습니다.
 
 <ul>{%- include categorizedPosts.html category="Level10(web game)" -%}</ul>
 {% endcapture %}
 
 {% capture project3 %}
 
-## 블로그
+## (리팩토링) 방해꾼은 못 말려
 
-개발하면서 맞닥뜨린 문제 상황을 기록하기 위해 만들었습니다. 깔끔함과 군더더기 없음을 지향하며 디자인했으며, 지금까지 보고 개인적으로 느껴왔던 블로그들의 단점을 해결했습니다.
+- 개발인원: 4명
+- 개발기간: 2025.01 ~ 2025.2
 
-- 다른 포스트로 이동했을 때 내비게이션 바가 초기화되는 것을 막기 위해 SPA로 구현하였습니다.
-- 페이지 이동 없이 내비게이션 바에서 모든 카테고리와 포스트를 볼 수 있도록 하였습니다.
-- 반응형 웹으로 컴퓨터, 태블릿, 모바일 화면이 모두 잘 보이도록 하였습니다.
+[배포 링크](https://re-troublepainter.kro.kr/) / [깃허브](https://github.com/boostcampwm-2024/refactor-web42-stop-troublepainter)
 
-<ul>{%- include categorizedPosts.html category="my blog" -%}</ul>
+네이버 부스트캠프에서 다른 팀의 프로젝트에 **CS 리팩토링**과 **인공지능 리팩토링**을 했습니다. 이 프로젝트는 "그림꾼"이 주어진 제시어를 그림으로 그리고, "방해꾼"은 이를 방해하며, "구경꾼"이 제시어를 맞추는 게임입니다. 캔버스에서 동시에 여러 플레이어가 그림을 그리기 위해 CRDT가 사용되었습니다.
+
+<ul>{%- include categorizedPosts.html category="re-troublepainter" -%}</ul>
 {% endcapture %}
 
 {% capture project4 %}
 
-## 그 외
+## 기타 프로젝트
 
 ### 모바일 기기 원격 접근 시스템
 
@@ -131,4 +122,20 @@ WebRTC를 공부하기 위해 개발한 간단한 채팅 서비스입니다.
 ### 전북대학교 AI동아리 Jbig
 
 - 기간: 2024.03 ~ 현재
-- 활동: 매주 파이썬 인공지능 세미나에 참석했고, 비전공자 분들과 프로젝트를 진행중입니다. -->
+- 활동: 매주 파이썬 인공지능 세미나에 참석했고, 비전공자 분들과 프로젝트를 진행했습니다.
+
+### 네이버 부스트캠프 풀스택 과정
+
+- 기간: 2024.06 ~ 2024.02
+- 활동: 부스트캠프 베이직•챌린지•멤버쉽 수료, "QuizGround" 프로젝트 진행, "방해꾼은 못 말려" 프로젝트 리팩토링
+
+# 포스트
+
+<ul>
+  {% for post in site.posts %}
+    <li>
+      <span style="color:gray;">[{{ post.date | date: "%Y-%m-%d" }}] </span> 
+      <a  class="post-link" href="{{ post.url }}">{{ post.title }} </a>
+    </li>
+{% endfor %}
+</ul>
