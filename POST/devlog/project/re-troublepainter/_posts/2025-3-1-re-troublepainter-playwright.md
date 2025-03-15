@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Playwright와 CDP로 드로잉 성능 테스트"
+title: "[방해꾼은 못 말려] Playwright와 CDP로 드로잉 성능 측정"
 order: 1
 ---
 
@@ -72,7 +72,11 @@ function seedRandom(key: any) {
 
 # 실제 드로잉 데이터를 수집
 
-드로잉은 마우스 이벤트에 의해 발생한다. `mousedown`에서 드로잉이 시작되며, 각 `mousemove` 이벤트마다 직선이 생성되고, `mouseup`에서 이벤트가 끝난다. 이 이벤트를 수집하기 위해 캔버스에 그림을 그리면서 마우스 이벤트를 수집하는 html 코드를 작성하였다. 
+드로잉은 마우스 이벤트에 의해 발생한다. `mousedown`에서 드로잉이 시작되며, 각 `mousemove` 이벤트마다 직선이 생성되고, `mouseup`에서 이벤트가 끝난다. 
+
+## 마우스 이벤트 수집 코드
+
+이 이벤트를 수집하기 위해 캔버스에 그림을 그리면서 마우스 이벤트를 수집하는 html 코드를 작성하였다. 참고로 클릭이나 텍스트 입력같은 간단한 테스트는 [Playwright 자체 record 기능](https://playwright.dev/docs/codegen#recording-a-test)을 사용하여 생성할 수 있다.
 
 <details>
   <summary><b>마우스 이벤트 수집 코드</b></summary>
@@ -196,11 +200,11 @@ function seedRandom(key: any) {
 {{ code | markdownify }}
 </details>
 
-아래 그림처럼 캔버스에 이미지를 그릴 수 있으며, 그리는 동시에 이벤트를 수집한다.
+아래 그림처럼 캔버스에 이미지를 그릴 수 있으며, 그리는 동시에 이벤트를 수집한다. 그림을 다 그리면 "Download Event Data" 버튼을 클릭하여 이벤트 파일을 다운로드할 수 있다.
 
 ![alt text](image-1.png)
 
-이벤트는 아래와 같은 형식으로 기록된다. 각 이벤트는 배열에 순서대로 기록되며, 이벤트 이름-위치-딜레이 순서이다. 
+이벤트는 아래와 같은 형식으로 기록된다. 각 이벤트는 배열에 순서대로 기록되며, 하나의 이벤트는 이름-위치-딜레이 순서로 구성된다. 
 
 ```json
 [
@@ -213,8 +217,103 @@ function seedRandom(key: any) {
   ["move", [0.2848, 0.415], 16],
   ["move", [0.2811, 0.4267], 17],
   ["move", [0.2773, 0.4333], 16],
-  ["move", [0.2736, 0.4417], 16],
+  ["move", [0.2736, 0.4417], 16]
+]
 ```
 
+## 마우스 이벤트를 읽고 이벤트 발생
 
-# CDP로 성능 테스트
+Playwright에서는 위 형식의 이벤트를 읽고 브라우저에 이벤트를 생성해야 한다. 아래 drawEventData는 위 형식의 이벤트 데이터를 매개변수로 받아 브라우저에 이벤트를 생성한다. 메인 스레드 블로킹에 의해 딜레이가 더 지연되지 않도록 조정을 해두었다.
+
+```js
+export async function drawEventData(page: Page, eventData: any[]) {
+  const CANVAS_SELECTOR = 'canvas + canvas';
+  const canvas = page.locator(CANVAS_SELECTOR);
+  const box = await canvas.boundingBox();
+  if (!box) throw new Error('Canvas not found');
+
+  const margin = {
+    x: box.width * 0.05,
+    y: box.height * 0.05,
+  };
+
+  const safeArea = {
+    x: box.x + margin.x,
+    y: box.y + margin.y,
+    width: box.width - margin.x * 2,
+    height: box.height - margin.y * 2,
+  };
+
+  let delayOfDelay = 0;
+
+  for (const event of eventData) {
+    const [eventName, pos, delay] = event;
+    const convertedPos = [safeArea.x + pos[0] * safeArea.width, safeArea.y + pos[1] * safeArea.height];
+
+    canvas.dispatchEvent('mouse' + eventName, {
+      bubbles: true,
+      cancelable: true,
+      clientX: convertedPos[0],
+      clientY: convertedPos[1],
+    });
+
+    const startDelay = performance.now();
+    if (delay - delayOfDelay > 0) await new Promise((res) => setTimeout(res, delay - delayOfDelay));
+    delayOfDelay = Math.floor(performance.now() - startDelay) - delay;
+    if (delayOfDelay < 0) delayOfDelay = 0;
+  }
+}
+```
+
+이제 사용자가 실제로 드로잉하는 것처럼 테스트할 수 있다.
+
+# CDP로 성능 측정
+
+`CDP`란 Chrome DevTools Protocol의 약자이다. 말 그대로 크롬 개발자 도구를 사용하기 위한 프로토콜이다. 성능을 측정할 것이기 때문에 [performance 도메인](https://chromedevtools.github.io/devtools-protocol/tot/Performance)을 사용할 것이다. Playwright에서는 [CDPSession](https://playwright.dev/docs/api/class-cdpsession) 객체를 통해 CDP를 사용할 수 있다. 
+
+```js
+// 성능 측정 시작
+const cdpSessions = await Promise.all(clients.map((e) => e.context.newCDPSession(e.page)));
+await Promise.all(cdpSessions.map((e) => e.send('Performance.enable')));
+
+/*
+ 드로잉 작업 수행
+*/
+
+// 성능 매트릭 수집
+const performanceMetrics = await Promise.all(cdpSessions.map((e) => e.send('Performance.getMetrics')));
+```
+
+위에 처럼 성능 측정을 하면 여러 매트릭이 수집되며 그중 쓸모있는 것을 고르면 아래와 같다.
+
+- **`LayoutCount`**: 페이지에서 발생한 **레이아웃 계산** 횟수
+- **`RecalcStyleCount`**: **스타일 재계산** 횟수. CSS 변경이 많을수록 증가한다.
+- **`LayoutDuration`**: 레이아웃 계산에 소요된 **누적 시간(초)**
+- **`RecalcStyleDuration`**: 스타일 재계산에 소요된 **누적 시간(초)**
+- **`ScriptDuration`**: JavaScript 실행에 소요된 **누적 시간(초)**
+- **`V8CompileDuration`**: V8 엔진에서 **JavaScript 컴파일**에 소요된 **누적 시간(초)**
+- **`TaskDuration`**: 모든 작업(Task) 처리에 걸린 **누적 시간(초)**
+- **`TaskOtherDuration`**: 기타 작업 처리에 걸린 **누적 시간(초)**
+- **`DevToolsCommandDuration`**: **DevTools 명령어** 처리에 걸린 시간
+- **`ThreadTime`**: 메인 스레드가 작업한 **누적 시간(초)**
+- **`ProcessTime`**: 전체 프로세스가 작업한 **누적 시간(초)**
+- **`JSHeapUsedSize`**: 사용 중인 **JavaScript 힙 메모리 크기(Byte)**
+- **`JSHeapTotalSize`**: 할당된 전체 **JavaScript 힙 메모리 크기(Byte)**
+
+아래는 현재 성능 측정 결과이다. 그림꾼은 캔버스에 그림을 그리는 작업을 하므로 구경꾼에 비해 각 지표가 높게 나왔다.
+
+| 지표 | 그림꾼(3명 평균) | 구경꾼(2명 평균) |
+| :---: | :---: | :---: |
+| **LayoutCount** | 443.33 | 22 |
+| **RecalcStyleCount** | 497.33 | 7.5 |
+| **LayoutDuration** | 0.04107 | 0.0082345 |
+| **RecalcStyleDuration** | 0.09295 | 0.003816 |
+| **ScriptDuration** | 1.65815 | 0.290524 |
+| **V8CompileDuration** | 0 | 0 |
+| **TaskDuration** | 7.96949 | 1.4498015 |
+| **TaskOtherDuration** | 2.10131 | 1.1472135 |
+| **DevToolsCommandDuration** | 4.07601 | 0.0000135 |
+| **ThreadTime** | 5.26321 | 0.801016 |
+| **ProcessTime** | 26.82355 | 18.878024 |
+| **JSHeapUsedSize** | 15709316 | 11346870 |
+| **JSHeapTotalSize** | 33177600 | 12861440 |
