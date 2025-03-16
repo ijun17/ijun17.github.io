@@ -18,9 +18,9 @@ blog_url: "https://ijun17.github.io"
 - 개발기간: 2024.11 ~ 2024.12
 - 역할: 프론트엔드
 
-네이버 부스트캠프에서 개발한 실시간 퀴즈 플랫폼입니다. 직접 퀴즈를 만들 수 있고, 다른 사용자와 같이 퀴즈를 풀 수 있습니다.
-
 ![이미지](https://github.com/user-attachments/assets/79707267-b5f4-4df3-83b5-5d47ae515598)
+
+네이버 부스트캠프에서 개발한 실시간 퀴즈 플랫폼입니다. 직접 만든 퀴즈를 다른 사용자와 같이 풀 수 있습니다. 클릭이나 터치로 이동하여 정답을 선택할 수 있습니다. 네이버 부스트캠프의 모든 인원이 동시에 플레이할 수 있도록 200명 동시 플레이를 목표로 했습니다. 
 
 <ul>{%- include categorizedPosts.html category="quiz-ground" -%}</ul>
 {% endcapture %}
@@ -33,6 +33,8 @@ blog_url: "https://ijun17.github.io"
 
 - 개발인원: 1명(본인)
 - 개발기간: 2020.01 ~
+
+![image](https://raw.githubusercontent.com/ijun17/Level10/main/resource/readme/fight%20monster.png)
 
 코딩으로 스킬을 만들어 몬스터를 물리치는 2D RPG 게임입니다. 자바스크립트에 대한 실력을 향상하고 싶어 진행했던 사이드 프로젝트입니다. 바닐라 자바스크립트로 물리엔진, 멀티 플레이, 화면 UI 및 렌더링, 스케줄링 등을 구현했습니다. 또한 Node.js로 멀티플레이의 매칭 서버(시그널링 서버)를 구현했습니다.
 
@@ -47,6 +49,8 @@ blog_url: "https://ijun17.github.io"
 - 개발기간: 2025.01 ~ 2025.2
 
 [배포 링크](https://re-troublepainter.kro.kr/) / [깃허브](https://github.com/boostcampwm-2024/refactor-web42-stop-troublepainter)
+
+![alt text](image.png)
 
 네이버 부스트캠프에서 다른 팀의 프로젝트에 **CS 리팩토링**과 **인공지능 리팩토링**을 했습니다. 이 프로젝트는 "그림꾼"이 주어진 제시어를 그림으로 그리고, "방해꾼"은 이를 방해하며, "구경꾼"이 제시어를 맞추는 게임입니다. 캔버스에서 동시에 여러 플레이어가 그림을 그리기 위해 CRDT가 사용되었습니다.
 
@@ -126,7 +130,7 @@ WebRTC를 공부하기 위해 개발한 간단한 채팅 서비스입니다.
 
 ### 네이버 부스트캠프 풀스택 과정
 
-- 기간: 2024.06 ~ 2024.02
+- 기간: 2024.06 ~ 2025.02
 - 활동: 부스트캠프 베이직•챌린지•멤버쉽 수료, "QuizGround" 프로젝트 진행, "방해꾼은 못 말려" 프로젝트 리팩토링
 
 # 포스트
