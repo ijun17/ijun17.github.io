@@ -32,7 +32,7 @@ blog_url: "https://ijun17.github.io"
 [배포 링크]({{page.blog_url}}/Level10/) / [깃허브](https://github.com/ijun17/Level10)
 
 - 개발인원: 1명(본인)
-- 개발기간: 2020.01 ~
+- 개발기간: 2021.01 ~
 
 ![image](https://raw.githubusercontent.com/ijun17/Level10/main/resource/readme/fight%20monster.png)
 
