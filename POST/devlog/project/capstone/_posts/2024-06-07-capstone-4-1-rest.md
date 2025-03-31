@@ -31,8 +31,8 @@ REST API에서 I는 인터페이스이다. 객체 지향에서 인터페이스�
 - **Request Body:**
   ```json
   {
-    "username": "",
-    "password": "",
+    "username": string,
+    "password": string,
     "role": "STUDENT" or "RESEARCHER",
     "labs": [],
     "labNames": [],
@@ -48,11 +48,11 @@ REST API에서 I는 인터페이스이다. 객체 지향에서 인터페이스�
 - **Request Body:**
   ```json
   {
-    "email": "",
-    "code": "",
+    "email": string,
+    "code": string,
     "userDto": {
-      "username": "",
-      "password": "",
+      "username": string,
+      "password": string,
       "role": "",
       "labs": [],
       "labNames": [],
@@ -69,8 +69,8 @@ REST API에서 I는 인터페이스이다. 객체 지향에서 인터페이스�
 - **Request Body:**
   ```json
   {
-    "username": "",
-    "password": ""
+    "username": string,
+    "password": string
   }
   ```
 - **Response:**
@@ -88,7 +88,7 @@ REST API에서 I는 인터페이스이다. 객체 지향에서 인터페이스�
   {
     "userId": int, 
     "name": string, 
-    "role": "STUDENT" | "RESEARCHER",
+    "role": "STUDENT" or "RESEARCHER",
     "dept": string,
     "staffId" : string
   }
@@ -117,14 +117,14 @@ REST API에서 I는 인터페이스이다. 객체 지향에서 인터페이스�
   [
     {
       "userId": int,
-      "name": "",
-      "staffId": "",
+      "name": string,
+      "staffId": string,
       "labId": int,
-      "labName": "",
-      "role": "",
-      "dept": "",
-      "labDept": "",
-      "requestId": ""
+      "labName": string,
+      "role": string,
+      "dept": string,
+      "labDept": string,
+      "requestId": string
     }
   ]
   ```
@@ -136,9 +136,9 @@ REST API에서 I는 인터페이스이다. 객체 지향에서 인터페이스�
   [
     {
       "userId": int,
-      "name": "",
+      "name": string,
       "role": "STUDENT" or "RESEARCHER",
-      "dept": "",
+      "dept": string,
       "staffId": int
     }
   ]
@@ -151,13 +151,13 @@ REST API에서 I는 인터페이스이다. 객체 지향에서 인터페이스�
   [
     {
       "userId": int,
-      "userName": "",
-      "staffId": "",
+      "userName": string,
+      "staffId": string,
       "labId": int,
-      "labName": "",
-      "labDept": "",
+      "labName": string,
+      "labDept": string,
       "role": "STUDENT" or "RESEARCHER",
-      "dept": "",
+      "dept": string,
       "requestId": int
     }
   ]
@@ -169,9 +169,9 @@ REST API에서 I는 인터페이스이다. 객체 지향에서 인터페이스�
   ```json
   [
     {
-      "labName": "",
+      "labName": string,
       "labId": int,
-      "dept": ""
+      "dept": string
     }
   ]
   ```
@@ -181,9 +181,9 @@ REST API에서 I는 인터페이스이다. 객체 지향에서 인터페이스�
 - **Response:**
   ```json
   {
-    "labName": "",
+    "labName": string,
     "labId": int,
-    "dept": ""
+    "dept": string
   }
   ```
 
@@ -197,7 +197,7 @@ REST API에서 I는 인터페이스이다. 객체 지향에서 인터페이스�
   ```json
   [
     {
-      "researchName": "",
+      "researchName": string,
       "researchId": int,
       "labId": int
     }
@@ -209,7 +209,7 @@ REST API에서 I는 인터페이스이다. 객체 지향에서 인터페이스�
 - **Request Body:**
   ```json
   {
-    "researchName": ""
+    "researchName": string
   }
   ```
 - **Response:**
@@ -224,7 +224,7 @@ REST API에서 I는 인터페이스이다. 객체 지향에서 인터페이스�
 - **Request Body:**
   ```json
   {
-    "researchName": ""
+    "researchName": string
   }
   ```
 - **Response:** 메시지 반환
@@ -243,7 +243,7 @@ REST API에서 I는 인터페이스이다. 객체 지향에서 인터페이스�
   ```json
   [
     {
-      "manualName": "",
+      "manualName": string,
       "manualId": int
     }
   ]
@@ -254,7 +254,7 @@ REST API에서 I는 인터페이스이다. 객체 지향에서 인터페이스�
 - **Request Body:**
   ```json
   {
-    "manualName": ""
+    "manualName": string
   }
   ```
 - **Response:**
@@ -269,7 +269,7 @@ REST API에서 I는 인터페이스이다. 객체 지향에서 인터페이스�
 - **Request Body:**
   ```json
   {
-    "manualName": ""
+    "manualName": string
   }
   ```
 - **Response:** 메시지 반환
@@ -297,10 +297,10 @@ REST API에서 I는 인터페이스이다. 객체 지향에서 인터페이스�
   {
     "position": [int, int, int],
     "size": [int, int, int],
-    "name": "",
-    "text": "",
-    "imageName": "",
-    "soundName": "",
+    "name": string,
+    "text": string,
+    "imageName": string,
+    "soundName": string,
     "manualId": int
   }
   ```
@@ -312,10 +312,10 @@ REST API에서 I는 인터페이스이다. 객체 지향에서 인터페이스�
   {
     "position": [int, int, int],
     "size": [int, int, int],
-    "name": "",
-    "text": "",
-    "imageName": "",
-    "soundName": "",
+    "name": string,
+    "text": string,
+    "imageName": string,
+    "soundName": string,
     "manualId": int
   }
   ```
@@ -333,10 +333,10 @@ REST API에서 I는 인터페이스이다. 객체 지향에서 인터페이스�
   {
     "position": [int, int, int],
     "size": [int, int, int],
-    "name": "",
-    "text": "",
-    "imageName": "",
-    "soundName": ""
+    "name": string,
+    "text": string,
+    "imageName": string,
+    "soundName": string
   }
   ```
 - **Response:** 성공 or 실패 메시지
