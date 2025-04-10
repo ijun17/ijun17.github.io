@@ -63,7 +63,7 @@ blog_url: "https://ijun17.github.io"
 
 ### 모바일 기기 원격 접근 시스템
 
-[배포(웹)]({{page.oracle_url}}/connect) / [깃허브](https://github.com/ijun17/mobile-connect)
+[깃허브](https://github.com/ijun17/mobile-connect)
 
 한 기기에서 다른 기기로 파일을 보내는 과정에서 클라우드 같은 외부 서비스를 거치는 것에 불편함을 느껴 모바일앱프로그래밍 수업에서 실험적으로 개발한 프로젝트입니다. 안드로이드 웹 뷰로 하이브리드 앱을 개발하였고, 웹에서 파일 접근을 위해 브리지를 만들었으며, P2P 통신을 위해 WebRTC를 사용하였습니다.
 
