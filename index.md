@@ -65,7 +65,7 @@ blog_url: "https://ijun17.github.io"
 
 [배포(웹)]({{page.oracle_url}}/connect) / [깃허브](https://github.com/ijun17/mobile-connect)
 
-안드로이드 웹 뷰로 하이브리드 앱을 개발하였고, 파일을 접근하는 브리지를 만들었습니다.
+한 기기에서 다른 기기로 파일을 보내는 과정에서 클라우드 같은 외부 서비스를 거치는 것에 불편함을 느껴 모바일앱프로그래밍 수업에서 실험적으로 개발한 프로젝트입니다. 안드로이드 웹 뷰로 하이브리드 앱을 개발하였고, 웹에서 파일 접근을 위해 브리지를 만들었으며, P2P 통신을 위해 WebRTC를 사용하였습니다.
 
 <ul>{%- include categorizedPosts.html category="mobile connect" -%}</ul>
 
@@ -75,7 +75,7 @@ blog_url: "https://ijun17.github.io"
 
 [배포]({{page.oracle_url}}/coins) / [깃허브](https://github.com/ijun17/surge-coin-predictor)
 
-스팸 코인의 가격 급상승을 ML로 예측하였습니다. 시계열 데이터를 학습하기 위해 윈도우로 데이터를 전처리했습니다.
+스팸 코인의 가격 급상승을 `Random Forest` 및 `ExtraTreesClassifier`로 예측하였습니다. 시계열 데이터를 학습하기 위해 슬라이딩 윈도우 방식으로 N일간의 데이터를 합친 후 M일 뒤 R배 상승 여부로 이진 분류했습니다.
 
 <ul>{%- include categorizedPosts.html category="aiot coin" -%}</ul>
 
@@ -85,7 +85,7 @@ blog_url: "https://ijun17.github.io"
 
 [배포]({{page.blog_url}}/WebRTC-chat) / [깃허브](https://github.com/ijun17/WebRTC-chat)
 
-WebRTC를 공부하기 위해 개발한 간단한 채팅 서비스입니다.
+WebRTC를 공부하기 위해 개발한 간단한 채팅 서비스입니다. 이 프로젝트에서 구현한 내용을 기반으로 Level10(웹게임)의 멀티플레이를 구현하였습니다.
 
 <ul>{%- include categorizedPosts.html category="WebRTC chat" -%}</ul>
 {% endcapture %}
