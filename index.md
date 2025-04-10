@@ -83,7 +83,7 @@ blog_url: "https://ijun17.github.io"
 
 ### WebRTC 채팅 서비스
 
-[배포]({{page.blog_url}}/WebRTC-chat) / [깃허브](https://github.com/ijun17/WebRTC-chat)
+[깃허브](https://github.com/ijun17/WebRTC-chat)
 
 WebRTC를 공부하기 위해 개발한 간단한 채팅 서비스입니다. 이 프로젝트에서 구현한 내용을 기반으로 Level10(웹게임)의 멀티플레이를 구현하였습니다.
 
